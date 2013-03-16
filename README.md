@@ -1,4 +1,4 @@
 SwiftGif
 ========
 
-Swiftly Lifting your Gif Gifting abilities
+Swiftly Lifting your Gif Gifting Swiftness
