@@ -20,6 +20,7 @@
     UITabBarItem *globe = [tabBar.items objectAtIndex:2];
     UITabBarItem *settings = [tabBar.items objectAtIndex:3];
 
+
     
     [video setFinishedSelectedImage:[UIImage imageNamed:@"video_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"video.png"]];
     [folder setFinishedSelectedImage:[UIImage imageNamed:@"folder_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"folder.png"]];
@@ -28,7 +29,9 @@
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
-
+    
+    
+    
     return YES;
 }
 							

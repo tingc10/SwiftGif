@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0127518F16F7B46500A54AED /* SGThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0127518E16F7B46500A54AED /* SGThirdViewController.m */; };
 		59CC95AD16F1011600672ED8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AC16F1011600672ED8 /* UIKit.framework */; };
 		59CC95AF16F1011600672ED8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AE16F1011600672ED8 /* Foundation.framework */; };
 		59CC95B116F1011600672ED8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95B016F1011600672ED8 /* CoreGraphics.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0127518D16F7B46500A54AED /* SGThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGThirdViewController.h; sourceTree = "<group>"; };
+		0127518E16F7B46500A54AED /* SGThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGThirdViewController.m; sourceTree = "<group>"; };
 		59CC95A916F1011600672ED8 /* SwiftGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CC95AC16F1011600672ED8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		59CC95AE16F1011600672ED8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,6 +113,8 @@
 				59CC95BB16F1011600672ED8 /* SGAppDelegate.h */,
 				59CC95BC16F1011600672ED8 /* SGAppDelegate.m */,
 				59CC95C416F1011600672ED8 /* MainStoryboard.storyboard */,
+				0127518D16F7B46500A54AED /* SGThirdViewController.h */,
+				0127518E16F7B46500A54AED /* SGThirdViewController.m */,
 				59CC95C716F1011600672ED8 /* SGFirstViewController.h */,
 				59CC95C816F1011600672ED8 /* SGFirstViewController.m */,
 				59CC95CE16F1011700672ED8 /* SGSecondViewController.h */,
@@ -231,6 +236,7 @@
 				59CC95BD16F1011600672ED8 /* SGAppDelegate.m in Sources */,
 				59CC95C916F1011600672ED8 /* SGFirstViewController.m in Sources */,
 				59CC95D016F1011700672ED8 /* SGSecondViewController.m in Sources */,
+				0127518F16F7B46500A54AED /* SGThirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,10 +321,12 @@
 		59CC95D816F1011700672ED8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SwiftGif/SwiftGif-Prefix.pch";
 				INFOPLIST_FILE = "SwiftGif/SwiftGif-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -353,6 +361,7 @@
 				59CC95D916F1011700672ED8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
