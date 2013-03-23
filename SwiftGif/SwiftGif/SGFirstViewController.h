@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGFirstViewController : UIViewController
+@interface SGFirstViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end

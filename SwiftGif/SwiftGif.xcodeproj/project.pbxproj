@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0127518F16F7B46500A54AED /* SGThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0127518E16F7B46500A54AED /* SGThirdViewController.m */; };
+		014745F716FE4104000D83C7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014745F616FE4104000D83C7 /* MobileCoreServices.framework */; };
 		59CC95AD16F1011600672ED8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AC16F1011600672ED8 /* UIKit.framework */; };
 		59CC95AF16F1011600672ED8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AE16F1011600672ED8 /* Foundation.framework */; };
 		59CC95B116F1011600672ED8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95B016F1011600672ED8 /* CoreGraphics.framework */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		0127518D16F7B46500A54AED /* SGThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGThirdViewController.h; sourceTree = "<group>"; };
 		0127518E16F7B46500A54AED /* SGThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGThirdViewController.m; sourceTree = "<group>"; };
+		014745F616FE4104000D83C7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		59CC95A916F1011600672ED8 /* SwiftGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CC95AC16F1011600672ED8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		59CC95AE16F1011600672ED8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014745F716FE4104000D83C7 /* MobileCoreServices.framework in Frameworks */,
 				59CC95AD16F1011600672ED8 /* UIKit.framework in Frameworks */,
 				59CC95AF16F1011600672ED8 /* Foundation.framework in Frameworks */,
 				59CC95B116F1011600672ED8 /* CoreGraphics.framework in Frameworks */,
@@ -82,6 +85,7 @@
 		59CC95A016F1011500672ED8 = {
 			isa = PBXGroup;
 			children = (
+				014745F616FE4104000D83C7 /* MobileCoreServices.framework */,
 				59CC95B216F1011600672ED8 /* SwiftGif */,
 				59CC95AB16F1011600672ED8 /* Frameworks */,
 				59CC95AA16F1011600672ED8 /* Products */,
