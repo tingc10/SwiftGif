@@ -8,6 +8,7 @@
 
 #import "SGFirstViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "SGVideoEditController.h"
 
 
 @implementation SGFirstViewController
@@ -75,8 +76,17 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     shouldOpen = false;
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
-    [self.tabBarController setSelectedIndex:1];
+    //[self.tabBarController setSelectedIndex:1];
+    
     // instead of above, take to special edit view now
+    
+    //initialize customizer
+    SGVideoEditController *videoEditor = [[SGVideoEditController alloc] initWithURL:[info objectForKey:UIImagePickerControllerMediaURL]];
+    [self.view addSubview:videoEditor.view];
+    [videoEditor viewWillAppear:YES];
+    [videoEditor viewDidAppear:YES];
+    //[;
+    [self presentViewController:videoEditor animated:YES completion:nil];
     
 }
 
