@@ -37,11 +37,7 @@
 {
     [super viewDidAppear:animated];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VideoEditController"];
-    [vc setModalPresentationStyle:UIModalPresentationFullScreen];
     
-    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +52,10 @@
         videoRef = thevideoRef;
     }
     return self;
+}
+
+-(void)setURL:(NSURL *)theVideoRef {
+    videoRef = theVideoRef;
 }
 
 @end

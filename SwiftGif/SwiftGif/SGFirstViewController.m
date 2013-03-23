@@ -54,11 +54,11 @@ BOOL shouldOpen = true;
     
     [super viewDidAppear:YES];
     
-    /*if (shouldOpen) {
+    if (shouldOpen) {
     
         [self doCamera];
         
-    }*/
+    }
 }
 
 
@@ -81,12 +81,19 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     // instead of above, take to special edit view now
 
     //initialize customizer
-    SGVideoEditController *videoEditor = [[SGVideoEditController alloc] initWithURL:[info objectForKey:UIImagePickerControllerMediaURL]];
-    [self.view addSubview:videoEditor.view];
-    [videoEditor viewWillAppear:YES];
-    [videoEditor viewDidAppear:YES];
+    //SGVideoEditController *vc = [[SGVideoEditController alloc] initWithURL:[info objectForKey:UIImagePickerControllerMediaURL]];
+    //[self.view addSubview:videoEditor.view];
+    //[videoEditor viewWillAppear:YES];
+    //[videoEditor viewDidAppear:YES];
     
-    [self presentViewController:videoEditor animated:NO completion:nil];
+    //[self presentViewController:videoEditor animated:NO completion:nil];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SGVideoEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VideoEditController"];
+    [vc setURL:[info objectForKey:UIImagePickerControllerMediaURL]];
+    [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+    
+    [self presentViewController:vc animated:YES completion:nil];
     
 }
 

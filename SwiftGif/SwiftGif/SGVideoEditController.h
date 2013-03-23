@@ -13,4 +13,5 @@
     NSURL *videoRef;
 }
 -(id) initWithURL: (NSURL*) videoRef;
+-(void)setURL:(NSURL *)theVideoRef;
 @end
