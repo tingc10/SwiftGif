@@ -23,6 +23,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"This is SGVideoEdit"
+                                                    message:@"yayy"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning

@@ -47,7 +47,7 @@ BOOL shouldOpen = true;
     [cameraView viewWillAppear:YES];
     [cameraView viewDidAppear:YES];
     
-    [self presentViewController:cameraView animated:YES completion:nil];
+    [self presentViewController:cameraView animated:NO completion:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -79,14 +79,14 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     //[self.tabBarController setSelectedIndex:1];
     
     // instead of above, take to special edit view now
-    
+
     //initialize customizer
     SGVideoEditController *videoEditor = [[SGVideoEditController alloc] initWithURL:[info objectForKey:UIImagePickerControllerMediaURL]];
     [self.view addSubview:videoEditor.view];
     [videoEditor viewWillAppear:YES];
     [videoEditor viewDidAppear:YES];
-    //[;
-    [self presentViewController:videoEditor animated:YES completion:nil];
+    
+    [self presentViewController:videoEditor animated:NO completion:nil];
     
 }
 
