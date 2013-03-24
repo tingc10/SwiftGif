@@ -7,6 +7,7 @@
 //
 
 #import "SGVideoEditController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @implementation SGVideoEditController
 
@@ -29,8 +30,24 @@
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
-    [alert show];
     
+    [alert show];
+    UIImageView *photo = [[UIImageView alloc] init];
+    
+    MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc]
+                                       initWithContentURL: videoRef];
+    UIImage *thumbnail = [moviePlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+    
+    photo.image = thumbnail;
+    /*
+    MPMoviePlayerController *movie = [[[MPMoviePlayerController alloc]
+                                       initWithContentURL: videoRef]];
+    NSNumber *time1 = [[NSNumber alloc] initWithInt:1];
+    NSNumber *time2 = [[NSNumber alloc] initWithInt:2];
+    NSNumber *time3 = [[NSNumber alloc] initWithInt:3];
+    NSArray *times = [NSArray arrayWithObjects:time1,time2,time3,nil];
+    [movie requestThumbnailImagesAtTimes:times timeOption:MPMovieTimeOptionExact];
+    */
 }
 
 - (void)viewDidAppear:(BOOL)animated
