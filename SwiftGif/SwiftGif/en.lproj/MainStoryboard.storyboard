@@ -14,8 +14,8 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Loc-ke-WFj">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="SGW-CB-aBk"/>
                                     <constraint firstAttribute="width" constant="195" id="XU8-wm-KeI"/>
-                                    <constraint firstAttribute="height" constant="185" id="xfa-H8-Ejq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Record a GIF">
@@ -29,18 +29,70 @@
                                     <action selector="gifClick:" destination="2" eventType="touchDown" id="vGR-8N-vKL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgI-Bl-q0D">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="edm-Yr-YnO"/>
+                                    <constraint firstAttribute="width" constant="97" id="xxm-rb-1eC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="UploadVid">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadVid:" destination="2" eventType="touchDown" id="jaC-sx-bzT"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-- Opening GIF Camera --" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KCD-cD-vlb">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="nkc-mg-QfH"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="showStatus:" destination="2" eventType="touchDown" id="LnH-1p-tYP"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xti-Ol-hey">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="NwV-ih-eLs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Upload Pics">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadPics:" destination="2" eventType="touchDown" id="SOt-YV-Ksi"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.39233896683673475" green="0.21558636441178902" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Loc-ke-WFj" firstAttribute="centerY" secondItem="16" secondAttribute="centerY" type="default" id="0cc-tw-5pn"/>
-                            <constraint firstItem="Loc-ke-WFj" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="Zgc-Lu-8Dz"/>
+                            <constraint firstItem="KCD-cD-vlb" firstAttribute="top" secondItem="16" secondAttribute="top" constant="185" id="FHS-pa-p7B"/>
+                            <constraint firstItem="Loc-ke-WFj" firstAttribute="trailing" secondItem="KCD-cD-vlb" secondAttribute="trailing" type="default" id="MIt-iD-yO6"/>
+                            <constraint firstItem="VgI-Bl-q0D" firstAttribute="bottom" secondItem="Xti-Ol-hey" secondAttribute="bottom" type="default" id="P6g-DX-JX3"/>
+                            <constraint firstItem="Loc-ke-WFj" firstAttribute="top" secondItem="16" secondAttribute="top" constant="47" id="SRQ-Ic-P6e"/>
+                            <constraint firstItem="Xti-Ol-hey" firstAttribute="trailing" secondItem="KCD-cD-vlb" secondAttribute="trailing" type="default" id="WIP-Dw-7bG"/>
+                            <constraint firstItem="Loc-ke-WFj" firstAttribute="leading" secondItem="KCD-cD-vlb" secondAttribute="leading" type="default" id="Wfm-av-IST"/>
+                            <constraint firstItem="KCD-cD-vlb" firstAttribute="leading" secondItem="VgI-Bl-q0D" secondAttribute="leading" type="default" id="gvX-gd-ud3"/>
+                            <constraint firstItem="KCD-cD-vlb" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="oNl-MQ-iPc"/>
+                            <constraint firstItem="Xti-Ol-hey" firstAttribute="top" secondItem="VgI-Bl-q0D" secondAttribute="top" type="default" id="oeW-Cb-c4V"/>
+                            <constraint firstAttribute="bottom" secondItem="VgI-Bl-q0D" secondAttribute="bottom" constant="54" id="pq7-Yh-mgd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="first" id="7" userLabel="Tab Bar Item"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="338"/>
+            <point key="canvasLocation" x="623" y="334"/>
         </scene>
         <!--Video Edit Controller-->
         <scene sceneID="2aT-Oz-zYp">

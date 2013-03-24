@@ -20,6 +20,11 @@ BOOL shouldOpen = true;
 }
 
 
+- (IBAction)uploadVid:(id)sender {
+}
+
+- (IBAction)uploadPics:(id)sender {
+}
 
 - (void)viewDidLoad
 {
