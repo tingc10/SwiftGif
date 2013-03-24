@@ -64,7 +64,7 @@ BOOL shouldOpen = true;
     if (shouldOpen) {
     
         [self doCamera];
-        
+        //[(UITextView *)[self.view viewWithTag:2] setText:@"OPENING CAMERA NOW"];
     }
 }
 
@@ -83,25 +83,21 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     shouldOpen = false;
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
-    [self processVideo:[info objectForKey:UIImagePickerControllerMediaURL]];
-    [self.tabBarController setSelectedIndex:1];
+    [(UITextView *)[self.view viewWithTag:2] setText:@""];
     
-    // instead of above, take to special edit view now
-
-    //initialize customizer
-    //SGVideoEditController *vc = [[SGVideoEditController alloc] initWithURL:[info objectForKey:UIImagePickerControllerMediaURL]];
-    //[self.view addSubview:videoEditor.view];
-    //[videoEditor viewWillAppear:YES];
-    //[videoEditor viewDidAppear:YES];
+    //[self processVideo:[info objectForKey:UIImagePickerControllerMediaURL]];
+    //[self.tabBarController setSelectedIndex:1];
+    // instead of above, take to "Uploading Video" view called SGVideoEditController
+    // because it was originally going to be a video editor mode but that was actually
+    // handled in the built-in UI video camera and we never bothered to change the name
+    // of SGVideoEditController ;)
     
-    //[self presentViewController:videoEditor animated:NO completion:nil];
-    
-    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGVideoEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VideoEditController"];
     [vc setURL:[info objectForKey:UIImagePickerControllerMediaURL]];
     [vc setModalPresentationStyle:UIModalPresentationFullScreen];
     
-    [self presentViewController:vc animated:YES completion:nil];*/
+    [self presentViewController:vc animated:YES completion:nil];
     
     
     
@@ -111,9 +107,14 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     shouldOpen = false;
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
+    
+    [(UITextView *)[self.view viewWithTag:2] setText:@""];
+    
     //[self.tabBarController setSelectedIndex:1];
     
 }
+
+
 
 - (void)processVideo:(NSURL*)vid{
     
