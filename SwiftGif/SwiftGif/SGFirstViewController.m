@@ -46,6 +46,8 @@ BOOL shouldOpen = true;
     
     cameraView.showsCameraControls = YES;
     
+    cameraView.allowsEditing = YES;
+    
     cameraView.delegate = self;
     
     [self.view addSubview:cameraView.view];
@@ -59,11 +61,11 @@ BOOL shouldOpen = true;
     
     [super viewDidAppear:YES];
     
-    /*if (shouldOpen) {
+    if (shouldOpen) {
     
         [self doCamera];
         
-    }*/
+    }
 }
 
 
@@ -81,17 +83,27 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     shouldOpen = false;
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
-    //[self.tabBarController setSelectedIndex:1];
+    [self processVideo:[info objectForKey:UIImagePickerControllerMediaURL]];
+    [self.tabBarController setSelectedIndex:1];
     
     // instead of above, take to special edit view now
 
     //initialize customizer
-    SGVideoEditController *videoEditor = [[SGVideoEditController alloc] initWithURL:[info objectForKey:UIImagePickerControllerMediaURL]];
-    [self.view addSubview:videoEditor.view];
-    [videoEditor viewWillAppear:YES];
-    [videoEditor viewDidAppear:YES];
+    //SGVideoEditController *vc = [[SGVideoEditController alloc] initWithURL:[info objectForKey:UIImagePickerControllerMediaURL]];
+    //[self.view addSubview:videoEditor.view];
+    //[videoEditor viewWillAppear:YES];
+    //[videoEditor viewDidAppear:YES];
     
-    [self presentViewController:videoEditor animated:NO completion:nil];
+    //[self presentViewController:videoEditor animated:NO completion:nil];
+    
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SGVideoEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VideoEditController"];
+    [vc setURL:[info objectForKey:UIImagePickerControllerMediaURL]];
+    [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+    
+    [self presentViewController:vc animated:YES completion:nil];*/
+    
+    
     
 }
 
@@ -100,6 +112,10 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
     //[self.tabBarController setSelectedIndex:1];
+    
+}
+
+- (void)processVideo:(NSURL*)vid{
     
 }
 
