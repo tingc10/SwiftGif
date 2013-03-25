@@ -6,8 +6,17 @@
 //  Copyright (c) 2013 Team SwiftGif. All rights reserved.
 //
 
+
+//note: this is called SGVideoEditController
+// but it's really more like "upload video controller"
+// except maybe for features we will add on the storyboard, for adding
+// description and/or tags onto a gif you just took before you upload it.
+// and perhaps on that screen there would be options to share to social networks ~nick
+
 #import "SGVideoEditController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
 
 @implementation SGVideoEditController
 
@@ -20,94 +29,62 @@
     return self;
 }
 
+-(void) uploadVideo {
+    
+    MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL: videoRef];
+    //UIImage *thumbnail1 = [moviePlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+    //UIImage *thumbnail2 = [moviePlayer thumbnailImageAtTime:1.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+    
+    NSURL *url = [NSURL URLWithString:@"http://tranzient.info:8080/upload"];
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
 
--(void) uploadImage
-{
+    // image-->nsdata
+    //NSData *imageData1 = UIImageJPEGRepresentation(thumbnail1,0.2);
+    //NSData *imageData2 = UIImageJPEGRepresentation(thumbnail2,0.2);
     
-    MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc]
-                                            initWithContentURL: videoRef];
+    double frametime = 0.1;//seconds per frame
+    double vidtime = (double)(moviePlayer.duration); //in seconds (get from moviePlayer)
+    int numFrames = (int)(vidtime/frametime);
     
-    
-    
-        NSString * filenames = [NSString stringWithFormat:@"frames[]"];
-        NSLog(@"%@", filenames);
+    NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+        //[formData appendPartWithFileData:imageData1 name:@"frames[]" fileName:@"1.jpg" mimeType:@"image/jpeg"];
+        //[formData appendPartWithFileData:imageData2 name:@"frames[]" fileName:@"2.jpg" mimeType:@"image/jpeg"];
         
-        NSString *urlString = @"http://swiftgif.tranzient.info:8080/upload";
-        
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-        [request setURL:[NSURL URLWithString:urlString]];
-        [request setHTTPMethod:@"POST"];
-        
-        NSString *boundary = @"---------------------------14737809831466499882746641449";
-        NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-        [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-        
-        NSMutableData *body = [NSMutableData data];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"filenames\"\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[filenames dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    ////////////////////////////////////
-    UIImage *thumbnail = [moviePlayer thumbnailImageAtTime:0.1 timeOption:MPMovieTimeOptionNearestKeyFrame];
-    
-    NSData *imageData = UIImageJPEGRepresentation(thumbnail,0.2);     //change Image to NSData
-    
-    if (imageData != nil)
-        
-    {
-        /////////////////
-        [body appendData:[@"Content-Disposition: form-data; name=\"frames[]\"; filename=\"1.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[NSData dataWithData:imageData]];
-        [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        ///////////////////////
-    }
-    
-    /////////////////////////////////////
-        
-        [request setHTTPBody:body];
-        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-        NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-        NSLog(@"Response : %@",returnString);
-        
-        if([returnString isEqualToString:@"Success ! The file has been uploaded"])
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"GIF Uploaded Successfully" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            
-            [alert show];
+        double time = 0.0;
+        for (int frame=0; frame<numFrames; frame++) {
+            // get image snapshot
+            UIImage *snapshot = [moviePlayer thumbnailImageAtTime:time timeOption:MPMovieTimeOptionNearestKeyFrame];
+            // turn snapshot into NSdata
+            NSData *imageData = UIImageJPEGRepresentation(snapshot,0.2);
+            // turn frame # to string and add the file to the POST frames[] array
+            NSString *frameAsText = [[NSNumber numberWithInt:frame] stringValue];
+            [formData appendPartWithFileData:imageData name:@"frames[]" fileName:[frameAsText stringByAppendingString:@".jpg"] mimeType:@"image/jpeg"];
+            // increment time in seconds
+            time += frametime;
         }
-        NSLog(@"Finish");
-
+        
+        
+    }];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+        NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+    }];
+    [httpClient enqueueHTTPRequestOperation:operation];
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     // send frames to server
-    //MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc]
-     //                                       initWithContentURL: videoRef];
-    //UIImage *thumbnail = [moviePlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
-    [self uploadImage];
-    
-    
+    [self uploadVideo];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    /*
-     // for debugging:
-    MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc]
-                                            initWithContentURL: videoRef];
-    UIImage *thumbnail = [moviePlayer thumbnailImageAtTime:0.1 timeOption:MPMovieTimeOptionNearestKeyFrame];
-    
-    UIImageView *photo = [[UIImageView alloc] initWithImage:thumbnail];
-    [self.view addSubview:photo];
-     */
-    
 }
 
 - (void)didReceiveMemoryWarning
