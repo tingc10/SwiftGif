@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SGFirstViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-
+    
 @end

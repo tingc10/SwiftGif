@@ -16,11 +16,12 @@
 BOOL shouldOpen = true;
 
 - (IBAction)gifClick:(id)sender {
-    [self doCamera];
+    [self doCamera: YES];
 }
 
 
 - (IBAction)uploadVid:(id)sender {
+    [self doCamera:NO];
 }
 
 - (IBAction)uploadPics:(id)sender {
@@ -34,17 +35,32 @@ BOOL shouldOpen = true;
     
 }
 
-- (void) doCamera {
+- (void) doCamera: (BOOL)isLive {
     UIImagePickerController *cameraView = [[UIImagePickerController alloc] init];
-    
-    cameraView.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if (isLive){
+        if([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]){
+        cameraView.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Camera Not Found" message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+        }
+    }else{
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+            cameraView.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Camera Roll Not Found" message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
+        }
+    }
     
     //cameraView.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypeCamera];
     
     cameraView.mediaTypes =
     [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
-    
-    cameraView.showsCameraControls = YES;
+    if(isLive)
+        cameraView.showsCameraControls = YES;
     
     cameraView.allowsEditing = YES;
     
@@ -63,7 +79,7 @@ BOOL shouldOpen = true;
     
     if (shouldOpen) {
     
-        [self doCamera];
+        [self doCamera:YES];
         //[(UITextView *)[self.view viewWithTag:2] setText:@"OPENING CAMERA NOW"];
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,10 +12,8 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Loc-ke-WFj">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="SGW-CB-aBk"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Loc-ke-WFj">
+                                <rect key="frame" x="63" y="67" width="195" height="111"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Record a GIF">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,11 +26,8 @@
                                     <action selector="gifClick:" destination="2" eventType="touchDown" id="vGR-8N-vKL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgI-Bl-q0D">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="109" id="edm-Yr-YnO"/>
-                                    <constraint firstAttribute="width" constant="97" id="xxm-rb-1eC"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VgI-Bl-q0D">
+                                <rect key="frame" x="63" y="248" width="97" height="110"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="UploadVid">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,14 +40,11 @@
                                     <action selector="uploadVid:" destination="2" eventType="touchDown" id="jaC-sx-bzT"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="OPENING CAMERA NOW" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KCD-cD-vlb">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="OPENING CAMERA NOW" textAlignment="center" minimumFontSize="17" id="KCD-cD-vlb">
+                                <rect key="frame" x="-8" y="185" width="337" height="51"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="337" id="bnc-8M-hXT"/>
-                                    <constraint firstAttribute="height" constant="51" id="eiq-tK-D9p"/>
-                                </constraints>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -60,10 +52,8 @@
                                     <action selector="showStatus:" destination="2" eventType="touchDown" id="LnH-1p-tYP"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xti-Ol-hey">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="NwV-ih-eLs"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xti-Ol-hey">
+                                <rect key="frame" x="161" y="248" width="97" height="110"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Upload Pics">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,14 +66,11 @@
                                     <action selector="uploadPics:" destination="2" eventType="touchDown" id="SOt-YV-Ksi"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcome to SwiftGif !" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hIl-bO-F1x">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcome to SwiftGif !" textAlignment="center" minimumFontSize="17" id="hIl-bO-F1x">
+                                <rect key="frame" x="63" y="8" width="195" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="195" id="JAC-ge-N2s"/>
-                                    <constraint firstAttribute="height" constant="30" id="bIk-xz-w6q"/>
-                                </constraints>
                                 <color key="textColor" red="0.01246024420297609" green="1" blue="2.2938448807852119e-05" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -93,20 +80,6 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.39233896683673475" green="0.21558636441178902" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="VgI-Bl-q0D" firstAttribute="top" secondItem="Xti-Ol-hey" secondAttribute="top" type="default" id="6bO-mB-gpc"/>
-                            <constraint firstItem="hIl-bO-F1x" firstAttribute="trailing" secondItem="Loc-ke-WFj" secondAttribute="trailing" type="default" id="COB-LF-9pM"/>
-                            <constraint firstItem="KCD-cD-vlb" firstAttribute="top" secondItem="Loc-ke-WFj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Jye-JM-Dkb"/>
-                            <constraint firstItem="Loc-ke-WFj" firstAttribute="top" secondItem="16" secondAttribute="top" constant="67" id="O5Q-VZ-XTW"/>
-                            <constraint firstItem="VgI-Bl-q0D" firstAttribute="bottom" secondItem="Xti-Ol-hey" secondAttribute="bottom" type="default" id="P6g-DX-JX3"/>
-                            <constraint firstItem="Loc-ke-WFj" firstAttribute="leading" secondItem="VgI-Bl-q0D" secondAttribute="leading" type="default" id="UXn-Sb-n5t"/>
-                            <constraint firstAttribute="bottom" secondItem="VgI-Bl-q0D" secondAttribute="bottom" constant="54" id="Xnl-lv-Kzv"/>
-                            <constraint firstItem="hIl-bO-F1x" firstAttribute="centerX" secondItem="16" secondAttribute="centerX" type="default" id="kWL-Gu-qa9"/>
-                            <constraint firstItem="Loc-ke-WFj" firstAttribute="trailing" secondItem="Xti-Ol-hey" secondAttribute="trailing" type="default" id="mu8-OM-qWG"/>
-                            <constraint firstItem="hIl-bO-F1x" firstAttribute="leading" secondItem="Loc-ke-WFj" secondAttribute="leading" type="default" id="oga-Zz-hyO"/>
-                            <constraint firstItem="hIl-bO-F1x" firstAttribute="top" secondItem="16" secondAttribute="top" constant="8" id="xox-hJ-amy"/>
-                            <constraint firstItem="KCD-cD-vlb" firstAttribute="centerX" secondItem="Loc-ke-WFj" secondAttribute="centerX" type="default" id="zPt-hf-9sM"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="first" id="7" userLabel="Tab Bar Item"/>
                 </viewController>
@@ -122,20 +95,13 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extracting &amp; Uploading Frames" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XtG-ei-D8Q">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="221" id="Xqz-dy-Zfk"/>
-                                    <constraint firstAttribute="height" constant="87" id="siX-Qd-diW"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Extracting &amp; Uploading Frames" minimumFontSize="17" id="XtG-ei-D8Q">
+                                <rect key="frame" x="58" y="186" width="221" height="87"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XtG-ei-D8Q" firstAttribute="leading" secondItem="H66-uw-QDh" secondAttribute="leading" constant="58" id="XF9-fu-6dS"/>
-                            <constraint firstItem="XtG-ei-D8Q" firstAttribute="top" secondItem="H66-uw-QDh" secondAttribute="top" constant="186" id="fIu-PG-fVL"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ur5-ih-YEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,20 +116,13 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KOY-wQ-zqF">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="KOY-wQ-zqF">
+                                <rect key="frame" x="15" y="11" width="289" height="389"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="289" id="c5F-sf-qYZ"/>
-                                    <constraint firstAttribute="height" constant="389" id="pmU-0I-eMz"/>
-                                </constraints>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="KOY-wQ-zqF" firstAttribute="centerY" secondItem="1GY-Z7-M4Q" secondAttribute="centerY" type="default" id="BV6-Hw-MaR"/>
-                            <constraint firstItem="KOY-wQ-zqF" firstAttribute="centerX" secondItem="1GY-Z7-M4Q" secondAttribute="centerX" type="default" id="c7B-sA-V6e"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="GkW-aC-ZAz"/>
                     <connections>
@@ -197,31 +156,20 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="22">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="22">
+                                <rect key="frame" x="0.0" y="20" width="280" height="43"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="d5V-Jh-y4u"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="23">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="cQR-IW-sY8"/>
-                                </constraints>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" textAlignment="center" id="23">
+                                <rect key="frame" x="20" y="206" width="280" height="88"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="23" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Ar2-V9-rYn"/>
-                            <constraint firstItem="22" firstAttribute="top" secondItem="17" secondAttribute="top" constant="20" symbolic="YES" type="default" id="baW-bd-ap6"/>
-                            <constraint firstItem="22" firstAttribute="leading" secondItem="17" secondAttribute="leading" type="default" id="cTU-Bj-fNP"/>
-                            <constraint firstItem="23" firstAttribute="leading" secondItem="17" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fzb-YA-SeR"/>
-                            <constraint firstItem="23" firstAttribute="top" secondItem="17" secondAttribute="top" constant="206" id="lJe-I8-W1V"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="second" id="6"/>
                     <connections>
@@ -259,9 +207,6 @@
         <image name="second" width="16" height="16"/>
     </resources>
     <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
         <class className="SGFirstViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFirstViewController.h"/>
             <relationships>
