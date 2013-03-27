@@ -40,18 +40,6 @@
                                     <action selector="uploadVid:" destination="2" eventType="touchDown" id="jaC-sx-bzT"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="OPENING CAMERA NOW" textAlignment="center" minimumFontSize="17" id="KCD-cD-vlb">
-                                <rect key="frame" x="-8" y="185" width="337" height="51"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="showStatus:" destination="2" eventType="touchDown" id="LnH-1p-tYP"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xti-Ol-hey">
                                 <rect key="frame" x="161" y="248" width="97" height="110"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -66,18 +54,6 @@
                                     <action selector="uploadPics:" destination="2" eventType="touchDown" id="SOt-YV-Ksi"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcome to SwiftGif !" textAlignment="center" minimumFontSize="17" id="hIl-bO-F1x">
-                                <rect key="frame" x="63" y="8" width="195" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
-                                </accessibility>
-                                <color key="textColor" red="0.01246024420297609" green="1" blue="2.2938448807852119e-05" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="showStatus:" destination="2" eventType="touchDown" id="mcf-6G-jBE"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.39233896683673475" green="0.21558636441178902" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

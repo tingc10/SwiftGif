@@ -31,6 +31,7 @@ BOOL shouldOpen = true;
 {
     [super viewDidLoad];
     shouldOpen = true;
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.jpg"]];
     
     
 }
@@ -124,7 +125,7 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
     
-    [(UITextView *)[self.view viewWithTag:2] setText:@""];
+    
     
     //[self.tabBarController setSelectedIndex:1];
     
