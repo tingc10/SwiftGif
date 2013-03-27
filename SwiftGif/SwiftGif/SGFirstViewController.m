@@ -132,8 +132,4 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
 
 
 
-- (void)processVideo:(NSURL*)vid{
-    
-}
-
 @end

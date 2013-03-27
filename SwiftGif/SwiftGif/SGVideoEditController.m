@@ -17,6 +17,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVFoundation/AVAsset.h>
 
 @implementation SGVideoEditController
 
@@ -29,31 +31,54 @@
     return self;
 }
 
+
+- (void) playerThumbnailImageRequestDidFinish:(NSNotification*)notification {
+	NSDictionary *userInfo = [notification userInfo];
+	NSNumber *timecode =
+    [userInfo objectForKey: @"MPMoviePlayerThumbnailTimeKey"];
+	UIImage *image =
+    [userInfo objectForKey: @"MPMoviePlayerThumbnailImageKey"];
+    
+    // add image to array
+    
+    
+}
+
+
 -(void) uploadVideo {
     
     MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL: videoRef];
-    //UIImage *thumbnail1 = [moviePlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
-    //UIImage *thumbnail2 = [moviePlayer thumbnailImageAtTime:1.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
+    CMTime duration = playerItem.duration;
+    float seconds = CMTimeGetSeconds(duration);
+    double frametime = 0.1;//seconds per frame
+    int numFrames = (int)(seconds/frametime);
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (float time=0.0; time < seconds; time += frametime)
+        [array addObject:[NSNumber numberWithFloat:time]];
+    [moviePlayer requestThumbnailImagesAtTimes:array timeOption:MPMovieTimeOptionNearestKeyFrame];
+    
+    [[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(playerThumbnailImageRequestDidFinish:)
+	 name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
+	 object:nil];
+    
+    
+    
+    
     
     NSURL *url = [NSURL URLWithString:@"http://tranzient.info:8080/upload"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
 
-    // image-->nsdata
-    //NSData *imageData1 = UIImageJPEGRepresentation(thumbnail1,0.2);
-    //NSData *imageData2 = UIImageJPEGRepresentation(thumbnail2,0.2);
-    
-    double frametime = 0.1;//seconds per frame
-    double vidtime = (double)(moviePlayer.duration); //in seconds (get from moviePlayer)
-    int numFrames = (int)(vidtime/frametime);
-    
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-        //[formData appendPartWithFileData:imageData1 name:@"frames[]" fileName:@"1.jpg" mimeType:@"image/jpeg"];
-        //[formData appendPartWithFileData:imageData2 name:@"frames[]" fileName:@"2.jpg" mimeType:@"image/jpeg"];
-        
-        double time = 0.0;
+        float time = 0.0;
         for (int frame=0; frame<numFrames; frame++) {
             // get image snapshot
             UIImage *snapshot = [moviePlayer thumbnailImageAtTime:time timeOption:MPMovieTimeOptionNearestKeyFrame];
+            if (snapshot == nil) break;
+            NSLog(@"frame#%d at time %f", frame, time);
             // turn snapshot into NSdata
             NSData *imageData = UIImageJPEGRepresentation(snapshot,0.2);
             // turn frame # to string and add the file to the POST frames[] array
@@ -62,15 +87,20 @@
             // increment time in seconds
             time += frametime;
         }
-        
-        
+        NSLog(@"Done appending form data");
     }];
     
+    NSLog(@"Done creating mutable URL request");
+    // upload to server
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
     }];
+    //[operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+    //    NSLog(@"Received %lld of %lld bytes", totalBytesRead, totalBytesExpectedToRead);
+    //}];
     [httpClient enqueueHTTPRequestOperation:operation];
+   
 }
 
 
