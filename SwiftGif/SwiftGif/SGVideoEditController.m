@@ -53,8 +53,8 @@
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
     CMTime duration = playerItem.duration;
     float seconds = CMTimeGetSeconds(duration);
-    double frametime = 0.25;//seconds per frame
-    //totalSnaps = (int)(seconds/frametime);
+    int frametimehundred = 20;//seconds per frame times 100 so 20 means .2 seconds per frame
+    double frametime = 0.2; // double version for looping (frametimehundred/100)
     int numFrames = (int)(seconds/frametime);
     
     /*[[NSNotificationCenter defaultCenter]
@@ -80,6 +80,11 @@
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
 
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
+        
+        // frame rate N, there will be N*(1/100) seconds per frame
+        NSData *rateData = [NSData dataWithBytes: &frametimehundred length: sizeof(frametimehundred)];
+        [formData appendPartWithFormData:rateData name:@"rate"];
+        
         float time = 0.0;
         for (int frame=0; frame<numFrames; frame++) {
             // get image snapshot
@@ -103,9 +108,19 @@
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
     }];
-    //[operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-    //    NSLog(@"Received %lld of %lld bytes", totalBytesRead, totalBytesExpectedToRead);
-    //}];
+    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        NSLog(@"Received %lld of %lld bytes", totalBytesRead, totalBytesExpectedToRead);
+        if (totalBytesRead >= totalBytesExpectedToRead) NSLog(@"FINISHED GETTING RESPONSE");
+    }];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"success: %@", operation.responseString);
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error: %@",  operation.responseString);
+        }
+     ];
+    
+    
     [httpClient enqueueHTTPRequestOperation:operation];
    
     NSLog(@"Done with Shit");
