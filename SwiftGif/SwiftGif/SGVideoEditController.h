@@ -11,6 +11,8 @@
 @interface SGVideoEditController : UIViewController
 {
     NSURL *videoRef;
+    //NSArray *snaps;
+    //int snapCount, totalSnaps;
 }
 -(id) initWithURL: (NSURL*) videoRef;
 -(void)setURL:(NSURL *)theVideoRef;

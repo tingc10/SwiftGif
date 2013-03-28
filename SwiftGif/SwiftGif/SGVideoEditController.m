@@ -31,18 +31,20 @@
     return self;
 }
 
-
+/*
 - (void) playerThumbnailImageRequestDidFinish:(NSNotification*)notification {
+    NSLog(@"trigger");
 	NSDictionary *userInfo = [notification userInfo];
-	NSNumber *timecode =
-    [userInfo objectForKey: @"MPMoviePlayerThumbnailTimeKey"];
-	UIImage *image =
-    [userInfo objectForKey: @"MPMoviePlayerThumbnailImageKey"];
+	NSNumber *timecode = [userInfo objectForKey: @"MPMoviePlayerThumbnailTimeKey"];
+	UIImage *image = [userInfo objectForKey: @"MPMoviePlayerThumbnailImageKey"];
     
-    // add image to array
+    // see which one
+    NSLog(@"at timecode %f", timecode);
     
-    
-}
+    snapCount++;
+    NSLog(@"snap %d of %d", snapCount, totalSnaps);
+ 
+}*/
 
 
 -(void) uploadVideo {
@@ -51,19 +53,24 @@
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
     CMTime duration = playerItem.duration;
     float seconds = CMTimeGetSeconds(duration);
-    double frametime = 0.1;//seconds per frame
+    double frametime = 0.25;//seconds per frame
+    //totalSnaps = (int)(seconds/frametime);
     int numFrames = (int)(seconds/frametime);
+    
+    /*[[NSNotificationCenter defaultCenter]
+	 addObserver:self
+	 selector:@selector(playerThumbnailImageRequestDidFinish:)
+	 name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
+	 object:nil];
+    
+    NSLog(@"Duration is %f", seconds);
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (float time=0.0; time < seconds; time += frametime)
         [array addObject:[NSNumber numberWithFloat:time]];
     [moviePlayer requestThumbnailImagesAtTimes:array timeOption:MPMovieTimeOptionNearestKeyFrame];
+    */
     
-    [[NSNotificationCenter defaultCenter]
-	 addObserver:self
-	 selector:@selector(playerThumbnailImageRequestDidFinish:)
-	 name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
-	 object:nil];
     
     
     
@@ -101,6 +108,7 @@
     //}];
     [httpClient enqueueHTTPRequestOperation:operation];
    
+    NSLog(@"Done with Shit");
 }
 
 
@@ -127,12 +135,16 @@
 {
     if(self = [super init]){
         videoRef = thevideoRef;
+        //snaps = [[NSArray init] alloc];
+        //snapCount = 0;
     }
     return self;
 }
 
 -(void)setURL:(NSURL *)theVideoRef {
     videoRef = theVideoRef;
+    //snaps = [[NSArray init] alloc];
+    //snapCount = 0;
 }
 
 
