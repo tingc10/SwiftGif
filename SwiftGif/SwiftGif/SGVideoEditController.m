@@ -114,6 +114,7 @@
     }];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"success: %@", operation.responseString);
+            [self showResponse:operation.responseString];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"error: %@",  operation.responseString);
@@ -123,7 +124,7 @@
     
     [httpClient enqueueHTTPRequestOperation:operation];
    
-    NSLog(@"Done with Shit");
+    NSLog(@"Done with Converting");
 }
 
 
@@ -160,6 +161,17 @@
     videoRef = theVideoRef;
     //snaps = [[NSArray init] alloc];
     //snapCount = 0;
+}
+
+
+-(void)showResponse:(NSString*)gifurl{
+    NSURL *url = [NSURL URLWithString:gifurl];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    UIWebView *webView = [[UIWebView alloc] init];
+    [webView loadRequest:requestObj];
+    
+    [self.view addSubview:webView];
+    
 }
 
 
