@@ -29,6 +29,7 @@
 		596F06F417037E0600371B36 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F217037E0600371B36 /* icon@2x.png */; };
 		596F06F717038E3B00371B36 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F517038E3B00371B36 /* Default.png */; };
 		596F06F817038E3B00371B36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F617038E3B00371B36 /* Default@2x.png */; };
+		597AD17D170A343600F278D4 /* SGGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597AD17C170A343600F278D4 /* SGGifViewController.m */; };
 		59CC95AD16F1011600672ED8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AC16F1011600672ED8 /* UIKit.framework */; };
 		59CC95AF16F1011600672ED8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AE16F1011600672ED8 /* Foundation.framework */; };
 		59CC95B116F1011600672ED8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95B016F1011600672ED8 /* CoreGraphics.framework */; };
@@ -86,6 +87,8 @@
 		596F06F217037E0600371B36 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		596F06F517038E3B00371B36 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		596F06F617038E3B00371B36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		597AD17B170A343600F278D4 /* SGGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGifViewController.h; sourceTree = "<group>"; };
+		597AD17C170A343600F278D4 /* SGGifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGifViewController.m; sourceTree = "<group>"; };
 		59CC95A916F1011600672ED8 /* SwiftGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CC95AC16F1011600672ED8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		59CC95AE16F1011600672ED8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +200,8 @@
 				59CC95C816F1011600672ED8 /* SGFirstViewController.m */,
 				592F304316FE4AD70019CBBE /* SGVideoEditController.h */,
 				592F304416FE4AD70019CBBE /* SGVideoEditController.m */,
+				597AD17B170A343600F278D4 /* SGGifViewController.h */,
+				597AD17C170A343600F278D4 /* SGGifViewController.m */,
 				59CC95CE16F1011700672ED8 /* SGSecondViewController.h */,
 				59CC95CF16F1011700672ED8 /* SGSecondViewController.m */,
 				59CC95B316F1011600672ED8 /* Supporting Files */,
@@ -335,6 +340,7 @@
 				014CF3151700DB3A007E8297 /* AFURLConnectionOperation.m in Sources */,
 				014CF3161700DB3A007E8297 /* AFXMLRequestOperation.m in Sources */,
 				014CF3171700DB3A007E8297 /* UIImageView+AFNetworking.m in Sources */,
+				597AD17D170A343600F278D4 /* SGGifViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

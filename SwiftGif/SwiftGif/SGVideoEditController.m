@@ -19,6 +19,7 @@
 #import "AFHTTPRequestOperation.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVAsset.h>
+#import "SGGifViewController.h"
 
 @implementation SGVideoEditController
 
@@ -53,8 +54,8 @@
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
     CMTime duration = playerItem.duration;
     float seconds = CMTimeGetSeconds(duration);
-    int frametimehundred = 20;//seconds per frame times 100 so 20 means .2 seconds per frame
-    double frametime = 0.2; // double version for looping (frametimehundred/100)
+    int frametimehundred = 10;//seconds per frame times 100 so 20 means .2 seconds per frame
+    double frametime = 0.1; // double version for looping (frametimehundred/100)
     int numFrames = (int)(seconds/frametime);
     
     /*[[NSNotificationCenter defaultCenter]
@@ -117,6 +118,7 @@
             [self showResponse:operation.responseString];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            //alert cannot connect to internet return to 2nd view
             NSLog(@"error: %@",  operation.responseString);
         }
      ];
@@ -166,11 +168,16 @@
 
 -(void)showResponse:(NSString*)gifurl{
     NSURL *url = [NSURL URLWithString:gifurl];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    UIWebView *webView = [[UIWebView alloc] init];
-    [webView loadRequest:requestObj];
+    //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    //UIWebView *webView = [[UIWebView alloc] init];
+    //[webView loadRequest:requestObj];
     
-    [self.view addSubview:webView];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
+    [vc setURL:url];
+    [self presentViewController:vc animated:YES completion:nil];
+    
     
 }
 
