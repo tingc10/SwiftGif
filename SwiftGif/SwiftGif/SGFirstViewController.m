@@ -31,7 +31,7 @@ BOOL shouldOpen = true;
 {
     [super viewDidLoad];
     shouldOpen = true;
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.jpg"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
     
     
 }
