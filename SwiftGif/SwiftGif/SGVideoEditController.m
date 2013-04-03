@@ -88,15 +88,20 @@
         
         float time = 0.0;
         for (int frame=0; frame<numFrames; frame++) {
+            
             // get image snapshot
-            UIImage *snapshot = [moviePlayer thumbnailImageAtTime:time timeOption:MPMovieTimeOptionNearestKeyFrame];
+            UIImage *snapshot = [moviePlayer thumbnailImageAtTime:time timeOption:MPMovieTimeOptionExact];
             if (snapshot == nil) break;
+            
             NSLog(@"frame#%d at time %f", frame, time);
+            
             // turn snapshot into NSdata
             NSData *imageData = UIImageJPEGRepresentation(snapshot,0.2);
+            
             // turn frame # to string and add the file to the POST frames[] array
             NSString *frameAsText = [[NSNumber numberWithInt:frame] stringValue];
             [formData appendPartWithFileData:imageData name:@"frames[]" fileName:[frameAsText stringByAppendingString:@".jpg"] mimeType:@"image/jpeg"];
+            
             // increment time in seconds
             time += frametime;
         }
