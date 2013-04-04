@@ -31,22 +31,18 @@
     
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:gifURL];
     [_gifDisplay loadRequest:requestObj];
-    
-    UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc]
-                                            initWithTarget:self
-                                            action:@selector(handleSwipeUp)];
-
-    swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
-    swipeUp.delegate = self;
-    [_gifDisplay addGestureRecognizer:swipeUp];
-
-    
 }
 
-- (void)handleSwipeUp{
+
+- (IBAction)backButton:(id)sender {
+    // go back to first tab (Gif Creation Center)
+
+    //[self.tabBarController setSelectedIndex:0];
+    //[self.tabBarController viewDidAppear:YES];
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    SGSecondViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SGSecondViewController"];
-    [self presentViewController:vc animated:YES completion:nil];
+    
+    [self presentViewController:[storyboard instantiateViewControllerWithIdentifier:@"MasterTabBar"] animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
