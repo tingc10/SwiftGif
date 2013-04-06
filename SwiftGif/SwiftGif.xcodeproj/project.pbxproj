@@ -58,6 +58,7 @@
 		597AD1D6170B894400F278D4 /* uploadphotos.png in Resources */ = {isa = PBXBuildFile; fileRef = 597AD1D0170B894300F278D4 /* uploadphotos.png */; };
 		597AD1D7170B894400F278D4 /* uploadphotos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 597AD1D1170B894400F278D4 /* uploadphotos@2x.png */; };
 		597AD1D9170B89CE00F278D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 597AD1D8170B89CE00F278D4 /* Default-568h@2x.png */; };
+		598824FE170E895400046206 /* SGFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 598824FD170E895400046206 /* SGFourthViewController.m */; };
 		59CC95AD16F1011600672ED8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AC16F1011600672ED8 /* UIKit.framework */; };
 		59CC95AF16F1011600672ED8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AE16F1011600672ED8 /* Foundation.framework */; };
 		59CC95B116F1011600672ED8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95B016F1011600672ED8 /* CoreGraphics.framework */; };
@@ -134,6 +135,8 @@
 		597AD1D0170B894300F278D4 /* uploadphotos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadphotos.png; sourceTree = "<group>"; };
 		597AD1D1170B894400F278D4 /* uploadphotos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uploadphotos@2x.png"; sourceTree = "<group>"; };
 		597AD1D8170B89CE00F278D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		598824FC170E895400046206 /* SGFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFourthViewController.h; sourceTree = "<group>"; };
+		598824FD170E895400046206 /* SGFourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFourthViewController.m; sourceTree = "<group>"; };
 		59CC95A916F1011600672ED8 /* SwiftGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CC95AC16F1011600672ED8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		59CC95AE16F1011600672ED8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -226,19 +229,21 @@
 				014CF30C1700DB3A007E8297 /* AFXMLRequestOperation.m */,
 				014CF30D1700DB3A007E8297 /* UIImageView+AFNetworking.h */,
 				014CF30E1700DB3A007E8297 /* UIImageView+AFNetworking.m */,
+				59CC95C416F1011600672ED8 /* MainStoryboard.storyboard */,
 				59CC95BB16F1011600672ED8 /* SGAppDelegate.h */,
 				59CC95BC16F1011600672ED8 /* SGAppDelegate.m */,
-				59CC95C416F1011600672ED8 /* MainStoryboard.storyboard */,
-				0127518D16F7B46500A54AED /* SGThirdViewController.h */,
-				0127518E16F7B46500A54AED /* SGThirdViewController.m */,
 				59CC95C716F1011600672ED8 /* SGFirstViewController.h */,
 				59CC95C816F1011600672ED8 /* SGFirstViewController.m */,
+				59CC95CE16F1011700672ED8 /* SGSecondViewController.h */,
+				59CC95CF16F1011700672ED8 /* SGSecondViewController.m */,
+				0127518D16F7B46500A54AED /* SGThirdViewController.h */,
+				0127518E16F7B46500A54AED /* SGThirdViewController.m */,
+				598824FC170E895400046206 /* SGFourthViewController.h */,
+				598824FD170E895400046206 /* SGFourthViewController.m */,
 				592F304316FE4AD70019CBBE /* SGVideoEditController.h */,
 				592F304416FE4AD70019CBBE /* SGVideoEditController.m */,
 				597AD17B170A343600F278D4 /* SGGifViewController.h */,
 				597AD17C170A343600F278D4 /* SGGifViewController.m */,
-				59CC95CE16F1011700672ED8 /* SGSecondViewController.h */,
-				59CC95CF16F1011700672ED8 /* SGSecondViewController.m */,
 				59CC95B316F1011600672ED8 /* Supporting Files */,
 			);
 			path = SwiftGif;
@@ -409,6 +414,7 @@
 				014CF3161700DB3A007E8297 /* AFXMLRequestOperation.m in Sources */,
 				014CF3171700DB3A007E8297 /* UIImageView+AFNetworking.m in Sources */,
 				597AD17D170A343600F278D4 /* SGGifViewController.m in Sources */,
+				598824FE170E895400046206 /* SGFourthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

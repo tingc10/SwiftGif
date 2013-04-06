@@ -14,6 +14,18 @@
 
 @implementation SGSecondViewController
 
+- (id)initWithCoder:(NSCoder*)aDecoder
+{
+    if(self = [super initWithCoder:aDecoder])
+    {
+        UITabBarItem* tabBarItem =  [[UITabBarItem alloc] initWithTitle:nil image:nil tag:0];
+        [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"folder_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"folder.png"]];
+        self.tabBarItem = tabBarItem;
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

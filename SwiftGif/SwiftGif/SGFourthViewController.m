@@ -1,25 +1,25 @@
 //
-//  SGThirdViewController.m
+//  SGFourthViewController.m
 //  SwiftGif
 //
-//  Created by Nick Ruff on 3/18/13.
+//  Created by Tingshen Chen on 4/5/13.
 //  Copyright (c) 2013 Team SwiftGif. All rights reserved.
 //
 
-#import "SGThirdViewController.h"
+#import "SGFourthViewController.h"
 
-@interface SGThirdViewController ()
+@interface SGFourthViewController ()
 
 @end
 
-@implementation SGThirdViewController
+@implementation SGFourthViewController
 
 - (id)initWithCoder:(NSCoder*)aDecoder
 {
     if(self = [super initWithCoder:aDecoder])
     {
         UITabBarItem* tabBarItem =  [[UITabBarItem alloc] initWithTitle:nil image:nil tag:0];
-        [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"globe_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"globe.png"]];
+        [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
         self.tabBarItem = tabBarItem;
         
     }
@@ -30,11 +30,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    NSString *fullURL = @"http://swiftgif.tranzient.info";
-    NSURL *url = [NSURL URLWithString:fullURL];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [_webViewNew loadRequest:requestObj];
 }
 
 - (void)didReceiveMemoryWarning

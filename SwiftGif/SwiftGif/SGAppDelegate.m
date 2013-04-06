@@ -12,26 +12,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Assign tab bar item with titles
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    UITabBar *tabBar = tabBarController.tabBar;
-    UITabBarItem *video = [tabBar.items objectAtIndex:0];
-    UITabBarItem *folder = [tabBar.items objectAtIndex:1];
-    UITabBarItem *globe = [tabBar.items objectAtIndex:2];
-    UITabBarItem *settings = [tabBar.items objectAtIndex:3];
 
-
-    
-    [video setFinishedSelectedImage:[UIImage imageNamed:@"video_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"video.png"]];
-    [folder setFinishedSelectedImage:[UIImage imageNamed:@"folder_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"folder.png"]];
-    [globe setFinishedSelectedImage:[UIImage imageNamed:@"globe_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"globe.png"]];
-    [settings setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
     
-    
-    
+    /* first time user settings
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    {
+        // app already launched
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        // This is the first launch ever
+    }
+    */
     return YES;
 }
 							

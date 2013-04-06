@@ -9,6 +9,8 @@
 #import "SGGifViewController.h"
 #import "SGSecondViewController.h"
 
+
+
 @interface SGGifViewController ()
 
 @end
@@ -39,10 +41,11 @@
 
     //[self.tabBarController setSelectedIndex:0];
     //[self.tabBarController viewDidAppear:YES];
-
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
-    [self presentViewController:[storyboard instantiateViewControllerWithIdentifier:@"MasterTabBar"] animated:YES completion:nil];
+    UITabBarController  *vc = [storyboard instantiateViewControllerWithIdentifier:@"MasterTabBar"];
+    [vc reloadInputViews];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

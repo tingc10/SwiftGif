@@ -132,6 +132,7 @@
     [httpClient enqueueHTTPRequestOperation:operation];
    
     NSLog(@"Done with Converting");
+    
 }
 
 
@@ -140,12 +141,13 @@
     [super viewDidLoad];
     
     // send frames to server
-    [self uploadVideo];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self uploadVideo];
 }
 
 - (void)didReceiveMemoryWarning

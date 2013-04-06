@@ -13,7 +13,7 @@
 
 @implementation SGFirstViewController
 
-BOOL shouldOpen = true;
+
 
 - (IBAction)gifClick:(id)sender {
     [self doCamera: YES];
@@ -27,10 +27,23 @@ BOOL shouldOpen = true;
 - (IBAction)uploadPics:(id)sender {
 }
 
+//initWithCoder is the init function with Storyboard
+- (id)initWithCoder:(NSCoder*)aDecoder
+{
+    if(self = [super initWithCoder:aDecoder])
+    {
+        UITabBarItem* tabBarItem =  [[UITabBarItem alloc] initWithTitle:nil image:nil tag:0];
+        [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"video_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"video.png"]];
+        self.tabBarItem = tabBarItem;
+
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    shouldOpen = true;
+
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
     
     
@@ -77,14 +90,22 @@ BOOL shouldOpen = true;
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:YES];
-    
-    if (shouldOpen) {
-    
+    BOOL shouldOpen = [[NSUserDefaults standardUserDefaults]boolForKey:@"openApp"];
+    if (!shouldOpen)
+    {
+        NSLog(@"FirstLaunch");
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"openApp"];
         [self doCamera:YES];
-        //[(UITextView *)[self.view viewWithTag:2] setText:@"OPENING CAMERA NOW"];
+        ///Do first run view initializaton here////
     }
+    /*
+    if (shouldOpen) {
+        shouldOpen = false;
+        [self doCamera:YES];
+        
+    }
+     */
 }
-
 
 
 - (void)didReceiveMemoryWarning
@@ -97,7 +118,7 @@ BOOL shouldOpen = true;
 didFinishPickingMediaWithInfo:(NSDictionary*)info{
     
     //[picker UISaveVideoAtPathToSavedPhotosAlbum];
-    shouldOpen = false;
+    //shouldOpen = false;
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
     [(UITextView *)[self.view viewWithTag:2] setText:@""];
@@ -120,8 +141,8 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     
 }
 
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker{
-    shouldOpen = false;
     [self dismissViewControllerAnimated:NO completion:nil];
     [picker.view removeFromSuperview];
     
