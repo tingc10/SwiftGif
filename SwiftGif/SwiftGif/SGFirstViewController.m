@@ -25,6 +25,7 @@
 }
 
 - (IBAction)uploadPics:(id)sender {
+    [self uploadImages];
 }
 
 //initWithCoder is the init function with Storyboard
@@ -46,6 +47,35 @@
 
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
     
+    
+}
+
+- (void) uploadImages{
+    UIImagePickerController *photoLib = [[UIImagePickerController alloc] init];
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+        photoLib.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Camera Roll Not Found" message:nil delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+
+    
+    //cameraView.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypeCamera];
+    
+    photoLib.mediaTypes =
+    [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+
+    
+    //cameraView.allowsEditing = YES;
+    
+    photoLib.delegate = self;
+    
+    [self.view addSubview:photoLib.view];
+    [photoLib viewWillAppear:YES];
+    [photoLib viewDidAppear:YES];
+    
+    [self presentViewController:photoLib animated:NO completion:nil];
     
 }
 
