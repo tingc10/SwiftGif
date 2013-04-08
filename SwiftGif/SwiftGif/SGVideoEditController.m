@@ -91,8 +91,11 @@
         
         // send user ID
         NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
-        NSData *idData =[myUserID dataUsingEncoding:NSUTF8StringEncoding];
-        [formData appendPartWithFormData:idData name:@"user_id"];
+        if (myUserID != nil) {
+            NSData *idData = [myUserID dataUsingEncoding:NSUTF8StringEncoding];
+            [formData appendPartWithFormData:idData name:@"user_id"];
+            NSLog(@"sending user_id to server %@", myUserID);
+        } else NSLog(@"no user ID, not sending to server (which means we are requesting a user ID from the server)");
         
         float time = 0.0;
         for (int frame=0; frame<numFrames; frame++) {
@@ -138,7 +141,11 @@
             NSError *e = nil;
             NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
             NSString *uid = [JSON objectForKey:@"user_id"];
-            [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
+        
+            if (uid != nil) {
+                [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
+                NSLog(@"set local user_id as %@", uid);
+            }
         
             // now process the return URL (download the GIF)
             [self showResponse:[JSON objectForKey:@"url"]];
@@ -181,25 +188,18 @@
 {
     if(self = [super init]){
         videoRef = thevideoRef;
-        //snaps = [[NSArray init] alloc];
-        //snapCount = 0;
     }
     return self;
 }
 
 -(void)setURL:(NSURL *)theVideoRef {
     videoRef = theVideoRef;
-    //snaps = [[NSArray init] alloc];
-    //snapCount = 0;
 }
 
 
 -(void)showResponse:(NSString*)gifurl{
     NSURL *url = [NSURL URLWithString:gifurl];
-    //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    //UIWebView *webView = [[UIWebView alloc] init];
-    //[webView loadRequest:requestObj];
-    
+
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
