@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface SGFirstViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-    
+{
+    UIPopoverController *popoverController;
+    UIBarButtonItem *doneButton;
+    int IMAGE_COUNTER;
+}
+
+
+
 @end

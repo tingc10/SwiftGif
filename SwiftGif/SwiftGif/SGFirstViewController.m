@@ -182,6 +182,78 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     
 }
 
+-(IBAction)selectExitingPicture
+{
+    //Specially for fing iPAD
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+    /*
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+    [popoverController presentPopoverFromRect:CGRectMake(0.0, 0.0, 400.0, 300.0)
+                                       inView:self.view
+                     permittedArrowDirections:UIPopoverArrowDirectionAny
+                                     animated:YES];
+     */
+}
 
+//Done button on top
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated
+{
+    //NSLog(@"Inside navigationController ...");
+    
+    
+    if (!doneButton)
+    {
+        doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                      style:UIBarButtonItemStyleDone
+                                                     target:self action:@selector(saveImagesDone:)];
+    }
+    
+    viewController.navigationItem.rightBarButtonItem = doneButton;
+}
+
+- (IBAction)saveImagesDone:(id)sender
+{
+    //NSLog(@"saveImagesDone ...");
+    
+    [popoverController dismissPopoverAnimated:YES];
+}
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker
+      didFinishPickingImage : (UIImage *)image
+                 editingInfo:(NSDictionary *)editingInfo
+{
+    
+    
+    //DONT DISMISS
+    //[picker dismissModalViewControllerAnimated:YES];
+    //[popoverController dismissPopoverAnimated:YES];
+    
+    IMAGE_COUNTER = IMAGE_COUNTER + 1;
+    
+   // imageView.image = image;
+    
+    // Get the data for the image
+    NSData* imageData = UIImageJPEGRepresentation(image, 1.0);
+    
+    
+    // Give a name to the file
+    NSString* incrementedImgStr = [NSString stringWithFormat: @"UserCustomPotraitPic%d.jpg", IMAGE_COUNTER];
+    
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* documentsDirectory = [paths objectAtIndex:0];
+    
+    // Now we get the full path to the file
+    NSString* fullPathToFile2 = [documentsDirectory stringByAppendingPathComponent:incrementedImgStr];
+    
+    // and then we write it out
+    [imageData writeToFile:fullPathToFile2 atomically:NO];
+    
+}
 
 @end
