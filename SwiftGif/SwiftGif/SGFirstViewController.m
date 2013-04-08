@@ -73,9 +73,9 @@
     
     cameraView.mediaTypes =
     [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
-    if(isLive)
+    if(isLive){
         cameraView.showsCameraControls = YES;
-    
+    }
     cameraView.allowsEditing = YES;
     
     cameraView.delegate = self;
