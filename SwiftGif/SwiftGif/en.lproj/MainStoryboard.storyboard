@@ -256,6 +256,7 @@
         <class className="SGGifViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGGifViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backButton:"/>
                 <relationship kind="outlet" name="gifDisplay" candidateClass="UIWebView"/>
             </relationships>
         </class>
