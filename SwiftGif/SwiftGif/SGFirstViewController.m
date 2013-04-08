@@ -143,7 +143,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
 - (void)imagePickerController:(UIImagePickerController*)picker
 didFinishPickingMediaWithInfo:(NSDictionary*)info{
     
@@ -170,7 +170,7 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     
     
 }
-
+*/
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker{
     [self dismissViewControllerAnimated:NO completion:nil];
