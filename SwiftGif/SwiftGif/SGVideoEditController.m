@@ -89,6 +89,11 @@
         NSData *rateData = [NSData dataWithBytes: &frametimehundred length: sizeof(frametimehundred)];
         [formData appendPartWithFormData:rateData name:@"rate"];
         
+        // send user ID
+        NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+        NSData *idData =[myUserID dataUsingEncoding:NSUTF8StringEncoding];
+        [formData appendPartWithFormData:idData name:@"user_id"];
+        
         float time = 0.0;
         for (int frame=0; frame<numFrames; frame++) {
             
@@ -128,7 +133,15 @@
     }];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"success: %@", operation.responseString);
-            [self showResponse:operation.responseString];
+        
+            // save User ID
+            NSError *e = nil;
+            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
+            NSString *uid = [JSON objectForKey:@"user_id"];
+            [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
+        
+            // now process the return URL (download the GIF)
+            [self showResponse:[JSON objectForKey:@"url"]];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             //alert cannot connect to internet return to 2nd view
