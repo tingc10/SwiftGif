@@ -73,8 +73,11 @@
     */
     
     
-    
-    
+    // start progress bar at 0
+    float startProgress = 0.1,
+    midProgress = 0.4;
+    progress.progress = 0.1;
+    float extractProgressStep =  (midProgress - startProgress) / numFrames;
     
     
     NSURL *url = [NSURL URLWithString:@"http://tranzient.info:8080/upload"];
@@ -104,6 +107,9 @@
             
             // increment time in seconds
             time += frametime;
+            
+            // incrememnt progress bar
+            [progress setProgress:(startProgress + frame*extractProgressStep) animated:YES];
         }
         NSLog(@"Done appending form data");
     }];
@@ -113,6 +119,8 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+        [progress setProgress:(midProgress + (1.0-midProgress)*(totalBytesWritten / (1.0 * totalBytesExpectedToWrite)))
+                     animated:YES];
     }];
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         NSLog(@"Received %lld of %lld bytes", totalBytesRead, totalBytesExpectedToRead);
@@ -190,4 +198,8 @@
 
 
 
+- (void)viewDidUnload {
+    progress = nil;
+    [super viewDidUnload];
+}
 @end

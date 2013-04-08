@@ -75,9 +75,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.10000000000000001" id="c4a-Gm-6it">
+                                <rect key="frame" x="20" y="264" width="280" height="9"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="progress" destination="c4a-Gm-6it" id="Xlp-hY-Ojb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ur5-ih-YEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,6 +127,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="downloadGif:" destination="Jbw-Db-IfY" eventType="touchUpInside" id="ZRs-fG-oga"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="avO-tm-tWg">
                                 <rect key="frame" x="223" y="403" width="92" height="44"/>
@@ -257,6 +267,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGGifViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backButton:"/>
+                <relationship kind="action" name="downloadGif:"/>
                 <relationship kind="outlet" name="gifDisplay" candidateClass="UIWebView"/>
             </relationships>
         </class>
@@ -271,6 +282,9 @@
         </class>
         <class className="SGVideoEditController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGVideoEditController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="progress" candidateClass="UIProgressView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

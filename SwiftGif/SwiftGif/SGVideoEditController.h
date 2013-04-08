@@ -11,9 +11,11 @@
 @interface SGVideoEditController : UIViewController
 {
     NSURL *videoRef;
+    __weak IBOutlet UIProgressView *progress;
     //NSArray *snaps;
     //int snapCount, totalSnaps;
 }
 -(id) initWithURL: (NSURL*) videoRef;
 -(void)setURL:(NSURL *)theVideoRef;
+
 @end
