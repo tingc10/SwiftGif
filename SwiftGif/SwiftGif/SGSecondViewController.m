@@ -31,6 +31,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    NSString *fullURL = @"http://swiftgif.tranzient.info";
+    NSURL *url = [NSURL URLWithString:fullURL];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [_profile loadRequest:requestObj];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,4 +43,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setProfile:nil];
+    [super viewDidUnload];
+}
 @end

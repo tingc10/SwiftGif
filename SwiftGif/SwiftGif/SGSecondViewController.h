@@ -10,5 +10,6 @@
 
 @interface SGSecondViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *profile;
     
 @end
