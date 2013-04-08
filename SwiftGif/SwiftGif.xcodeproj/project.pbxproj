@@ -59,6 +59,8 @@
 		597AD1D7170B894400F278D4 /* uploadphotos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 597AD1D1170B894400F278D4 /* uploadphotos@2x.png */; };
 		597AD1D9170B89CE00F278D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 597AD1D8170B89CE00F278D4 /* Default-568h@2x.png */; };
 		598824FE170E895400046206 /* SGFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 598824FD170E895400046206 /* SGFourthViewController.m */; };
+		59882500171273D600046206 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 598824FF171273D500046206 /* AssetsLibrary.framework */; };
+		5988250217127B2800046206 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5988250117127B2800046206 /* MessageUI.framework */; };
 		59CC95AD16F1011600672ED8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AC16F1011600672ED8 /* UIKit.framework */; };
 		59CC95AF16F1011600672ED8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95AE16F1011600672ED8 /* Foundation.framework */; };
 		59CC95B116F1011600672ED8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CC95B016F1011600672ED8 /* CoreGraphics.framework */; };
@@ -137,6 +139,8 @@
 		597AD1D8170B89CE00F278D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		598824FC170E895400046206 /* SGFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFourthViewController.h; sourceTree = "<group>"; };
 		598824FD170E895400046206 /* SGFourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFourthViewController.m; sourceTree = "<group>"; };
+		598824FF171273D500046206 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5988250117127B2800046206 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		59CC95A916F1011600672ED8 /* SwiftGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CC95AC16F1011600672ED8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		59CC95AE16F1011600672ED8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +163,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5988250217127B2800046206 /* MessageUI.framework in Frameworks */,
+				59882500171273D600046206 /* AssetsLibrary.framework in Frameworks */,
 				01CAFC0E1703695300EFD520 /* CoreMedia.framework in Frameworks */,
 				01CAFC0C1703694900EFD520 /* AVFoundation.framework in Frameworks */,
 				014CF3191700DB6C007E8297 /* SystemConfiguration.framework in Frameworks */,
@@ -176,6 +182,7 @@
 		59CC95A016F1011500672ED8 = {
 			isa = PBXGroup;
 			children = (
+				5988250117127B2800046206 /* MessageUI.framework */,
 				597AD1D8170B89CE00F278D4 /* Default-568h@2x.png */,
 				01CAFC0D1703695300EFD520 /* CoreMedia.framework */,
 				01CAFC0B1703694900EFD520 /* AVFoundation.framework */,
@@ -199,6 +206,7 @@
 		59CC95AB16F1011600672ED8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				598824FF171273D500046206 /* AssetsLibrary.framework */,
 				59CC95AC16F1011600672ED8 /* UIKit.framework */,
 				59CC95AE16F1011600672ED8 /* Foundation.framework */,
 				59CC95B016F1011600672ED8 /* CoreGraphics.framework */,
@@ -307,8 +315,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59CC95D716F1011700672ED8 /* Build configuration list for PBXNativeTarget "SwiftGif" */;
 			buildPhases = (
-				59CC95A516F1011500672ED8 /* Sources */,
 				59CC95A616F1011500672ED8 /* Frameworks */,
+				59CC95A516F1011500672ED8 /* Sources */,
 				59CC95A716F1011500672ED8 /* Resources */,
 			);
 			buildRules = (

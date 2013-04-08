@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMessageComposeViewController.h>
+#import <MessageUI/MessageUI.h>
 
-@interface SGGifViewController : UIViewController
+@interface SGGifViewController : UIViewController<MFMessageComposeViewControllerDelegate,UINavigationControllerDelegate>
 {
     NSURL *gifURL;
 }
