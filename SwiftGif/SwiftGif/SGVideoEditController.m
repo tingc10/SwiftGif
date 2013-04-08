@@ -73,8 +73,11 @@
     */
     
     
-    
-    
+    // start progress bar at 0
+    float startProgress = 0.1,
+    midProgress = 0.4;
+    progress.progress = 0.1;
+    float extractProgressStep =  (midProgress - startProgress) / numFrames;
     
     
     NSURL *url = [NSURL URLWithString:@"http://tranzient.info:8080/upload"];
@@ -85,6 +88,11 @@
         // frame rate N, there will be N*(1/100) seconds per frame
         NSData *rateData = [NSData dataWithBytes: &frametimehundred length: sizeof(frametimehundred)];
         [formData appendPartWithFormData:rateData name:@"rate"];
+        
+        // send user ID
+        NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+        NSData *idData =[myUserID dataUsingEncoding:NSUTF8StringEncoding];
+        [formData appendPartWithFormData:idData name:@"user_id"];
         
         float time = 0.0;
         for (int frame=0; frame<numFrames; frame++) {
@@ -104,6 +112,9 @@
             
             // increment time in seconds
             time += frametime;
+            
+            // incrememnt progress bar
+            [progress setProgress:(startProgress + frame*extractProgressStep) animated:YES];
         }
         NSLog(@"Done appending form data");
     }];
@@ -113,6 +124,8 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
+        [progress setProgress:(midProgress + (1.0-midProgress)*(totalBytesWritten / (1.0 * totalBytesExpectedToWrite)))
+                     animated:YES];
     }];
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         NSLog(@"Received %lld of %lld bytes", totalBytesRead, totalBytesExpectedToRead);
@@ -120,7 +133,15 @@
     }];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"success: %@", operation.responseString);
-            [self showResponse:operation.responseString];
+        
+            // save User ID
+            NSError *e = nil;
+            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
+            NSString *uid = [JSON objectForKey:@"user_id"];
+            [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
+        
+            // now process the return URL (download the GIF)
+            [self showResponse:[JSON objectForKey:@"url"]];
         }
         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             //alert cannot connect to internet return to 2nd view
@@ -190,4 +211,8 @@
 
 
 
+- (void)viewDidUnload {
+    progress = nil;
+    [super viewDidUnload];
+}
 @end

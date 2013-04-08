@@ -71,8 +71,6 @@
 		[self presentModalViewController:controller animated:YES];
 	}
     
-    /*
-    
 */
 }
 
