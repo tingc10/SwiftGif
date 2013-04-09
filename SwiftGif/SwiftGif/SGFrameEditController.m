@@ -29,24 +29,22 @@
     CGRect workingFrame = _scrollView.frame;
 	workingFrame.origin.x = 0;
     
-    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[_info count]];
+    
 	
-	for(NSDictionary *dict in _info) {
-        
-        UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
-        [images addObject:image];
-        
-		UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+    for(UIImage *image in _frames){
+        UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
 		[imageview setContentMode:UIViewContentModeScaleAspectFit];
 		imageview.frame = workingFrame;
 		
 		[_scrollView addSubview:imageview];
-
+        
 		
 		workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
-	}
+
+    }
     
-    self.frames = images;
+    
+    //self.frames = images;
 	
 	[_scrollView setPagingEnabled:YES];
 	[_scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];

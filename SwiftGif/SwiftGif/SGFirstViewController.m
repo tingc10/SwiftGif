@@ -167,15 +167,17 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
+	for(NSDictionary *dict in info) {
+        
+        UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
+        [images addObject:image];
+        
+	}
+    
     [self dismissViewControllerAnimated:NO completion:nil];
-    /*
-    if ([self respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]){
-        [self dismissViewControllerAnimated:NO completion:nil];
-    } else {
-        [self dismissModalViewControllerAnimated:YES];
-    }
-	*/
-    vc.info = info;
+
+    vc.frames = images;
     [self presentViewController:vc animated:YES completion:nil];
 	
 }

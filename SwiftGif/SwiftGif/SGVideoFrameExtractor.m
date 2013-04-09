@@ -7,6 +7,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVAsset.h>
 #import "SGGifViewController.h"
+#import "SGFrameEditController.h"
 
 @implementation SGVideoFrameExtractor
 
@@ -56,10 +57,14 @@
         progPercent += extractProgressStep;
         [progress setProgress:progPercent animated:YES];
     }
-
-    // Switch to SGFrameEditController view and
-    // probably pass the imageArray to it...
-        
+    
+    // dismiss view and open frame edit
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
+    //[self dismissViewControllerAnimated:NO completion:nil];
+    
+    vc.frames = imageArray;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
