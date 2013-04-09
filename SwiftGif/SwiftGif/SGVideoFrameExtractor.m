@@ -26,6 +26,138 @@
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
     CMTime duration = playerItem.duration;
     float seconds = CMTimeGetSeconds(duration);
+    
+    
+    float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
+    if (frametime < 0.01) frametime = 0.1;
+    extractRateLabel.text = [[@"Extracting at " stringByAppendingString:[NSString stringWithFormat:@"%.2f", frametime]] stringByAppendingString:@" sec/frame"];
+    
+    int numFrames = (int)(seconds/frametime);
+    
+    
+    // start progress bar at 0
+    float progPercent = 0.1;
+    progress.progress = 0.1;
+    float extractProgressStep =  (1.0 - progPercent) / numFrames;
+    
+    NSMutableArray *imageArray = [NSMutableArray array];
+    
+    float time = 0.0;
+    for (int frame=0; frame<numFrames; frame++) {
+        
+        // get image snapshot
+        UIImage *snapshot = [moviePlayer thumbnailImageAtTime:time timeOption:MPMovieTimeOptionExact];
+        [imageArray addObject:snapshot];
+        
+        // increment time in seconds
+        time += frametime;
+        
+        // increment progress bar
+        progPercent += extractProgressStep;
+        [progress setProgress:progPercent animated:YES];
+    }
+
+    // Switch to SGFrameEditController view and
+    // probably pass the imageArray to it...
+        
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self extractFrames];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(id)initWithURL:(NSURL *)thevideoRef
+{
+    if(self = [super init]){
+        videoRef = thevideoRef;
+    }
+    return self;
+}
+
+-(void)setURL:(NSURL *)theVideoRef {
+    videoRef = theVideoRef;
+}
+
+
+-(void)showResponse:(NSString*)gifurl{
+    NSURL *url = [NSURL URLWithString:gifurl];
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
+    
+    [vc setURL:url];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    
+}
+
+
+
+- (void)viewDidUnload {
+    progress = nil;
+    extractRateLabel = nil;
+    [super viewDidUnload];
+}
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// SGVideoFrameExtractor.m
+
+#import "SGVideoFrameExtractor.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVFoundation/AVAsset.h>
+#import "SGGifViewController.h"
+
+@implementation SGVideoFrameExtractor
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+
+-(void) extractFrames {
+    
+    MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL: videoRef];
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
+    CMTime duration = playerItem.duration;
+    float seconds = CMTimeGetSeconds(duration);
 
     
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
@@ -181,3 +313,4 @@
     [super viewDidUnload];
 }
 @end
+*/
