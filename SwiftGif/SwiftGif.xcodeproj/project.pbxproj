@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0127518F16F7B46500A54AED /* SGThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0127518E16F7B46500A54AED /* SGThirdViewController.m */; };
+		0127E7581713BBFB007BC301 /* SGUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0127E7571713BBFB007BC301 /* SGUploader.m */; };
 		014745F716FE4104000D83C7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014745F616FE4104000D83C7 /* MobileCoreServices.framework */; };
 		014CF30F1700DB3A007E8297 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CF2FD1700DB3A007E8297 /* AFHTTPClient.m */; };
 		014CF3101700DB3A007E8297 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 014CF2FF1700DB3A007E8297 /* AFHTTPRequestOperation.m */; };
@@ -76,6 +77,8 @@
 /* Begin PBXFileReference section */
 		0127518D16F7B46500A54AED /* SGThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGThirdViewController.h; sourceTree = "<group>"; };
 		0127518E16F7B46500A54AED /* SGThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGThirdViewController.m; sourceTree = "<group>"; };
+		0127E7561713BBFB007BC301 /* SGUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGUploader.h; sourceTree = "<group>"; };
+		0127E7571713BBFB007BC301 /* SGUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGUploader.m; sourceTree = "<group>"; };
 		014745F616FE4104000D83C7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		014CF2FC1700DB3A007E8297 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		014CF2FD1700DB3A007E8297 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				014CF30D1700DB3A007E8297 /* UIImageView+AFNetworking.h */,
 				014CF30E1700DB3A007E8297 /* UIImageView+AFNetworking.m */,
 				59CC95C416F1011600672ED8 /* MainStoryboard.storyboard */,
+				0127E7561713BBFB007BC301 /* SGUploader.h */,
+				0127E7571713BBFB007BC301 /* SGUploader.m */,
 				59CC95BB16F1011600672ED8 /* SGAppDelegate.h */,
 				59CC95BC16F1011600672ED8 /* SGAppDelegate.m */,
 				59CC95C716F1011600672ED8 /* SGFirstViewController.h */,
@@ -429,6 +434,7 @@
 				597AD17D170A343600F278D4 /* SGGifViewController.m in Sources */,
 				598824FE170E895400046206 /* SGFourthViewController.m in Sources */,
 				59E5336117138D2500EAE3F8 /* SGFrameEditController.m in Sources */,
+				0127E7581713BBFB007BC301 /* SGUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
