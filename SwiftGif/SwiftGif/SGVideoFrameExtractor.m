@@ -26,8 +26,15 @@
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
     CMTime duration = playerItem.duration;
     float seconds = CMTimeGetSeconds(duration);
-    int frametimehundred = 10;//seconds per frame times 100 so 20 means .2 seconds per frame
-    double frametime = 0.1; // double version for looping (frametimehundred/100)
+
+    
+    float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
+    if (frametime < 0.01) frametime = 0.1;
+    extractRateLabel.text = [[@"Extracting at " stringByAppendingString:[NSString stringWithFormat:@"%.2f", frametime]] stringByAppendingString:@" sec/frame"];
+
+    
+    int frametimehundred = (int)(frametime*100);
+    
     int numFrames = (int)(seconds/frametime);
     
     
@@ -169,6 +176,7 @@
 
 - (void)viewDidUnload {
     progress = nil;
+    extractRateLabel = nil;
     [super viewDidUnload];
 }
 @end
