@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SGFourthViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
+@property (weak, nonatomic) IBOutlet UITextField *uniqueID;
 
 @end
