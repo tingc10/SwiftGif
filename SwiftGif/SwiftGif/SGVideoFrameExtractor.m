@@ -1,19 +1,6 @@
-//
-//  SGVideoEditController.m
-//  SwiftGif
-//
-//  Created by Tingshen Chen on 3/23/13.
-//  Copyright (c) 2013 Team SwiftGif. All rights reserved.
-//
+// SGVideoFrameExtractor.m
 
-
-//note: this is called SGVideoEditController
-// but it's really more like "upload video controller"
-// except maybe for features we will add on the storyboard, for adding
-// description and/or tags onto a gif you just took before you upload it.
-// and perhaps on that screen there would be options to share to social networks ~nick
-
-#import "SGVideoEditController.h"
+#import "SGVideoFrameExtractor.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
@@ -21,7 +8,7 @@
 #import <AVFoundation/AVAsset.h>
 #import "SGGifViewController.h"
 
-@implementation SGVideoEditController
+@implementation SGVideoFrameExtractor
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,23 +19,8 @@
     return self;
 }
 
-/*
-- (void) playerThumbnailImageRequestDidFinish:(NSNotification*)notification {
-    NSLog(@"trigger");
-	NSDictionary *userInfo = [notification userInfo];
-	NSNumber *timecode = [userInfo objectForKey: @"MPMoviePlayerThumbnailTimeKey"];
-	UIImage *image = [userInfo objectForKey: @"MPMoviePlayerThumbnailImageKey"];
-    
-    // see which one
-    NSLog(@"at timecode %f", timecode);
-    
-    snapCount++;
-    NSLog(@"snap %d of %d", snapCount, totalSnaps);
- 
-}*/
 
-
--(void) uploadVideo {
+-(void) extractFrames {
     
     MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL: videoRef];
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
@@ -57,20 +29,6 @@
     int frametimehundred = 10;//seconds per frame times 100 so 20 means .2 seconds per frame
     double frametime = 0.1; // double version for looping (frametimehundred/100)
     int numFrames = (int)(seconds/frametime);
-    
-    /*[[NSNotificationCenter defaultCenter]
-	 addObserver:self
-	 selector:@selector(playerThumbnailImageRequestDidFinish:)
-	 name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
-	 object:nil];
-    
-    NSLog(@"Duration is %f", seconds);
-    
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    for (float time=0.0; time < seconds; time += frametime)
-        [array addObject:[NSNumber numberWithFloat:time]];
-    [moviePlayer requestThumbnailImagesAtTimes:array timeOption:MPMovieTimeOptionNearestKeyFrame];
-    */
     
     
     // start progress bar at 0
@@ -168,14 +126,12 @@
 {
     [super viewDidLoad];
     
-    // send frames to server
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self uploadVideo];
+    [self extractFrames];
 }
 
 - (void)didReceiveMemoryWarning
