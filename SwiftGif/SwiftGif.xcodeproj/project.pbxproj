@@ -21,7 +21,7 @@
 		014CF3191700DB6C007E8297 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014CF3181700DB6C007E8297 /* SystemConfiguration.framework */; };
 		01CAFC0C1703694900EFD520 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CAFC0B1703694900EFD520 /* AVFoundation.framework */; };
 		01CAFC0E1703695300EFD520 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CAFC0D1703695300EFD520 /* CoreMedia.framework */; };
-		592F304516FE4AD70019CBBE /* SGVideoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F304416FE4AD70019CBBE /* SGVideoEditController.m */; };
+		592F304516FE4AD70019CBBE /* SGVideoFrameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F304416FE4AD70019CBBE /* SGVideoFrameExtractor.m */; };
 		592F304716FE863C0019CBBE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592F304616FE863C0019CBBE /* MediaPlayer.framework */; };
 		596F06F317037E0600371B36 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F117037E0600371B36 /* icon.png */; };
 		596F06F417037E0600371B36 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F217037E0600371B36 /* icon@2x.png */; };
@@ -99,8 +99,8 @@
 		014CF3181700DB6C007E8297 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		01CAFC0B1703694900EFD520 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		01CAFC0D1703695300EFD520 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		592F304316FE4AD70019CBBE /* SGVideoEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGVideoEditController.h; sourceTree = "<group>"; };
-		592F304416FE4AD70019CBBE /* SGVideoEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGVideoEditController.m; sourceTree = "<group>"; };
+		592F304316FE4AD70019CBBE /* SGVideoFrameExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGVideoFrameExtractor.h; sourceTree = "<group>"; };
+		592F304416FE4AD70019CBBE /* SGVideoFrameExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGVideoFrameExtractor.m; sourceTree = "<group>"; };
 		592F304616FE863C0019CBBE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		596F06F117037E0600371B36 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		596F06F217037E0600371B36 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 				0127518E16F7B46500A54AED /* SGThirdViewController.m */,
 				598824FC170E895400046206 /* SGFourthViewController.h */,
 				598824FD170E895400046206 /* SGFourthViewController.m */,
-				592F304316FE4AD70019CBBE /* SGVideoEditController.h */,
-				592F304416FE4AD70019CBBE /* SGVideoEditController.m */,
+				592F304316FE4AD70019CBBE /* SGVideoFrameExtractor.h */,
+				592F304416FE4AD70019CBBE /* SGVideoFrameExtractor.m */,
 				597AD17B170A343600F278D4 /* SGGifViewController.h */,
 				597AD17C170A343600F278D4 /* SGGifViewController.m */,
 				59E5335F17138D2500EAE3F8 /* SGFrameEditController.h */,
@@ -416,7 +416,7 @@
 				59CC95C916F1011600672ED8 /* SGFirstViewController.m in Sources */,
 				59CC95D016F1011700672ED8 /* SGSecondViewController.m in Sources */,
 				0127518F16F7B46500A54AED /* SGThirdViewController.m in Sources */,
-				592F304516FE4AD70019CBBE /* SGVideoEditController.m in Sources */,
+				592F304516FE4AD70019CBBE /* SGVideoFrameExtractor.m in Sources */,
 				014CF30F1700DB3A007E8297 /* AFHTTPClient.m in Sources */,
 				014CF3101700DB3A007E8297 /* AFHTTPRequestOperation.m in Sources */,
 				014CF3111700DB3A007E8297 /* AFImageRequestOperation.m in Sources */,
