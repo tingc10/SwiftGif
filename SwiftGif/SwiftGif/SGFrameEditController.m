@@ -30,8 +30,15 @@
     CGRect workingFrame = _scrollView.frame;
 	workingFrame.origin.x = 0;
     
-    // set frames count label
+    // set frames count label & slider/label to default x rate
+    // change into viewDidAppear if it's not changing
+    // after multiple go-thrus? Must test that.
     _framesCount.text = [@"Frames: " stringByAppendingString:[NSString stringWithFormat:@"%d", _frames.count]];
+    float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
+    if (frametime <= 0.0) frametime = 0.1;
+    _playbackSlider.value = frametime;
+    _rateLabel.text = [[@"Play Rate: " stringByAppendingString:[NSString stringWithFormat:@"%.2f", frametime]] stringByAppendingString:@" spf"];
+    /////////////////
 	
     for(UIImage *image in _frames){
         UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
