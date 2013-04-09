@@ -9,6 +9,9 @@
 #import "SGFirstViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SGVIdeoFrameExtractor.h"
+#import "SGFrameEditController.h"
+#import "ELCImagePickerController.h"
+#import "ELCAlbumPickerController.h"
 
 
 @implementation SGFirstViewController
@@ -25,6 +28,7 @@
 }
 
 - (IBAction)uploadPics:(id)sender {
+    [self uploadImages];
 }
 
 //initWithCoder is the init function with Storyboard
@@ -47,6 +51,21 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
     
     
+}
+
+- (void) uploadImages
+{
+    ELCAlbumPickerController *albumController = [[ELCAlbumPickerController alloc] initWithNibName:@"ELCAlbumPickerController" bundle:[NSBundle mainBundle]];
+	ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initWithRootViewController:albumController];
+    [albumController setParent:elcPicker];
+	[elcPicker setDelegate:self];
+
+    if ([self respondsToSelector:@selector(presentViewController:animated:completion:)]){
+        [self presentViewController:elcPicker animated:YES completion:nil];
+    } else {
+        [self presentModalViewController:elcPicker animated:YES];
+    }
+
 }
 
 - (void) doCamera: (BOOL)isLive {
@@ -144,6 +163,27 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     
 }
 
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
+    [self dismissViewControllerAnimated:NO completion:nil];
+    /*
+    if ([self respondsToSelector:@selector(dismissViewControllerAnimated:completion:)]){
+        [self dismissViewControllerAnimated:NO completion:nil];
+    } else {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+	*/
+    vc.info = info;
+    [self presentViewController:vc animated:YES completion:nil];
+	
+}
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker
+{
 
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [picker.view removeFromSuperview];
+}
 
 @end

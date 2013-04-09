@@ -1,6 +1,12 @@
-// SGVideoFrameExtractor.m
+//
+//  SGUploader.m
+//  SwiftGif
+//
+//  Created by Nick Ruff on 4/8/13.
+//  Copyright (c) 2013 Team SwiftGif. All rights reserved.
+//
 
-#import "SGVideoFrameExtractor.h"
+#import "SGUploader.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
@@ -8,50 +14,49 @@
 #import <AVFoundation/AVAsset.h>
 #import "SGGifViewController.h"
 
-@implementation SGVideoFrameExtractor
+@implementation SGUploader
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewDidUnload {
+    [self setUpProgress:nil];
+    [super viewDidUnload];
+}
+
+- (void)viewDidLoad
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self uploadFrames];
 }
 
 
--(void) extractFrames {
-    
-    MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL: videoRef];
-    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:videoRef];
-    CMTime duration = playerItem.duration;
-    float seconds = CMTimeGetSeconds(duration);
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
-    
-    float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
-    if (frametime < 0.01) frametime = 0.1;
-    extractRateLabel.text = [[@"Extracting at " stringByAppendingString:[NSString stringWithFormat:@"%.2f", frametime]] stringByAppendingString:@" sec/frame"];
 
+-(void)setData:(NSArray*)images_in andRate:(int)playbackRateHundred_in andTags:(NSString*)tags_in {
     
-    int frametimehundred = (int)(frametime*100);
-    
-    int numFrames = (int)(seconds/frametime);
-    
-    
-    // start progress bar at 0
-    float startProgress = 0.1,
-    midProgress = 0.4;
-    progress.progress = 0.1;
-    float extractProgressStep =  (midProgress - startProgress) / numFrames;
-    
+    images = images_in;
+    playbackRateHundred = playbackRateHundred_in;
+    tags = tags_in;
+}
+
+
+- (void)uploadFrames{
     
     NSURL *url = [NSURL URLWithString:@"http://tranzient.info:8080/upload"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
-
+    
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         
         // frame rate N, there will be N*(1/100) seconds per frame
-        NSData *rateData = [NSData dataWithBytes: &frametimehundred length: sizeof(frametimehundred)];
+        NSData *rateData = [NSData dataWithBytes: &playbackRateHundred length: sizeof(playbackRateHundred)];
         [formData appendPartWithFormData:rateData name:@"rate"];
         
         // send user ID
@@ -63,11 +68,11 @@
         } else NSLog(@"no user ID, not sending to server (which means we are requesting a user ID from the server)");
         
         float time = 0.0;
-        for (int frame=0; frame<numFrames; frame++) {
+        for (int frame=0; frame<images.count; frame++) {
             
             // get image snapshot
-            UIImage *snapshot = [moviePlayer thumbnailImageAtTime:time timeOption:MPMovieTimeOptionExact];
-            if (snapshot == nil) break;
+            UIImage *snapshot = [images objectAtIndex:frame];
+            if (snapshot == nil) continue;
             
             NSLog(@"frame#%d at time %f", frame, time);
             
@@ -79,10 +84,10 @@
             [formData appendPartWithFileData:imageData name:@"frames[]" fileName:[frameAsText stringByAppendingString:@".jpg"] mimeType:@"image/jpeg"];
             
             // increment time in seconds
-            time += frametime;
+            time += (playbackRateHundred)/100.0;
             
             // incrememnt progress bar
-            [progress setProgress:(startProgress + frame*extractProgressStep) animated:YES];
+            //[_upProgress setProgress:(startProgress + frame*extractProgressStep) animated:YES];
         }
         NSLog(@"Done appending form data");
     }];
@@ -92,7 +97,7 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
-        [progress setProgress:(midProgress + (1.0-midProgress)*(totalBytesWritten / (1.0 * totalBytesExpectedToWrite)))
+        [_upProgress setProgress:(totalBytesWritten / (1.0 * totalBytesExpectedToWrite))
                      animated:YES];
     }];
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
@@ -100,84 +105,43 @@
         if (totalBytesRead >= totalBytesExpectedToRead) NSLog(@"FINISHED GETTING RESPONSE");
     }];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"success: %@", operation.responseString);
+        NSLog(@"success: %@", operation.responseString);
         
-            // save User ID
-            NSError *e = nil;
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
-            NSString *uid = [JSON objectForKey:@"user_id"];
+        // save User ID
+        NSError *e = nil;
+        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
+        NSString *uid = [JSON objectForKey:@"user_id"];
         
-            if (uid != nil) {
-                [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
-                NSLog(@"set local user_id as %@", uid);
-            }
-        
-            // now process the return URL (download the GIF)
-            [self showResponse:[JSON objectForKey:@"url"]];
+        if (uid != nil) {
+            [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
+            NSLog(@"set local user_id as %@", uid);
         }
-        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            //alert cannot connect to internet return to 2nd view
-            NSLog(@"error: %@",  operation.responseString);
-        }
+        
+        // now process the return URL (download the GIF)
+        [self showResponse:[JSON objectForKey:@"url"]];
+    }
+                                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                         //alert cannot connect to internet return to 2nd view
+                                         NSLog(@"error: %@",  operation.responseString);
+                                     }
      ];
     
     
     [httpClient enqueueHTTPRequestOperation:operation];
-   
-    NSLog(@"Done with Converting");
-    
-}
 
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self extractFrames];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(id)initWithURL:(NSURL *)thevideoRef
-{
-    if(self = [super init]){
-        videoRef = thevideoRef;
-    }
-    return self;
-}
-
--(void)setURL:(NSURL *)theVideoRef {
-    videoRef = theVideoRef;
 }
 
 
 -(void)showResponse:(NSString*)gifurl{
     NSURL *url = [NSURL URLWithString:gifurl];
-
+    
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
-
     [vc setURL:url];
     [self presentViewController:vc animated:YES completion:nil];
     
     
 }
 
-
-
-- (void)viewDidUnload {
-    progress = nil;
-    extractRateLabel = nil;
-    [super viewDidUnload];
-}
 @end

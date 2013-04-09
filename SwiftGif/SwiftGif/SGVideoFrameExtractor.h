@@ -8,6 +8,9 @@
 {
     NSURL *videoRef;
     __weak IBOutlet UIProgressView *progress;
+
+    __weak IBOutlet UILabel *extractRateLabel;
+
 }
 -(id) initWithURL: (NSURL*) videoRef;
 -(void)setURL:(NSURL *)theVideoRef;

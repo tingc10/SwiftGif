@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SGFrameEditController : UIViewController
+@property (nonatomic, copy) NSArray *info;
+@property (nonatomic, copy) NSArray *frames;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
