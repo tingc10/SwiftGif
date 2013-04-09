@@ -166,7 +166,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
-
+    
     [vc setURL:url];
     [self presentViewController:vc animated:YES completion:nil];
     
@@ -174,10 +174,11 @@
 }
 
 
-
 - (void)viewDidUnload {
+    
+    [super viewDidUnload];
     progress = nil;
     extractRateLabel = nil;
-    [super viewDidUnload];
+
 }
 @end
