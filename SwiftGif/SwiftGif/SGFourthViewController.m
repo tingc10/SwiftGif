@@ -30,6 +30,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+    if (myUserID != nil) {
+        _uniqueID.text = myUserID;
+    } else _uniqueID.text = @"You have yet to upload your first GIF!";
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,4 +43,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)rateChange:(UISlider *)sender {
+    
+    
+    _sliderLabel.text = [[NSString stringWithFormat:@"%.2f", sender.value] stringByAppendingString:@" seconds per frame"];
+}
+
+
+- (void)viewDidUnload {
+    [self setSliderLabel:nil];
+    [self setUniqueID:nil];
+    [super viewDidUnload];
+}
 @end
