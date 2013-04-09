@@ -7,6 +7,7 @@
 //
 
 #import "SGFrameEditController.h"
+#import "SGUploader.h"
 
 @interface SGFrameEditController ()
 
@@ -61,6 +62,27 @@
         [v removeFromSuperview];
     }
     [self setScrollView:nil];
+    [self setRateLabel:nil];
+    [self setPlaybackSlider:nil];
     [super viewDidUnload];
 }
+
+- (IBAction)rateChanged:(UISlider *)sender {
+    _rateLabel.text = [[@"Play Rate: " stringByAppendingString:[NSString stringWithFormat:@"%.2f", sender.value]] stringByAppendingString:@" spf"];
+}
+
+- (IBAction)clickConvert:(id)sender {
+    // dismiss view and open SGUploader
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    SGUploader *vc = [storyboard instantiateViewControllerWithIdentifier:@"SGUploader"];
+    //[self dismissViewControllerAnimated:NO completion:nil];
+    
+    int sendRate = (int)(_playbackSlider.value*100.0);
+    [vc setData:_frames andRate:sendRate andTags:@""];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
+
+
 @end

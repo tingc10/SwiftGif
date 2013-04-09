@@ -12,5 +12,7 @@
 @property (nonatomic, copy) NSArray *info;
 @property (nonatomic, copy) NSArray *frames;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel *rateLabel;
+@property (weak, nonatomic) IBOutlet UISlider *playbackSlider;
 
 @end
