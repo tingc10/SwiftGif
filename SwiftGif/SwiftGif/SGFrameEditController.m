@@ -30,7 +30,8 @@
     CGRect workingFrame = _scrollView.frame;
 	workingFrame.origin.x = 0;
     
-    
+    // set frames count label
+    _framesCount.text = [@"Frames: " stringByAppendingString:[NSString stringWithFormat:@"%d", _frames.count]];
 	
     for(UIImage *image in _frames){
         UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
@@ -64,6 +65,7 @@
     [self setScrollView:nil];
     [self setRateLabel:nil];
     [self setPlaybackSlider:nil];
+    [self setFramesCount:nil];
     [super viewDidUnload];
 }
 

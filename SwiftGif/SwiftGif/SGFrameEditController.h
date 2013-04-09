@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UISlider *playbackSlider;
+@property (weak, nonatomic) IBOutlet UILabel *framesCount;
 
 @end
