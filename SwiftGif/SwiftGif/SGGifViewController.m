@@ -111,4 +111,14 @@
     gifURL = theGifref;
 }
 
+- (IBAction)copyURLButtonClicked:(id)sender {
+    // copy GIF URL to clipboard:
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = [gifURL absoluteString];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"URL Copied!" message:@"You're welcome for the free hosting space! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+
 @end
