@@ -70,6 +70,7 @@
 		59CC95C616F1011600672ED8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59CC95C416F1011600672ED8 /* MainStoryboard.storyboard */; };
 		59CC95C916F1011600672ED8 /* SGFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CC95C816F1011600672ED8 /* SGFirstViewController.m */; };
 		59CC95D016F1011700672ED8 /* SGSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CC95CF16F1011700672ED8 /* SGSecondViewController.m */; };
+		59E5336117138D2500EAE3F8 /* SGFrameEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E5336017138D2500EAE3F8 /* SGFrameEditController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +157,8 @@
 		59CC95C816F1011600672ED8 /* SGFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGFirstViewController.m; sourceTree = "<group>"; };
 		59CC95CE16F1011700672ED8 /* SGSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSecondViewController.h; sourceTree = "<group>"; };
 		59CC95CF16F1011700672ED8 /* SGSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGSecondViewController.m; sourceTree = "<group>"; };
+		59E5335F17138D2500EAE3F8 /* SGFrameEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFrameEditController.h; sourceTree = "<group>"; };
+		59E5336017138D2500EAE3F8 /* SGFrameEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFrameEditController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				592F304416FE4AD70019CBBE /* SGVideoEditController.m */,
 				597AD17B170A343600F278D4 /* SGGifViewController.h */,
 				597AD17C170A343600F278D4 /* SGGifViewController.m */,
+				59E5335F17138D2500EAE3F8 /* SGFrameEditController.h */,
+				59E5336017138D2500EAE3F8 /* SGFrameEditController.m */,
 				59CC95B316F1011600672ED8 /* Supporting Files */,
 			);
 			path = SwiftGif;
@@ -423,6 +428,7 @@
 				014CF3171700DB3A007E8297 /* UIImageView+AFNetworking.m in Sources */,
 				597AD17D170A343600F278D4 /* SGGifViewController.m in Sources */,
 				598824FE170E895400046206 /* SGFourthViewController.m in Sources */,
+				59E5336117138D2500EAE3F8 /* SGFrameEditController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
