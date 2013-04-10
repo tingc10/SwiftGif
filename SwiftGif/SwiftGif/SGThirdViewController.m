@@ -31,10 +31,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSString *fullURL = @"http://swiftgif.tranzient.info";
+    NSString *fullURL = @"http://swiftgif.tranzient.info/global";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_webViewNew loadRequest:requestObj];
+    [[_webViewNew scrollView] setBounces: NO];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [_webViewNew reload];
 }
 
 - (void)didReceiveMemoryWarning
