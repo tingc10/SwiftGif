@@ -68,16 +68,6 @@
 - (IBAction)backButton:(id)sender {
     // go back to first tab (Gif Creation Center)
 
-    //[self.tabBarController setSelectedIndex:0];
-    //[self.tabBarController viewDidAppear:YES];
-  /*
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    
-    UITabBarController  *vc = [storyboard instantiateViewControllerWithIdentifier:@"MasterTabBar"];
-    //[self dismissViewControllerAnimated:NO completion:nil];
-    
-    [vc reloadInputViews];
-*/
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
