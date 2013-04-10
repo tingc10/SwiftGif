@@ -139,8 +139,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
     [vc setURL:url];
-    [self presentViewController:vc animated:YES completion:nil];
-    
+    UIViewController *presentingView = self.presentingViewController;
+    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
     
 }
 

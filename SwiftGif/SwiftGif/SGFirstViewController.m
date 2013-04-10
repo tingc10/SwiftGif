@@ -176,7 +176,7 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
 	}
     
     [self dismissViewControllerAnimated:NO completion:nil];
-
+    
     vc.frames = images;
     [self presentViewController:vc animated:YES completion:nil];
 	

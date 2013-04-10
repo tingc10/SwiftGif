@@ -76,7 +76,8 @@
     //[self dismissViewControllerAnimated:NO completion:nil];
     
     [vc reloadInputViews];
-    [self presentViewController:vc animated:YES completion:nil];
+    UIViewController *presentingView = self.presentingViewController;
+    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result

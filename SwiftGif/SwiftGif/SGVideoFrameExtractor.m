@@ -59,12 +59,7 @@
     }
     
     // dismiss view and open frame edit
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
-    //[self dismissViewControllerAnimated:NO completion:nil];
-    
-    vc.frames = imageArray;
-    [self presentViewController:vc animated:YES completion:nil];
+    [self showResponse:imageArray];
 }
 
 
@@ -99,16 +94,15 @@
 }
 
 
--(void)showResponse:(NSString*)gifurl{
-    NSURL *url = [NSURL URLWithString:gifurl];
-    
-    
+-(void)showResponse:(NSArray*)imageArray{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
+    SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
     
-    [vc setURL:url];
-    [self presentViewController:vc animated:YES completion:nil];
     
+    vc.frames = imageArray;
+    
+    UIViewController *presentingView = self.presentingViewController;
+    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
     
 }
 

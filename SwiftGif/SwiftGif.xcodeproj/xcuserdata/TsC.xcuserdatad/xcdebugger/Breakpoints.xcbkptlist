@@ -123,11 +123,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGFrameEditController.m"
-         timestampString = "387171188.626642"
+         timestampString = "387246978.862992"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "28"
-         endingLineNumber = "28"
+         startingLineNumber = "25"
+         endingLineNumber = "25"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -136,16 +136,16 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGFrameEditController.m"
-         timestampString = "387171192.564661"
+         timestampString = "387246978.862992"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "19"
+         endingLineNumber = "19"
+         landmarkName = "-pressCancel:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGFirstViewController.m"
@@ -162,27 +162,27 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387180212.974957"
+         timestampString = "387247435.321159"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183">
+         startingLineNumber = "177"
+         endingLineNumber = "177">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGGifViewController.m"
-         timestampString = "387178663.681698"
+         timestampString = "387247794.611998"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
          landmarkName = "-messageComposeViewController:didFinishWithResult:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGGifViewController.m"
@@ -195,7 +195,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGGifViewController.m"
@@ -225,29 +225,29 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387180212.974957"
+         timestampString = "387247435.321159"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "174"
-         endingLineNumber = "174">
+         startingLineNumber = "168"
+         endingLineNumber = "168">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387180212.974957"
+         timestampString = "387247435.321159"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "176"
-         endingLineNumber = "176">
+         startingLineNumber = "170"
+         endingLineNumber = "170">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGGifViewController.m"
-         timestampString = "387178619.671326"
+         timestampString = "387247794.611998"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "79"
@@ -256,59 +256,33 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGGifViewController.m"
-         timestampString = "387178663.681698"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
-         landmarkName = "-backButton:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SwiftGif/SGGifViewController.m"
-         timestampString = "387178689.801188"
+         timestampString = "387247794.611998"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "81"
          endingLineNumber = "81"
+         landmarkName = "-backButton:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SwiftGif/SGGifViewController.m"
+         timestampString = "387247794.611998"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
          landmarkName = "@implementation SGGifViewController"
          landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387180257.51923"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
-         landmarkName = "-extractFrames"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387180258.547999"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
-         landmarkName = "-extractFrames"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGFirstViewController.m"

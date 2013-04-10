@@ -15,13 +15,10 @@
 
 @implementation SGFrameEditController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+- (IBAction)pressCancel:(id)sender
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidLoad
@@ -88,7 +85,8 @@
     
     int sendRate = (int)(_playbackSlider.value*100.0);
     [vc setData:_frames andRate:sendRate andTags:@""];
-    [self presentViewController:vc animated:YES completion:nil];
+    UIViewController *presentingView = self.presentingViewController;
+    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
 }
 
 
