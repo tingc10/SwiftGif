@@ -70,14 +70,15 @@
 
     //[self.tabBarController setSelectedIndex:0];
     //[self.tabBarController viewDidAppear:YES];
+  /*
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
     UITabBarController  *vc = [storyboard instantiateViewControllerWithIdentifier:@"MasterTabBar"];
     //[self dismissViewControllerAnimated:NO completion:nil];
     
     [vc reloadInputViews];
-    UIViewController *presentingView = self.presentingViewController;
-    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
+*/
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result

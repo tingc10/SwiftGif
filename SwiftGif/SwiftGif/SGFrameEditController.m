@@ -37,6 +37,11 @@
     _rateLabel.text = [[@"Play Rate: " stringByAppendingString:[NSString stringWithFormat:@"%.2f", frametime]] stringByAppendingString:@" spf"];
     /////////////////
 	
+    _animateArray.animationImages = _frames;
+    _animateArray.animationDuration = frametime*_frames.count;
+
+    [_animateArray startAnimating];
+    
     for(UIImage *image in _frames){
         UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
 		[imageview setContentMode:UIViewContentModeScaleAspectFit];
@@ -49,8 +54,6 @@
 
     }
     
-    
-    //self.frames = images;
 	
 	[_scrollView setPagingEnabled:YES];
 	[_scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
@@ -62,6 +65,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void)viewDidUnload {
     for (UIView *v in [_scrollView subviews]) {
         [v removeFromSuperview];
@@ -70,11 +74,16 @@
     [self setRateLabel:nil];
     [self setPlaybackSlider:nil];
     [self setFramesCount:nil];
+    [self setAnimateArray:nil];
+    [self setAnimateArray:nil];
     [super viewDidUnload];
 }
 
 - (IBAction)rateChanged:(UISlider *)sender {
+    [_animateArray stopAnimating];
     _rateLabel.text = [[@"Play Rate: " stringByAppendingString:[NSString stringWithFormat:@"%.2f", sender.value]] stringByAppendingString:@" spf"];
+    _animateArray.animationDuration = sender.value*_frames.count;
+    [_animateArray startAnimating];
 }
 
 - (IBAction)clickConvert:(id)sender {

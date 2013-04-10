@@ -103,10 +103,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="OdM-ra-Kos">
-                                <rect key="frame" x="-1" y="45" width="321" height="357"/>
+                                <rect key="frame" x="0.0" y="45" width="321" height="357"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fFS-UT-asg">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="QJi-gj-hLW">
+                                        <rect key="frame" x="26" y="0.0" width="268" height="357"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fFS-UT-asg">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="357"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </scrollView>
@@ -195,6 +199,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="animateArray" destination="QJi-gj-hLW" id="Tzj-ra-tkg"/>
                         <outlet property="framesCount" destination="eOw-aS-ThP" id="VK6-Fd-xXr"/>
                         <outlet property="playbackSlider" destination="Jhe-1n-6mh" id="yTZ-1l-2ff"/>
                         <outlet property="rateLabel" destination="Bts-80-f3Z" id="41O-8b-w9e"/>
