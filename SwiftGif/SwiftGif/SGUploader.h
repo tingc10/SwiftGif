@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SGProcessingView.h"
 
 @interface SGUploader : UIViewController{
     NSArray *images;
     int playbackRateHundred;
     NSString *tags;
+    SGProcessingView *animate;
 }
+
+@property (weak, nonatomic) IBOutlet UIImageView *processing;
+@property (weak, nonatomic) IBOutlet UIImageView *uploading;
 
 @property (weak, nonatomic) IBOutlet UIProgressView *upProgress;
 

@@ -9,6 +9,7 @@
 #import "SGFrameEditController.h"
 #import "SGUploader.h"
 
+
 @interface SGFrameEditController ()
 
 @end
@@ -23,6 +24,7 @@
 
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
     [super viewDidLoad];
     CGRect workingFrame = _scrollView.frame;
 	workingFrame.origin.x = 0;
@@ -30,18 +32,18 @@
     // set frames count label & slider/label to default x rate
     // change into viewDidAppear if it's not changing
     // after multiple go-thrus? Must test that.
-    _framesCount.text = [@"Frames: " stringByAppendingString:[NSString stringWithFormat:@"%d", _frames.count]];
+    _framesCount.text = [NSString stringWithFormat: @"%d", _frames.count];
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
     if (frametime <= 0.0) frametime = 0.1;
     _playbackSlider.value = frametime;
-    _rateLabel.text = [[@"Play Rate: " stringByAppendingString:[NSString stringWithFormat:@"%.2f", frametime]] stringByAppendingString:@" spf"];
+    _rateLabel.text = [[NSString stringWithFormat:@"%.2f", frametime] stringByAppendingString:@"spf"];
     /////////////////
 	
     _animateArray.animationImages = _frames;
     _animateArray.animationDuration = frametime*_frames.count;
 
     [_animateArray startAnimating];
-    
+    /*
     for(UIImage *image in _frames){
         UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
 		[imageview setContentMode:UIViewContentModeScaleAspectFit];
@@ -57,6 +59,7 @@
 	
 	[_scrollView setPagingEnabled:YES];
 	[_scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
+     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,6 +85,7 @@
 - (IBAction)rateChanged:(UISlider *)sender {
     [_animateArray stopAnimating];
     _rateLabel.text = [[@"Play Rate: " stringByAppendingString:[NSString stringWithFormat:@"%.2f", sender.value]] stringByAppendingString:@" spf"];
+    
     _animateArray.animationDuration = sender.value*_frames.count;
     [_animateArray startAnimating];
 }
@@ -95,7 +99,7 @@
     int sendRate = (int)(_playbackSlider.value*100.0);
     [vc setData:_frames andRate:sendRate andTags:@""];
     UIViewController *presentingView = self.presentingViewController;
-    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
+    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:NO completion:nil];}];
 }
 
 

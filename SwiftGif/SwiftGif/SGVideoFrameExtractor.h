@@ -3,6 +3,7 @@
 //  SwiftGif
 
 #import <UIKit/UIKit.h>
+#import "SGProcessingView.h"
 
 @interface SGVideoFrameExtractor : UIViewController
 {
@@ -10,8 +11,12 @@
     __weak IBOutlet UIProgressView *progress;
 
     __weak IBOutlet UILabel *extractRateLabel;
-
+    NSArray *animationFrames;
+    SGProcessingView *process;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *processing;
+@property (weak, nonatomic) IBOutlet UIImageView *extracting;
+
 -(id) initWithURL: (NSURL*) videoRef;
 -(void)setURL:(NSURL *)theVideoRef;
 

@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
 	// set slider to correct value
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
     if (frametime < 0.01) frametime = 0.1;

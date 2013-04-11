@@ -11,14 +11,6 @@
 
 @implementation SGVideoFrameExtractor
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 
 -(void) extractFrames {
@@ -31,7 +23,7 @@
     
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
     if (frametime < 0.01) frametime = 0.1;
-    extractRateLabel.text = [[@"Extracting at " stringByAppendingString:[NSString stringWithFormat:@"%.2f", frametime]] stringByAppendingString:@" sec/frame"];
+    extractRateLabel.text = [[NSString stringWithFormat:@"@%.2f", frametime] stringByAppendingString:@" sec/frame"];
     
     int numFrames = (int)(seconds/frametime);
     
@@ -66,12 +58,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
+    process = [[SGProcessingView alloc] initWithView:_processing type: YES overlay:_extracting];
+    
+    [process animate];
     [self extractFrames];
 }
 
@@ -103,6 +99,7 @@
     
     UIViewController *presentingView = self.presentingViewController;
     [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
+    [process stop];
     
 }
 
@@ -111,6 +108,8 @@
 - (void)viewDidUnload {
     progress = nil;
     extractRateLabel = nil;
+    [self setProcessing:nil];
+    [self setExtracting:nil];
     [super viewDidUnload];
 }
 @end
