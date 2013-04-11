@@ -29,12 +29,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
-    NSString *fullURL = @"http://swiftgif.tranzient.info";
+
+
+    NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+    NSString *fullURL = [@"http://swiftgif.tranzient.info/users/" stringByAppendingString: myUserID];
+    NSLog(@"Loading User URL: %@\n", fullURL);
+
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_profile loadRequest:requestObj];
+    [[_profile scrollView] setBounces: NO];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [_profile reload];
 }
 
 - (void)didReceiveMemoryWarning
