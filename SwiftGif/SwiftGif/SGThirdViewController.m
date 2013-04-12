@@ -30,8 +30,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
+
+
     
     NSString *fullURL = @"http://swiftgif.tranzient.info/global";
+
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_webViewNew loadRequest:requestObj];

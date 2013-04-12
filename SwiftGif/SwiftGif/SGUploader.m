@@ -14,21 +14,28 @@
 #import <AVFoundation/AVAsset.h>
 #import "SGGifViewController.h"
 
+
 @implementation SGUploader
 
 - (void)viewDidUnload {
+
     [self setUpProgress:nil];
+    [self setProcessing:nil];
+    [self setUploading:nil];
     [super viewDidUnload];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    animate = [[SGProcessingView alloc] initWithView:_processing type:NO overlay:_uploading];
+    [animate animate];
     [self uploadFrames];
 }
 
@@ -134,7 +141,7 @@
 
 -(void)showResponse:(NSString*)gifurl{
     NSURL *url = [NSURL URLWithString:gifurl];
-    
+    [animate stop];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];

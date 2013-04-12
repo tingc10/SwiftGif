@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:gifURL];
     [_gifDisplay loadRequest:requestObj];
 }
@@ -68,7 +68,7 @@
 - (IBAction)backButton:(id)sender {
     // go back to first tab (Gif Creation Center)
 
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result

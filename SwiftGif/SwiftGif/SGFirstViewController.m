@@ -36,6 +36,7 @@
 {
     if(self = [super initWithCoder:aDecoder])
     {
+        
         UITabBarItem* tabBarItem =  [[UITabBarItem alloc] initWithTitle:nil image:nil tag:0];
         [tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"video_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"video.png"]];
         self.tabBarItem = tabBarItem;
@@ -47,10 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
-    
-    
 }
 
 - (void) uploadImages
@@ -103,7 +101,11 @@
     [cameraView viewWillAppear:YES];
     [cameraView viewDidAppear:YES];
     
-    [self presentViewController:cameraView animated:NO completion:nil];
+    if(isLive){
+        [self presentViewController:cameraView animated:NO completion:nil];
+    }else{
+        [self presentViewController:cameraView animated:YES completion:nil];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -146,7 +148,9 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     [extractor setURL:[info objectForKey:UIImagePickerControllerMediaURL]];
     [extractor setModalPresentationStyle:UIModalPresentationFullScreen];
     
-    [self presentViewController:extractor animated:YES completion:nil];
+
+    
+    [self presentViewController:extractor animated:NO completion:nil];
     
     
     
@@ -154,7 +158,7 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
 
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker{
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [picker.view removeFromSuperview];
     
     
@@ -165,6 +169,12 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
 
 - (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
 {
+    if(info.count == 0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please select one or more images" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
@@ -174,17 +184,19 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
         [images addObject:image];
         
 	}
-    
-    [self dismissViewControllerAnimated:NO completion:nil];
-    
+    //UIViewController *modalView = self;
     vc.frames = images;
-    [self presentViewController:vc animated:YES completion:nil];
+    UIViewController *presentingView = self;
+    [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:NO completion:nil];}];
+    
+    
+    //[self presentViewController:vc animated:NO completion:nil];
 	
 }
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker
 {
 
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [picker.view removeFromSuperview];
 }
 
