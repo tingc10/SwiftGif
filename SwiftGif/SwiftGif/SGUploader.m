@@ -125,7 +125,7 @@
         }
         
         // now process the return URL (download the GIF)
-        [self showResponse:[JSON objectForKey:@"url"]];
+        [self showResponse:[JSON objectForKey:@"url"] downloadUrl:@"download_url"];
     }
                                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          //alert cannot connect to internet return to 2nd view
@@ -139,13 +139,15 @@
 }
 
 
--(void)showResponse:(NSString*)gifurl{
-    NSURL *url = [NSURL URLWithString:gifurl];
+-(void)showResponse:(NSString*)gifshow downloadUrl:(NSString*)download{
+    NSURL *url = [NSURL URLWithString:gifshow];
+    NSURL *downloadGif = [NSURL URLWithString:download];
     [animate stop];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGGifViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewGifController"];
-    [vc setURL:url];
+    [vc setURL:url downloadURL:downloadGif];
+
     UIViewController *presentingView = self.presentingViewController;
     [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
     

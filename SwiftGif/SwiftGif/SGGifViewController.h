@@ -13,7 +13,8 @@
 @interface SGGifViewController : UIViewController<MFMessageComposeViewControllerDelegate,UINavigationControllerDelegate>
 {
     NSURL *gifURL;
+    NSURL *downloadGif;
 }
--(void) setURL:(NSURL*)theGifref;
+-(void) setURL:(NSURL*)theGifref downloadURL:(NSURL*)download;
 @property (weak, nonatomic) IBOutlet UIWebView *gifDisplay;
 @end

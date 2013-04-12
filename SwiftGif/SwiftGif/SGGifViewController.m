@@ -40,7 +40,7 @@
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     
     //must save gif as NSData to animate
-    NSData *data = [NSData dataWithContentsOfURL:gifURL];
+    NSData *data = [NSData dataWithContentsOfURL:downloadGif];
     
     //saves GIF to photolibrary
     [library writeImageDataToSavedPhotosAlbum:data metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {}];
@@ -98,9 +98,10 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setURL:(NSURL *)theGifref
+-(void)setURL:(NSURL *)theGifref downloadURL:(NSURL*)download
 {
     gifURL = theGifref;
+    downloadGif = download;
 }
 
 - (IBAction)copyURLButtonClicked:(id)sender {

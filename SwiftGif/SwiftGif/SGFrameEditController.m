@@ -84,7 +84,7 @@
 
 - (IBAction)rateChanged:(UISlider *)sender {
     [_animateArray stopAnimating];
-    _rateLabel.text = [[@"Play Rate: " stringByAppendingString:[NSString stringWithFormat:@"%.2f", sender.value]] stringByAppendingString:@" spf"];
+    _rateLabel.text = [[NSString stringWithFormat:@"%.2f", sender.value] stringByAppendingString:@"spf"];
     
     _animateArray.animationDuration = sender.value*_frames.count;
     [_animateArray startAnimating];
