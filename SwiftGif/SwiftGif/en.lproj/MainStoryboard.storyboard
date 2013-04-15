@@ -297,7 +297,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </webView>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mY4-Cw-GnL">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mY4-Cw-GnL">
                                 <rect key="frame" x="20" y="409" width="57" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -309,8 +309,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="az9-yA-cfm">
-                                <rect key="frame" x="96" y="409" width="57" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="az9-yA-cfm">
+                                <rect key="frame" x="75" y="409" width="57" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Download" image="download.png">
@@ -324,7 +324,7 @@
                                     <action selector="downloadGif:" destination="Jbw-Db-IfY" eventType="touchUpInside" id="ZRs-fG-oga"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="avO-tm-tWg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="avO-tm-tWg">
                                 <rect key="frame" x="243" y="409" width="57" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -339,8 +339,8 @@
                                     <action selector="backButton:" destination="Jbw-Db-IfY" eventType="touchUpInside" id="FAI-6T-boy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o7r-A3-zZM">
-                                <rect key="frame" x="168" y="409" width="57" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="o7r-A3-zZM">
+                                <rect key="frame" x="130" y="409" width="57" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Copy URL" image="hyperlink.png">
@@ -405,44 +405,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Video Extraction Framerate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJR-7b-fcv">
-                                <rect key="frame" x="52" y="85" width="207" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Extraction Framerate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WJR-7b-fcv">
+                                <rect key="frame" x="36" y="72" width="167" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.050000000000000003" maxValue="1" id="FF7-vW-3rS">
-                                <rect key="frame" x="50" y="114" width="211" height="23"/>
+                                <rect key="frame" x="34" y="101" width="252" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="maximumTrackTintColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="thumbTintColor" red="0.0124602442" green="1" blue="2.2938448810000001e-05" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.98823535439999999" green="0.79215693470000004" blue="0.4156863093" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <action selector="rateChange:" destination="jZS-BN-5Zc" eventType="valueChanged" id="zPb-Jp-C7K"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sBQ-t9-n6X">
-                                <rect key="frame" x="-3" y="114" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q9f-Kx-jzJ">
-                                <rect key="frame" x="5" y="114" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.1 seconds per frame" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ydZ-xi-3Xu">
-                                <rect key="frame" x="34" y="144" width="256" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Unique User ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M6r-uF-kPw">
                                 <rect key="frame" x="52" y="232" width="162" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -456,6 +435,51 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minimumValue="0.050000000000000003" maximumValue="1" stepValue="0.01" id="vNe-kj-fQc">
+                                <rect key="frame" x="49" y="133" width="94" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="finesetting:" destination="jZS-BN-5Zc" eventType="valueChanged" id="Ob1-sE-uj0"/>
+                                </connections>
+                            </stepper>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar_selected.png" id="oB6-xS-5i1">
+                                <rect key="frame" x="173" y="123" width="111" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="sQR-JG-cZ6">
+                                <rect key="frame" x="174" y="123" width="110" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="#.##" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ydZ-xi-3Xu">
+                                        <rect key="frame" x="2" y="13" width="56" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.98823535439999999" green="0.79215693470000004" blue="0.4156863093" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="secs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nm6-Of-g5n">
+                                        <rect key="frame" x="65" y="6" width="35" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.96470594409999999" green="0.78823536630000002" blue="0.43137258290000002" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="_____" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ab1-GX-v0q">
+                                        <rect key="frame" x="57" y="6" width="52" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.96470594409999999" green="0.78823536630000002" blue="0.43137258290000002" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="frame" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GoQ-YQ-MAI">
+                                        <rect key="frame" x="59" y="21" width="49" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                        <color key="textColor" red="0.96470594409999999" green="0.78823536630000002" blue="0.43137258290000002" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -463,6 +487,7 @@
                     <connections>
                         <outlet property="slider" destination="FF7-vW-3rS" id="4Bo-EJ-SMT"/>
                         <outlet property="sliderLabel" destination="ydZ-xi-3Xu" id="5VZ-Dz-Xk6"/>
+                        <outlet property="stepper" destination="vNe-kj-fQc" id="icp-u7-YQx"/>
                         <outlet property="uniqueID" destination="yLW-wP-nfJ" id="kaP-0i-NhT"/>
                     </connections>
                 </viewController>
@@ -546,8 +571,11 @@
         <class className="SGFourthViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFourthViewController.h"/>
             <relationships>
+                <relationship kind="action" name="finesetting:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="rateChange:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="sliderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="stepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="uniqueID" candidateClass="UITextField"/>
             </relationships>
         </class>

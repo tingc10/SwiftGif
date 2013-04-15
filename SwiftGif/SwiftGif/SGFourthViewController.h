@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
 @property (weak, nonatomic) IBOutlet UITextField *uniqueID;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
 
 @end
