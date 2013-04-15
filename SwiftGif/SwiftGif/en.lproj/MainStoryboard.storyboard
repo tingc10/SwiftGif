@@ -535,6 +535,70 @@
         <image name="uploadphotos.png" width="150" height="164"/>
         <image name="uploadvideo.png" width="146" height="164"/>
     </resources>
+    <classes>
+        <class className="SGFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFirstViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="gifClick:"/>
+                <relationship kind="action" name="uploadPics:"/>
+                <relationship kind="action" name="uploadVid:"/>
+            </relationships>
+        </class>
+        <class className="SGFourthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFourthViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="rateChange:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uniqueID" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SGFrameEditController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFrameEditController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="animateArray" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="framesCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="SGGifViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGGifViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gifDisplay" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SGSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGSecondViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="profile" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SGThirdViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGThirdViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webViewNew" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SGUploader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGUploader.h"/>
+            <relationships>
+                <relationship kind="outlet" name="processing" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="upProgress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="uploading" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SGVideoFrameExtractor" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGVideoFrameExtractor.h"/>
+            <relationships>
+                <relationship kind="outlet" name="extractRateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="extracting" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="processing" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="progress" candidateClass="UIProgressView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
