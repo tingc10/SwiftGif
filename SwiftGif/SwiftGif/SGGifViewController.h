@@ -16,5 +16,6 @@
     NSURL *downloadGif;
 }
 -(void) setURL:(NSURL*)theGifref downloadURL:(NSURL*)download;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *downloading;
 @property (weak, nonatomic) IBOutlet UIWebView *gifDisplay;
 @end

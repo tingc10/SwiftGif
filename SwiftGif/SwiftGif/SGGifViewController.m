@@ -37,21 +37,11 @@
 }
 
 - (IBAction)downloadGif:(id)sender {
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+
+    [NSThread detachNewThreadSelector:@selector(downloadURL) toTarget:self withObject:nil];
     
-    //must save gif as NSData to animate
-    NSData *data = [NSData dataWithContentsOfURL:downloadGif];
-    
-    //saves GIF to photolibrary
-    [library writeImageDataToSavedPhotosAlbum:data metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {}];
-    
-    // copies GIF to clipboard
-    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    [pasteboard setData:data forPasteboardType:@"com.compuserve.gif"];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloaded to Photo Library" message:@"...and copied to clipboard" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-    /*
+
+     /*
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
 	if([MFMessageComposeViewController canSendText])
 	{
@@ -60,8 +50,9 @@
 		controller.messageComposeDelegate = self;
 		[self presentModalViewController:controller animated:YES];
 	}
-    
-*/
+    */
+
+      
 }
 
 
@@ -113,5 +104,43 @@
     [alert show];
 }
 
+-(void)downloadURL{
+    if(![NSThread isMainThread])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _downloading.hidden = NO;
+            [_downloading startAnimating];
+            [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        });
+    }
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    //must save gif as NSData to animate
+    NSData *data = [NSData dataWithContentsOfURL:downloadGif];
+    
+    //saves GIF to photolibrary
+    [library writeImageDataToSavedPhotosAlbum:data metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {}];
+    
+    // copies GIF to clipboard
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    [pasteboard setData:data forPasteboardType:@"com.compuserve.gif"];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloaded to Photo Library" message:@"...and copied to clipboard" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    //exit detached thread
+    if(![NSThread isMainThread])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _downloading.hidden = YES;
+            [_downloading stopAnimating];
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        });
+    }
+    [NSThread exit];
+}
 
+
+- (void)viewDidUnload {
+    [self setDownloading:nil];
+    [super viewDidUnload];
+}
 @end

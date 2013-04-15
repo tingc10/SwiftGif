@@ -39,9 +39,16 @@
     
     // fill user ID field
     NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+    //check username
     if (myUserID != nil) {
-        _uniqueID.text = myUserID;
-    } else _uniqueID.text = @"You have yet to upload your first GIF!";
+        _registerView.hidden = YES;
+        _welcomeView.hidden = NO;
+        
+    } else {
+        _registerView.hidden = NO;
+        _welcomeView.hidden = YES;
+        
+    }
     
 }
 
@@ -75,10 +82,13 @@
 
 - (void)viewDidUnload {
     [self setSliderLabel:nil];
-    [self setUniqueID:nil];
+
     [self setSlider:nil];
  
     [self setStepper:nil];
+    [self setRegisterView:nil];
+    [self setWelcomeView:nil];
+    [self setUsername:nil];
     [super viewDidUnload];
 }
 @end

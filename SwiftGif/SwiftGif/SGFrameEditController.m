@@ -35,7 +35,7 @@
     _framesCount.text = [NSString stringWithFormat: @"%d", _frames.count];
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
     if (frametime <= 0.0) frametime = 0.1;
-    _playbackSlider.value = frametime;
+    _stepper.value = _playbackSlider.value = frametime;
     _rateLabel.text = [[NSString stringWithFormat:@"%.2f", frametime] stringByAppendingString:@"spf"];
     /////////////////
 	
@@ -79,11 +79,24 @@
     [self setFramesCount:nil];
     [self setAnimateArray:nil];
     [self setAnimateArray:nil];
+    [self setStepper:nil];
     [super viewDidUnload];
+}
+- (IBAction)stepperChange:(UIStepper*)sender {
+    
+    [_animateArray stopAnimating];
+    
+    _playbackSlider.value = sender.value;
+    _rateLabel.text = [[NSString stringWithFormat:@"%.2f", sender.value] stringByAppendingString:@"spf"];
+    
+    _animateArray.animationDuration = sender.value*_frames.count;
+    [_animateArray startAnimating];
 }
 
 - (IBAction)rateChanged:(UISlider *)sender {
     [_animateArray stopAnimating];
+    _stepper.value = sender.value;
+    
     _rateLabel.text = [[NSString stringWithFormat:@"%.2f", sender.value] stringByAppendingString:@"spf"];
     
     _animateArray.animationDuration = sender.value*_frames.count;

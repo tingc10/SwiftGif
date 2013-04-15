@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UISlider *playbackSlider;
 @property (weak, nonatomic) IBOutlet UILabel *framesCount;
 @property (weak, nonatomic) IBOutlet UIImageView *animateArray;
+@property (weak, nonatomic) IBOutlet UIStepper *stepper;
 
 @end
