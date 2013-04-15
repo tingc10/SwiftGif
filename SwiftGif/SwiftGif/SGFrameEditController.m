@@ -35,7 +35,7 @@
     _framesCount.text = [NSString stringWithFormat: @"%d", _frames.count];
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
     if (frametime <= 0.0) frametime = 0.1;
-    _playbackSlider.value = frametime;
+    _stepper.value = _playbackSlider.value = frametime;
     _rateLabel.text = [[NSString stringWithFormat:@"%.2f", frametime] stringByAppendingString:@"spf"];
     /////////////////
 	

@@ -110,6 +110,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             _downloading.hidden = NO;
             [_downloading startAnimating];
+            [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         });
     }
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
@@ -131,6 +132,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             _downloading.hidden = YES;
             [_downloading stopAnimating];
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         });
     }
     [NSThread exit];
