@@ -124,8 +124,7 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     [pasteboard setData:data forPasteboardType:@"com.compuserve.gif"];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloaded to Photo Library" message:@"...and copied to clipboard" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+    
     //exit detached thread
     if(![NSThread isMainThread])
     {
@@ -133,9 +132,16 @@
             _downloading.hidden = YES;
             [_downloading stopAnimating];
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+            
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Downloaded to Photo Library" message:@"...and copied to clipboard" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
         });
     }
+    
     [NSThread exit];
+    
 }
 
 
