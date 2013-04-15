@@ -79,11 +79,24 @@
     [self setFramesCount:nil];
     [self setAnimateArray:nil];
     [self setAnimateArray:nil];
+    [self setStepper:nil];
     [super viewDidUnload];
+}
+- (IBAction)stepperChange:(UIStepper*)sender {
+    
+    [_animateArray stopAnimating];
+    
+    _playbackSlider.value = sender.value;
+    _rateLabel.text = [[NSString stringWithFormat:@"%.2f", sender.value] stringByAppendingString:@"spf"];
+    
+    _animateArray.animationDuration = sender.value*_frames.count;
+    [_animateArray startAnimating];
 }
 
 - (IBAction)rateChanged:(UISlider *)sender {
     [_animateArray stopAnimating];
+    _stepper.value = sender.value;
+    
     _rateLabel.text = [[NSString stringWithFormat:@"%.2f", sender.value] stringByAppendingString:@"spf"];
     
     _animateArray.animationDuration = sender.value*_frames.count;
