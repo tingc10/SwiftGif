@@ -32,8 +32,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
+    
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:gifURL];
     [_gifDisplay loadRequest:requestObj];
+    NSMutableString *html = [[NSMutableString alloc] initWithString:@"<html><head><style type='text/css'>body {background-color:transparent; margin:0; padding:0;} img { max-width: 100%; width: auto; height: auto; } a { color:white; }</style></head><body>"];
+    [html appendFormat:@"<img src=\"%@\"></body></html>", downloadGif.relativeString];
+    
+    [_gifDisplay loadHTMLString:html baseURL:nil];
+    
+    //hide share options, show default options
+    _shareView.hidden = YES;
+    _defaultView.hidden = NO;
 }
 
 - (IBAction)downloadGif:(id)sender {
@@ -55,11 +64,19 @@
       
 }
 
+- (IBAction)showShare:(id)sender {
+    _shareView.hidden = NO;
+    _defaultView.hidden = YES;
+}
 
 - (IBAction)backButton:(id)sender {
     // go back to first tab (Gif Creation Center)
 
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)cancelShare:(id)sender {
+    _shareView.hidden = YES;
+    _defaultView.hidden = NO;
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
@@ -147,6 +164,8 @@
 
 - (void)viewDidUnload {
     [self setDownloading:nil];
+    [self setShareView:nil];
+    [self setDefaultView:nil];
     [super viewDidUnload];
 }
 @end
