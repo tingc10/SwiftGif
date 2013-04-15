@@ -60,7 +60,7 @@
 
         
     }
-    
+
     // dismiss view and open frame edit
     [self showResponse:imageArray];
 }
@@ -116,7 +116,10 @@
     
     UIViewController *presentingView = self.presentingViewController;
     [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
+    //must close detached thread
+    [NSThread exit];
     [process stop];
+    
     
 }
 

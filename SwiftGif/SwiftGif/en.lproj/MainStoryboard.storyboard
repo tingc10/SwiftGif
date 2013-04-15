@@ -302,7 +302,6 @@
                             <webView userInteractionEnabled="NO" contentMode="scaleToFill" scalesPageToFit="YES" id="K1J-ge-Zvl">
                                 <rect key="frame" x="10" y="0.0" width="301" height="401"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </webView>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mY4-Cw-GnL">
@@ -362,10 +361,15 @@
                                     <action selector="copyURLButtonClicked:" destination="Jbw-Db-IfY" eventType="touchUpInside" id="8ew-vU-skg"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" id="Zdy-hh-1L0">
+                                <rect key="frame" x="143" y="181" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="downloading" destination="Zdy-hh-1L0" id="NOP-yC-4c3"/>
                         <outlet property="gifDisplay" destination="K1J-ge-Zvl" id="mMq-Y8-vJm"/>
                     </connections>
                 </viewController>
@@ -383,7 +387,6 @@
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="KOY-wQ-zqF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
-                                <color key="backgroundColor" red="0.20784315466880798" green="0.73725491762161255" blue="0.11372549831867218" alpha="1" colorSpace="deviceRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </webView>
                         </subviews>
@@ -595,7 +598,6 @@
                             <webView contentMode="scaleToFill" id="d11-Gx-ihC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -667,10 +669,6 @@
         <class className="SGFrameEditController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFrameEditController.h"/>
             <relationships>
-                <relationship kind="action" name="clickConvert:"/>
-                <relationship kind="action" name="pressCancel:"/>
-                <relationship kind="action" name="rateChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="stepperChange:" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="animateArray" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="framesCount" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
@@ -682,6 +680,10 @@
         <class className="SGGifViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGGifViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="action" name="copyURLButtonClicked:"/>
+                <relationship kind="action" name="downloadGif:"/>
+                <relationship kind="outlet" name="downloading" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="gifDisplay" candidateClass="UIWebView"/>
             </relationships>
         </class>

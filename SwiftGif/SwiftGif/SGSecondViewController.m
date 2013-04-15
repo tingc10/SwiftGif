@@ -32,7 +32,7 @@
 
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
 
-
+    
     NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
     NSString *fullURL = [@"http://swiftgif.tranzient.info/users/" stringByAppendingString: myUserID];
     NSLog(@"Loading User URL: %@\n", fullURL);
