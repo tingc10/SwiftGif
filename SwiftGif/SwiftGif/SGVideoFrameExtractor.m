@@ -27,11 +27,18 @@
     
     int numFrames = (int)(seconds/frametime);
     
+    //check if numFrames over max constrained frames
+    /*
+     
+     CHECK FOR MAX HERE!
+     
+     */
+    
     
     // start progress bar at 0
-    float progPercent = 0.1;
-    progress.progress = 0.1;
-    float extractProgressStep =  (1.0 - progPercent) / numFrames;
+    float progPercent = 0.0;
+    _progress.progress = 0.0;
+    float extractProgressStep =  1.0/ numFrames;
     
     NSMutableArray *imageArray = [NSMutableArray array];
     
@@ -46,12 +53,21 @@
         time += frametime;
         
         // increment progress bar
+        NSLog(@"%.2f",extractProgressStep);
+        
         progPercent += extractProgressStep;
-        [progress setProgress:progPercent animated:YES];
+        [self performSelectorOnMainThread:@selector(updateProgress:) withObject:[NSNumber numberWithFloat:progPercent] waitUntilDone:NO];
+
+        
     }
     
     // dismiss view and open frame edit
     [self showResponse:imageArray];
+}
+
+-(void) updateProgress:(NSNumber*)progress{
+    [_progress setProgress:[progress floatValue] animated:YES];
+
 }
 
 
@@ -68,7 +84,8 @@
     process = [[SGProcessingView alloc] initWithView:_processing type: YES overlay:_extracting];
     
     [process animate];
-    [self extractFrames];
+    [NSThread detachNewThreadSelector:@selector(extractFrames) toTarget:self withObject:nil];
+    //[self extractFrames];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,10 +123,11 @@
 
 
 - (void)viewDidUnload {
-    progress = nil;
+
     extractRateLabel = nil;
     [self setProcessing:nil];
     [self setExtracting:nil];
+    [self setProgress:nil];
     [super viewDidUnload];
 }
 @end

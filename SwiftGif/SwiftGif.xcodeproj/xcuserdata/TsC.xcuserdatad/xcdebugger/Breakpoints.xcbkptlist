@@ -162,11 +162,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387308363.040536"
+         timestampString = "387385238.787399"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "176"
-         endingLineNumber = "176">
+         startingLineNumber = "194"
+         endingLineNumber = "194">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -225,22 +225,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387308363.040536"
+         timestampString = "387385238.787399"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "167"
-         endingLineNumber = "167">
+         startingLineNumber = "185"
+         endingLineNumber = "185">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SwiftGif/SGVideoFrameExtractor.m"
-         timestampString = "387308363.040536"
+         timestampString = "387385238.787399"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "169"
-         endingLineNumber = "169">
+         startingLineNumber = "187"
+         endingLineNumber = "187">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -370,6 +370,58 @@
          startingLineNumber = "183"
          endingLineNumber = "183"
          landmarkName = "-elcImagePickerController:didFinishPickingMediaWithInfo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SwiftGif/SGVideoFrameExtractor.m"
+         timestampString = "387382984.591884"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "-extractFrames"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SwiftGif/SGVideoFrameExtractor.m"
+         timestampString = "387383042.474181"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "61"
+         endingLineNumber = "61"
+         landmarkName = "-extractFrames"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SwiftGif/SGVideoFrameExtractor.m"
+         timestampString = "387383943.25114"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-extractFrames"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SwiftGif/SGVideoFrameExtractor.m"
+         timestampString = "387383945.635258"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "-extractFrames"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
