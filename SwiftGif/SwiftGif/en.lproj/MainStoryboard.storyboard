@@ -658,6 +658,8 @@
         <class className="SGFourthViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFourthViewController.h"/>
             <relationships>
+                <relationship kind="action" name="finesetting:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="rateChange:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="registerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="sliderLabel" candidateClass="UILabel"/>
