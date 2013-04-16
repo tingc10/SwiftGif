@@ -27,8 +27,15 @@
     
     int numFrames = (int)(seconds/frametime);
     
+    
+    int maxFrames;
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"maxframes"]){
+        maxFrames = 100;
+    }else{
+        maxFrames = 30;
+    }
+    
     //check if numFrames over max constrained frames
-    int maxFrames = 60;
     if (numFrames > maxFrames) {
         numFrames = maxFrames;
         frametime = seconds / numFrames;

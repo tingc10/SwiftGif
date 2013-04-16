@@ -499,7 +499,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view hidden="YES" contentMode="scaleToFill" id="zAn-Mr-fva">
-                                <rect key="frame" x="20" y="183" width="280" height="160"/>
+                                <rect key="frame" x="20" y="216" width="280" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="New Username:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i3d-0W-dyr">
@@ -562,7 +562,7 @@
                                 </subviews>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" id="EqD-dN-k9p">
-                                <rect key="frame" x="20" y="199" width="280" height="141"/>
+                                <rect key="frame" x="20" y="232" width="280" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gnj-bg-j2k">
@@ -582,7 +582,7 @@
                                 </subviews>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.050000000000000003" maxValue="1" id="FF7-vW-3rS">
-                                <rect key="frame" x="34" y="101" width="252" height="23"/>
+                                <rect key="frame" x="34" y="92" width="252" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="maximumTrackTintColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
@@ -592,18 +592,18 @@
                                 </connections>
                             </slider>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minimumValue="0.050000000000000003" maximumValue="1" stepValue="0.01" id="vNe-kj-fQc">
-                                <rect key="frame" x="49" y="133" width="94" height="27"/>
+                                <rect key="frame" x="49" y="124" width="94" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <action selector="finesetting:" destination="jZS-BN-5Zc" eventType="valueChanged" id="Ob1-sE-uj0"/>
                                 </connections>
                             </stepper>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar_selected.png" id="oB6-xS-5i1">
-                                <rect key="frame" x="173" y="123" width="111" height="48"/>
+                                <rect key="frame" x="173" y="114" width="111" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="sQR-JG-cZ6">
-                                <rect key="frame" x="174" y="123" width="110" height="48"/>
+                                <rect key="frame" x="174" y="114" width="110" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="#.##" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ydZ-xi-3Xu">
@@ -637,7 +637,7 @@
                                 </subviews>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="View your GIFs at SwiftGif.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T3f-Lq-wYr">
-                                <rect key="frame" x="36" y="369" width="249" height="26"/>
+                                <rect key="frame" x="36" y="376" width="249" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
@@ -647,15 +647,64 @@
                                 <rect key="frame" x="30" y="2" width="260" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Max Frames" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mLE-O7-8Qu">
+                                <rect key="frame" x="36" y="170" width="97" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zob-Ce-Pis">
+                                <rect key="frame" x="161" y="166" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="30frames.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="30frames_selected.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectThirty:" destination="jZS-BN-5Zc" eventType="touchUpInside" id="FnS-0g-Z02"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1TH-Yf-5yR">
+                                <rect key="frame" x="233" y="166" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="100frames.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="100frames_selected.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectHundred:" destination="jZS-BN-5Zc" eventType="touchUpInside" id="mDY-As-yKu"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="GIFs will exceed 1mb and will be too large for iMessage to play" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hox-ZE-KYn">
+                                <rect key="frame" x="36" y="195" width="259" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="8"/>
+                                <color key="textColor" red="0.28627452250000002" green="0.10588236149999999" blue="0.047058828179999998" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="GO7-Ve-F24"/>
                     <connections>
+                        <outlet property="framewarning" destination="hox-ZE-KYn" id="DAl-k5-snf"/>
+                        <outlet property="hundredbutton" destination="1TH-Yf-5yR" id="hQi-VI-jBh"/>
                         <outlet property="registerView" destination="zAn-Mr-fva" id="v2D-wk-e5R"/>
                         <outlet property="slider" destination="FF7-vW-3rS" id="4Bo-EJ-SMT"/>
                         <outlet property="sliderLabel" destination="ydZ-xi-3Xu" id="5VZ-Dz-Xk6"/>
                         <outlet property="stepper" destination="vNe-kj-fQc" id="icp-u7-YQx"/>
+                        <outlet property="thirtybutton" destination="Zob-Ce-Pis" id="P9U-QE-VNr"/>
                         <outlet property="username" destination="PA6-tu-NyS" id="bVZ-pr-xNR"/>
                         <outlet property="welcomeView" destination="EqD-dN-k9p" id="7Li-R1-kpk"/>
                     </connections>
@@ -718,6 +767,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="100frames.png" width="66" height="44"/>
+        <image name="100frames_selected.png" width="66" height="44"/>
+        <image name="30frames.png" width="66" height="44"/>
+        <image name="30frames_selected.png" width="66" height="44"/>
         <image name="array.png" width="141" height="88"/>
         <image name="cancel.png" width="42" height="42"/>
         <image name="download.png" width="66" height="44"/>
@@ -741,10 +794,17 @@
         <class className="SGFourthViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFourthViewController.h"/>
             <relationships>
+                <relationship kind="action" name="finesetting:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="rateChange:" candidateClass="UISlider"/>
+                <relationship kind="action" name="selectHundred:"/>
+                <relationship kind="action" name="selectThirty:"/>
+                <relationship kind="outlet" name="framewarning" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hundredbutton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="registerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="sliderLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="stepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="thirtybutton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="username" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="welcomeView" candidateClass="UIView"/>
             </relationships>
@@ -763,11 +823,6 @@
         <class className="SGGifViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SGGifViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="action" name="cancelShare:"/>
-                <relationship kind="action" name="copyURLButtonClicked:"/>
-                <relationship kind="action" name="downloadGif:"/>
-                <relationship kind="action" name="showShare:"/>
                 <relationship kind="outlet" name="defaultView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="downloading" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="gifDisplay" candidateClass="UIWebView"/>

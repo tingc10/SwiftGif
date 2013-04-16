@@ -34,6 +34,7 @@
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
     if (frametime < 0.01) frametime = 0.1;
     
+    //set current slider and stepper values
     _stepper.value = _slider.value = frametime;
     _sliderLabel.text = [NSString stringWithFormat:@"%.2f", frametime];
     
@@ -50,6 +51,36 @@
         
     }
     
+    //initialize maxframes selection
+    BOOL maxframes = [[NSUserDefaults standardUserDefaults] boolForKey:@"maxframes"];
+    if(!maxframes){
+        //30 frames selected by default
+        _thirtybutton.selected = YES;
+        _hundredbutton.selected = NO;
+        _framewarning.hidden = YES;
+    }else{
+        //100 frames selected
+        _thirtybutton.selected = NO;
+        _hundredbutton.selected = YES;
+        _framewarning.hidden = NO;
+    }
+    
+}
+- (IBAction)selectThirty:(id)sender {
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"maxframes"]){
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"maxframes"];
+        _thirtybutton.selected = YES;
+        _hundredbutton.selected = NO;
+        _framewarning.hidden = YES;
+    }
+}
+- (IBAction)selectHundred:(id)sender {
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"maxframes"]){
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"maxframes"];
+        _thirtybutton.selected = NO;
+        _hundredbutton.selected = YES;
+        _framewarning.hidden = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,6 +120,9 @@
     [self setRegisterView:nil];
     [self setWelcomeView:nil];
     [self setUsername:nil];
+    [self setFramewarning:nil];
+    [self setThirtybutton:nil];
+    [self setHundredbutton:nil];
     [super viewDidUnload];
 }
 @end

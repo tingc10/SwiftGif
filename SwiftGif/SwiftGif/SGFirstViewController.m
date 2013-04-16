@@ -157,6 +157,7 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
 }
 
 
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
     [picker.view removeFromSuperview];
@@ -178,9 +179,15 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
+    
 	for(NSDictionary *dict in info) {
         
         UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
+        //performs check of valid jpeg file
+        if(![self contentTypeForImageData:UIImageJPEGRepresentation(image, .1)]){
+            continue;
+        }
+        
         [images addObject:image];
         
 	}
@@ -198,6 +205,30 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
 
     [self dismissViewControllerAnimated:YES completion:nil];
     [picker.view removeFromSuperview];
+}
+
+- (BOOL)contentTypeForImageData:(NSData *)data {
+    uint8_t c;
+    [data getBytes:&c length:1];
+    if(c == 0xFF){
+        return YES;
+    }else{
+        return NO;
+    }
+    /*
+    switch (c) {
+        case 0xFF:
+            return @"image/jpeg";
+        case 0x89:
+            return @"image/png";
+        case 0x47:
+            return @"image/gif";
+        case 0x49:
+        case 0x4D:
+            return @"image/tiff";
+    }
+    return nil;
+     */
 }
 
 @end

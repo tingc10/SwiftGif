@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
 @property (weak, nonatomic) IBOutlet UIView *registerView;
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UILabel *framewarning;
+@property (weak, nonatomic) IBOutlet UIButton *thirtybutton;
+@property (weak, nonatomic) IBOutlet UIButton *hundredbutton;
 
 @property (weak, nonatomic) IBOutlet UIView *welcomeView;
 @end
