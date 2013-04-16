@@ -365,75 +365,6 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="FNv-7Z-d5E">
-                                <rect key="frame" x="17" y="405" width="289" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hFB-Ml-pvI">
-                                        <rect key="frame" x="57" y="3" width="54" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="twitter">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ira-YR-ttB">
-                                        <rect key="frame" x="0.0" y="3" width="58" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="cancel" image="cancel.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelShare:" destination="Jbw-Db-IfY" eventType="touchUpInside" id="UIv-bf-F9h"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qh0-Aj-vh4">
-                                        <rect key="frame" x="111" y="3" width="57" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="facebook">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gdI-Io-Q9f">
-                                        <rect key="frame" x="170" y="3" width="53" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fkd-GU-hw7">
-                                        <rect key="frame" x="216" y="3" width="73" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button" image="go.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </view>
                             <webView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="K1J-ge-Zvl">
                                 <rect key="frame" x="10" y="0.0" width="301" height="401"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -451,7 +382,6 @@
                         <outlet property="defaultView" destination="uE2-62-lGD" id="L1A-WD-T9y"/>
                         <outlet property="downloading" destination="Zdy-hh-1L0" id="NOP-yC-4c3"/>
                         <outlet property="gifDisplay" destination="K1J-ge-Zvl" id="mMq-Y8-vJm"/>
-                        <outlet property="shareView" destination="FNv-7Z-d5E" id="14Y-wZ-1HC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfP-tW-fUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -787,78 +717,6 @@
         <image name="uploadphotos.png" width="150" height="164"/>
         <image name="uploadvideo.png" width="146" height="164"/>
     </resources>
-    <classes>
-        <class className="SGFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFirstViewController.h"/>
-        </class>
-        <class className="SGFourthViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFourthViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="finesetting:" candidateClass="UIStepper"/>
-                <relationship kind="action" name="rateChange:" candidateClass="UISlider"/>
-                <relationship kind="action" name="selectHundred:"/>
-                <relationship kind="action" name="selectThirty:"/>
-                <relationship kind="outlet" name="framewarning" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="hundredbutton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="registerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="sliderLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="stepper" candidateClass="UIStepper"/>
-                <relationship kind="outlet" name="thirtybutton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="welcomeView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SGFrameEditController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFrameEditController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="animateArray" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="framesCount" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="stepper" candidateClass="UIStepper"/>
-            </relationships>
-        </class>
-        <class className="SGGifViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGGifViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="defaultView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="downloading" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="gifDisplay" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="shareView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SGSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGSecondViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="profile" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="SGThirdViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGThirdViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webViewNew" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="SGUploader" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGUploader.h"/>
-            <relationships>
-                <relationship kind="outlet" name="processing" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="upProgress" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="uploading" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SGVideoFrameExtractor" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGVideoFrameExtractor.h"/>
-            <relationships>
-                <relationship kind="outlet" name="extractRateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="extracting" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="processing" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="progress" candidateClass="UIProgressView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

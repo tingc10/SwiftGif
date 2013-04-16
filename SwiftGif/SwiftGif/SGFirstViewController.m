@@ -14,6 +14,7 @@
 #import "ELCAlbumPickerController.h"
 
 
+
 @implementation SGFirstViewController
 
 
@@ -142,17 +143,34 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     [picker.view removeFromSuperview];
     [(UITextView *)[self.view viewWithTag:2] setText:@""];
     
+    /////////////////////////////////////////
     
+    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([type isEqualToString:(NSString *)kUTTypeVideo] ||
+        [type isEqualToString:(NSString *)kUTTypeMovie]) { // movie != video
+        
+        NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+        //define start and end of video
+        NSNumber *start = [info objectForKey:@"_UIImagePickerControllerVideoEditingStart"];
+        NSNumber *end = [info objectForKey:@"_UIImagePickerControllerVideoEditingEnd"];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        SGVideoFrameExtractor *extractor = [storyboard instantiateViewControllerWithIdentifier:@"VideoFrameExtractor"];
+        [extractor setURL:videoURL setStart:start setEnd:end];
+        [extractor setModalPresentationStyle:UIModalPresentationFullScreen];
+        [self presentViewController:extractor animated:NO completion:nil];
+        
+        
+        
+    }
+    /////////////////////////////////////////
+    /*
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGVideoFrameExtractor *extractor = [storyboard instantiateViewControllerWithIdentifier:@"VideoFrameExtractor"];
     [extractor setURL:[info objectForKey:UIImagePickerControllerMediaURL]];
     [extractor setModalPresentationStyle:UIModalPresentationFullScreen];
-    
-
-    
     [self presentViewController:extractor animated:NO completion:nil];
     
-    
+    */
     
 }
 

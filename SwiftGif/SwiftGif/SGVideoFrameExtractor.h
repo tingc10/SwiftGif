@@ -8,7 +8,8 @@
 @interface SGVideoFrameExtractor : UIViewController
 {
     NSURL *videoRef;
-
+    NSNumber* start;
+    NSNumber* end;
 
     __weak IBOutlet UILabel *extractRateLabel;
     NSArray *animationFrames;
@@ -19,6 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
 
 -(id) initWithURL: (NSURL*) videoRef;
--(void)setURL:(NSURL *)theVideoRef;
+-(void)setURL:(NSURL *)theVideoRef setStart:(NSNumber*)thestart setEnd:(NSNumber*)theend;
 
 @end

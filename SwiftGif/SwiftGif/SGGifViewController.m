@@ -36,13 +36,13 @@
     
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:gifURL];
     [_gifDisplay loadRequest:requestObj];
-    NSMutableString *html = [[NSMutableString alloc] initWithString:@"<html><head><style type='text/css'>body {background-color:transparent; margin:0; padding:0;} img { max-width: 100%; width: auto; height: auto; } a { color:white; }</style></head><body>"];
+    NSMutableString *html = [[NSMutableString alloc] initWithString:@"<html><head><style type='text/css'>body {background-color:transparent; margin:0; padding:0;} img { vertical-align: middle; max-width: 100%; width: auto; height: auto; }</style></head><body>"];
     [html appendFormat:@"<img src=\"%@\"></body></html>", downloadGif.relativeString];
     
     [_gifDisplay loadHTMLString:html baseURL:nil];
     
     //hide share options, show default options
-    _shareView.hidden = YES;
+
     _defaultView.hidden = NO;
 }
 
@@ -85,10 +85,6 @@
     // go back to first tab (Gif Creation Center)
 
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (IBAction)cancelShare:(id)sender {
-    _shareView.hidden = YES;
-    _defaultView.hidden = NO;
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
@@ -178,7 +174,7 @@
 
 - (void)viewDidUnload {
     [self setDownloading:nil];
-    [self setShareView:nil];
+
     [self setDefaultView:nil];
     [super viewDidUnload];
 }

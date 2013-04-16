@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ELCImagePickerController.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface SGFirstViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,ELCImagePickerControllerDelegate>
+@interface SGFirstViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate,ELCImagePickerControllerDelegate, AVAssetResourceLoaderDelegate>
 {
     
 }

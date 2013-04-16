@@ -15,6 +15,7 @@
 #import "SGGifViewController.h"
 
 
+
 @implementation SGUploader
 
 - (void)viewDidUnload {
@@ -100,40 +101,84 @@
     }];
     
     NSLog(@"Done creating mutable URL request");
+    
     // upload to server
+    
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+    
+    [operation setUploadProgressBlock:
+     ^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite)
+     {
         NSLog(@"Sent %lld of %lld bytes", totalBytesWritten, totalBytesExpectedToWrite);
         [_upProgress setProgress:(totalBytesWritten / (1.0 * totalBytesExpectedToWrite))
                      animated:YES];
-    }];
-    [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+    
+     }
+    ];
+    
+    [operation setDownloadProgressBlock:
+     ^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead)
+     {
         NSLog(@"Received %lld of %lld bytes", totalBytesRead, totalBytesExpectedToRead);
-        if (totalBytesRead >= totalBytesExpectedToRead) NSLog(@"FINISHED GETTING RESPONSE");
-    }];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success: %@", operation.responseString);
-        
-        // save User ID
-        NSError *e = nil;
-        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
-        NSString *uid = [JSON objectForKey:@"user_id"];
-        
-        if (uid != nil) {
-            [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
-            NSLog(@"set local user_id as %@", uid);
+        if (totalBytesRead >= totalBytesExpectedToRead)
+            NSLog(@"FINISHED GETTING RESPONSE");
+     }
+    ];
+    
+    [operation setCompletionBlockWithSuccess:
+         ^(AFHTTPRequestOperation *operation, id responseObject)
+         {
+            NSLog(@"success: %@", operation.responseString);
+            
+            // save User ID
+            NSError *e = nil;
+            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
+            NSString *uid = [JSON objectForKey:@"user_id"];
+            
+            if (uid != nil) {
+                [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
+                NSLog(@"set local user_id as %@", uid);
+            }
+            
+            // now process the return URL (download the GIF)
+            [self showResponse:[JSON objectForKey:@"url"] downloadUrl:[JSON objectForKey:@"download_url"]];
+         }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error)
+        {
+            //alert cannot connect to internet return to 2nd view
+            NSLog(@"error: %@",  operation.responseString);
+            if(operation){
+                [operation cancel];
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to server" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            [animate stop];
+            //return to screen
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
-        
-        // now process the return URL (download the GIF)
-        [self showResponse:[JSON objectForKey:@"url"] downloadUrl:[JSON objectForKey:@"download_url"]];
-    }
-                                     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                         //alert cannot connect to internet return to 2nd view
-                                         NSLog(@"error: %@",  operation.responseString);
-                                     }
-     ];
+    ];
+    
+    
     
     [httpClient enqueueHTTPRequestOperation:operation];
+    
+    //check to see if there is a change in connection
+    [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        //check if network status is available
+        if(status == AFNetworkReachabilityStatusUnknown || status == AFNetworkReachabilityStatusNotReachable){
+            if(operation){
+                //cancel all operations
+                //[httpClient cancelAllHTTPOperationsWithMethod:nil path:(NSString *)]
+                //[[[httpClient operationQueue] cancelAllOperations]];
+                [operation cancel];
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to server" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            [animate stop];
+            //return to screen
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
     
 
 }

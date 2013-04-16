@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-
+#import <SystemConfiguration/SystemConfiguration.h>
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
 

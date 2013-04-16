@@ -22,6 +22,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AFURLConnectionOperation.h"
+#import <SystemConfiguration/SystemConfiguration.h>
 
 #import <Availability.h>
 
