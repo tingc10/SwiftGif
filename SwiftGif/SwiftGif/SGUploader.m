@@ -133,9 +133,8 @@
                                      }
      ];
     
-    
     [httpClient enqueueHTTPRequestOperation:operation];
-
+    
 
 }
 

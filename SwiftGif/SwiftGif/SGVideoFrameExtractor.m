@@ -28,11 +28,11 @@
     int numFrames = (int)(seconds/frametime);
     
     //check if numFrames over max constrained frames
-    /*
-     
-     CHECK FOR MAX HERE!
-     
-     */
+    int maxFrames = 60;
+    if (numFrames > maxFrames) {
+        numFrames = maxFrames;
+        frametime = seconds / numFrames;
+    }
     
     
     // start progress bar at 0
