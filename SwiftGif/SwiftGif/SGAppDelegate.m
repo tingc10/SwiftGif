@@ -7,6 +7,8 @@
 //
 
 #import "SGAppDelegate.h"
+#import "SHKConfiguration.h"
+#import "SGSHKConfigurator.h"
 
 @implementation SGAppDelegate
 
@@ -30,6 +32,11 @@
         // This is the first launch ever
     }
     */
+    
+    
+    DefaultSHKConfigurator *configurator = [[SGSHKConfigurator alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
+    
     return YES;
 }
 							

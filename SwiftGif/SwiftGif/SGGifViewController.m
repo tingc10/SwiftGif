@@ -70,8 +70,7 @@
     //_defaultView.hidden = YES;
     
     // Create the URL to share
-	SHKItem *item = [SHKItem URL:gifURL title:@"Shared from SwiftGif"];
-    
+	SHKItem *item = [SHKItem URL:gifURL title:@"Shared from SwiftGif" contentType:SHKURLContentTypeWebpage];
 	// Get the ShareKit action sheet
 	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
     
