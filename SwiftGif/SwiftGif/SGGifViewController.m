@@ -10,6 +10,7 @@
 #import "SGSecondViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MessageUI/MessageUI.h>
+#import "SHK.h"
 
 
 @interface SGGifViewController ()
@@ -65,8 +66,20 @@
 }
 
 - (IBAction)showShare:(id)sender {
-    _shareView.hidden = NO;
-    _defaultView.hidden = YES;
+    //_shareView.hidden = NO;
+    //_defaultView.hidden = YES;
+    
+    // Create the URL to share
+	SHKItem *item = [SHKItem URL:gifURL title:@"Shared from SwiftGif"];
+    
+	// Get the ShareKit action sheet
+	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    
+	// Display the action sheet
+    //[actionSheet showFromTabBar:self.tabBarController.tabBar];
+    [SHK setRootViewController:self.navigationController];
+    
+    [actionSheet showInView:[self view]];
 }
 
 - (IBAction)backButton:(id)sender {
