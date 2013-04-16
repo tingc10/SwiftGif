@@ -133,6 +133,8 @@
     [alert show];
 }
 
+
+
 -(void)downloadURL{
     if(![NSThread isMainThread])
     {
