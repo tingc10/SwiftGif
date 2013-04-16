@@ -113,15 +113,15 @@
 }
 
 - (NSString*)twitterConsumerKey {
-	return @"";
+	return @"0nZWnA56TWYUAivKHkpsA";
 }
 
 - (NSString*)twitterSecret {
-	return @"";
+	return @"2UIpdwJqyowG6mZe5j0tGyyBIfD9IpxI8CN5VcusP6Q";
 }
 // You need to set this if using OAuth, see note above (xAuth users can skip it)
 - (NSString*)twitterCallbackUrl {
-	return @"";
+	return @"http://www.swiftgif.com";
 }
 // To use xAuth, set to 1
 - (NSNumber*)twitterUseXAuth {
@@ -217,16 +217,16 @@
 
 // Tumblr - http://www.tumblr.com/docs/en/api/v2
 - (NSString*)tumblrConsumerKey {
-	return @"";
+	return @"DU67uZ0qQKzatbkFj4tl6lw11X414RtghHVYFUQ6lxIdnWv312";
 }
 
 - (NSString*)tumblrSecret {
-	return @"";
+	return @"ILN2zCPdOaUgwlwdDxvFA2HCLchl04JutcLseNLZUX457wvVvG";
 }
 
 //you can put whatever here. It must be the same you entered in tumblr app registration, eg tumblr.sharekit.com
 - (NSString*)tumblrCallbackUrl {
-	return @"";
+	return @"http://www.swiftgif.com";
 }
 
 // Hatena - https://www.hatena.com/yours12345/config/auth/develop
