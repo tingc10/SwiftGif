@@ -37,6 +37,7 @@
 		01CAFC0E1703695300EFD520 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CAFC0D1703695300EFD520 /* CoreMedia.framework */; };
 		592F304516FE4AD70019CBBE /* SGVideoFrameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F304416FE4AD70019CBBE /* SGVideoFrameExtractor.m */; };
 		592F304716FE863C0019CBBE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592F304616FE863C0019CBBE /* MediaPlayer.framework */; };
+		595CC478171E2D2400602167 /* SGdeleteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 595CC477171E2D2400602167 /* SGdeleteButton.m */; };
 		596F06F317037E0600371B36 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F117037E0600371B36 /* icon.png */; };
 		596F06F417037E0600371B36 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F217037E0600371B36 /* icon@2x.png */; };
 		597AD17D170A343600F278D4 /* SGGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597AD17C170A343600F278D4 /* SGGifViewController.m */; };
@@ -506,6 +507,8 @@
 		592F304316FE4AD70019CBBE /* SGVideoFrameExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGVideoFrameExtractor.h; sourceTree = "<group>"; };
 		592F304416FE4AD70019CBBE /* SGVideoFrameExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGVideoFrameExtractor.m; sourceTree = "<group>"; };
 		592F304616FE863C0019CBBE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		595CC476171E2D2400602167 /* SGdeleteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGdeleteButton.h; sourceTree = "<group>"; };
+		595CC477171E2D2400602167 /* SGdeleteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGdeleteButton.m; sourceTree = "<group>"; };
 		596F06F117037E0600371B36 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		596F06F217037E0600371B36 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		597AD17B170A343600F278D4 /* SGGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGifViewController.h; sourceTree = "<group>"; };
@@ -917,6 +920,8 @@
 				597AD17C170A343600F278D4 /* SGGifViewController.m */,
 				59E5335F17138D2500EAE3F8 /* SGFrameEditController.h */,
 				59E5336017138D2500EAE3F8 /* SGFrameEditController.m */,
+				595CC476171E2D2400602167 /* SGdeleteButton.h */,
+				595CC477171E2D2400602167 /* SGdeleteButton.m */,
 				597B1E351715CF54005E430C /* SGProcessingView.h */,
 				597B1E361715CF54005E430C /* SGProcessingView.m */,
 				59CC95B316F1011600672ED8 /* Supporting Files */,
@@ -1491,6 +1496,7 @@
 				0127E7581713BBFB007BC301 /* SGUploader.m in Sources */,
 				597B1E371715CF54005E430C /* SGProcessingView.m in Sources */,
 				01C58236171CFEEE00082E0D /* SGSHKConfigurator.m in Sources */,
+				595CC478171E2D2400602167 /* SGdeleteButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

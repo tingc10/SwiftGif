@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface SGFrameEditController : UIViewController
-@property (nonatomic, copy) NSArray *info;
-@property (nonatomic, copy) NSArray *frames;
+
+@property (nonatomic, assign) NSMutableArray *frames;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UISlider *playbackSlider;
 @property (weak, nonatomic) IBOutlet UILabel *framesCount;
 @property (weak, nonatomic) IBOutlet UIImageView *animateArray;
 @property (weak, nonatomic) IBOutlet UIStepper *stepper;
+
 
 @end

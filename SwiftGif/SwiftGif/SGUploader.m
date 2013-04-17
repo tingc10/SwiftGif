@@ -150,7 +150,7 @@
             if(operation){
                 [operation cancel];
             }
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to server" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to internet" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [animate stop];
             //return to screen
@@ -165,14 +165,12 @@
     //check to see if there is a change in connection
     [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         //check if network status is available
-        if(status == AFNetworkReachabilityStatusUnknown || status == AFNetworkReachabilityStatusNotReachable){
+        if(status == AFNetworkReachabilityStatusNotReachable){
             if(operation){
-                //cancel all operations
-                //[httpClient cancelAllHTTPOperationsWithMethod:nil path:(NSString *)]
-                //[[[httpClient operationQueue] cancelAllOperations]];
+                //cancel current operation
                 [operation cancel];
             }
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to server" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection lost" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [animate stop];
             //return to screen

@@ -83,7 +83,12 @@
     
     float frametime = [[NSUserDefaults standardUserDefaults] floatForKey:@"extractRate"];
     if (frametime < 0.01) frametime = 0.1;
-    extractRateLabel.text = [[NSString stringWithFormat:@"@%.2f", frametime] stringByAppendingString:@" sec/frame"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        extractRateLabel.text = [[NSString stringWithFormat:@"@%.2f", frametime] stringByAppendingString:@" sec/frame"];
+    });
+
+    
+    
     
     int numFrames = (int)(seconds/frametime);
     
@@ -178,7 +183,7 @@
 }
 
 
--(void)showResponse:(NSArray*)imageArray{
+-(void)showResponse:(NSMutableArray*)imageArray{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
     SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];

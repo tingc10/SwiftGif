@@ -118,11 +118,11 @@
                                 <rect key="frame" x="0.0" y="45" width="321" height="357"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="QJi-gj-hLW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="QJi-gj-hLW">
                                         <rect key="frame" x="26" y="0.0" width="268" height="357"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fFS-UT-asg">
+                                    <scrollView hidden="YES" multipleTouchEnabled="YES" tag="-1" contentMode="scaleAspectFit" id="fFS-UT-asg">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="357"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </scrollView>
@@ -164,6 +164,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="toggle:" destination="6Dc-zH-0A4" eventType="touchUpInside" id="r4q-Mf-Hrh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.30spf" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bts-80-f3Z">
                                 <rect key="frame" x="159" y="426" width="77" height="24"/>
@@ -172,7 +175,7 @@
                                 <color key="textColor" red="0.98823535442352295" green="0.79215693473815918" blue="0.41568630933761597" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eOw-aS-ThP">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eOw-aS-ThP">
                                 <rect key="frame" x="262" y="1" width="50" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="24"/>

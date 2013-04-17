@@ -12,7 +12,7 @@
     NSNumber* end;
 
     __weak IBOutlet UILabel *extractRateLabel;
-    NSArray *animationFrames;
+    NSMutableArray *animationFrames;
     SGProcessingView *process;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *processing;
