@@ -75,6 +75,9 @@
             NSLog(@"sending user_id to server %@", myUserID);
         } else NSLog(@"no user ID, not sending to server (which means we are requesting a user ID from the server)");
         
+        // send tags string
+        [formData appendPartWithFormData:[tags dataUsingEncoding:NSUTF8StringEncoding] name:@"tags"];
+        
         float time = 0.0;
         for (int frame=0; frame<images.count; frame++) {
             

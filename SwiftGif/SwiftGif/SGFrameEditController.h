@@ -11,6 +11,7 @@
 @interface SGFrameEditController : UIViewController
 @property (nonatomic, copy) NSArray *info;
 @property (nonatomic, copy) NSArray *frames;
+@property (nonatomic, copy) NSString *tags;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *rateLabel;
 @property (weak, nonatomic) IBOutlet UISlider *playbackSlider;

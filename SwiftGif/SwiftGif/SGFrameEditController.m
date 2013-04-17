@@ -29,6 +29,8 @@
     CGRect workingFrame = _scrollView.frame;
 	workingFrame.origin.x = 0;
     
+    _tags = @"";
+    
     // set frames count label & slider/label to default x rate
     // change into viewDidAppear if it's not changing
     // after multiple go-thrus? Must test that.
@@ -110,12 +112,21 @@
     //[self dismissViewControllerAnimated:NO completion:nil];
     
     int sendRate = (int)(_playbackSlider.value*100.0);
-    [vc setData:_frames andRate:sendRate andTags:@""];
+    [vc setData:_frames andRate:sendRate andTags:_tags];
     UIViewController *presentingView = self.presentingViewController;
     [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:NO completion:nil];}];
 }
 
+- (IBAction)openTags:(id)sender {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"#Tag Your Gif!" message:@"Separate tags with spaces" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    _tags = [[alertView textFieldAtIndex:0] text];
+    NSLog(@"Tags Entered: %@",_tags);
+}
 
 
 @end
