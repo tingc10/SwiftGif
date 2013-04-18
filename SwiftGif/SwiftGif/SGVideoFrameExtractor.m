@@ -124,7 +124,7 @@
         time += frametime;
         
         // increment progress bar
-        NSLog(@"%.2f",extractProgressStep);
+        NSLog(@"Frame %d",frame);
         
         progPercent += extractProgressStep;
         [self performSelectorOnMainThread:@selector(updateProgress:) withObject:[NSNumber numberWithFloat:progPercent] waitUntilDone:NO];

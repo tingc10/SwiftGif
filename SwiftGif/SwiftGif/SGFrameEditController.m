@@ -209,6 +209,8 @@
 - (IBAction)openTags:(id)sender {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"#Tag Your Gif!" message:@"Separate tags with spaces" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField* textField = [alert textFieldAtIndex:0];
+    textField.text = _tags;
     [alert show];
 }
 
