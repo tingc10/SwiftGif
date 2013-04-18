@@ -15,7 +15,7 @@
     NSString *tags;
     SGProcessingView *animate;
 }
-
+@property (nonatomic,assign)NSString *videopath;
 @property (weak, nonatomic) IBOutlet UIImageView *processing;
 @property (weak, nonatomic) IBOutlet UIImageView *uploading;
 

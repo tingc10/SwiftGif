@@ -38,6 +38,8 @@
 		592F304516FE4AD70019CBBE /* SGVideoFrameExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F304416FE4AD70019CBBE /* SGVideoFrameExtractor.m */; };
 		592F304716FE863C0019CBBE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592F304616FE863C0019CBBE /* MediaPlayer.framework */; };
 		595CC478171E2D2400602167 /* SGdeleteButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 595CC477171E2D2400602167 /* SGdeleteButton.m */; };
+		596BE036171F67F800DB8833 /* togglePlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 596BE034171F67F800DB8833 /* togglePlay.png */; };
+		596BE037171F67F800DB8833 /* togglePlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596BE035171F67F800DB8833 /* togglePlay@2x.png */; };
 		596F06F317037E0600371B36 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F117037E0600371B36 /* icon.png */; };
 		596F06F417037E0600371B36 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 596F06F217037E0600371B36 /* icon@2x.png */; };
 		597AD17D170A343600F278D4 /* SGGifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597AD17C170A343600F278D4 /* SGGifViewController.m */; };
@@ -509,6 +511,8 @@
 		592F304616FE863C0019CBBE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		595CC476171E2D2400602167 /* SGdeleteButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGdeleteButton.h; sourceTree = "<group>"; };
 		595CC477171E2D2400602167 /* SGdeleteButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGdeleteButton.m; sourceTree = "<group>"; };
+		596BE034171F67F800DB8833 /* togglePlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = togglePlay.png; sourceTree = "<group>"; };
+		596BE035171F67F800DB8833 /* togglePlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "togglePlay@2x.png"; sourceTree = "<group>"; };
 		596F06F117037E0600371B36 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		596F06F217037E0600371B36 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		597AD17B170A343600F278D4 /* SGGifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGifViewController.h; sourceTree = "<group>"; };
@@ -809,6 +813,8 @@
 			isa = PBXGroup;
 			children = (
 				59D0D1761718B098000A14CB /* hyperlink.png */,
+				596BE034171F67F800DB8833 /* togglePlay.png */,
+				596BE035171F67F800DB8833 /* togglePlay@2x.png */,
 				59D0D1771718B098000A14CB /* hyperlink@2x.png */,
 				59D0D1781718B098000A14CB /* download.png */,
 				59D0D1791718B098000A14CB /* download@2x.png */,
@@ -1460,6 +1466,8 @@
 				59D04B9D171CF90400FB6375 /* 100frames_selected@2x.png in Resources */,
 				59D04B9E171CF90400FB6375 /* 100frames.png in Resources */,
 				59D04B9F171CF90400FB6375 /* 100frames@2x.png in Resources */,
+				596BE036171F67F800DB8833 /* togglePlay.png in Resources */,
+				596BE037171F67F800DB8833 /* togglePlay@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

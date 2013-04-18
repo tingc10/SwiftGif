@@ -10,7 +10,7 @@
     NSURL *videoRef;
     NSNumber* start;
     NSNumber* end;
-
+    NSString *outputURL;
     __weak IBOutlet UILabel *extractRateLabel;
     NSMutableArray *animationFrames;
     SGProcessingView *process;

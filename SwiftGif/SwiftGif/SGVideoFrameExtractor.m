@@ -22,15 +22,14 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     
     //creates a output directory in the documents directory
-    NSString *outputURL = [documentsDirectory stringByAppendingPathComponent:@"output"] ;
+    outputURL = [documentsDirectory stringByAppendingPathComponent:@"output"] ;
     //creates output directory if nonexistent
     [manager createDirectoryAtPath:outputURL withIntermediateDirectories:YES attributes:nil error:nil];
     
     outputURL = [outputURL stringByAppendingPathComponent:@"output.mp4"];
     // Remove Existing File
     [manager removeItemAtPath:outputURL error:nil];
-    
-    
+
     //[self loadAssetFromFile:videoURL];
     
     //[self.recorder dismissModalViewControllerAnimated:YES];
@@ -190,7 +189,7 @@
     
     
     vc.frames = imageArray;
-    
+    vc.videoPath = outputURL;
     UIViewController *presentingView = self.presentingViewController;
     [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:YES completion:nil];}];
     

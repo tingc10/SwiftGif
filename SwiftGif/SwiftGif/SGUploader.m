@@ -75,6 +75,9 @@
             NSLog(@"sending user_id to server %@", myUserID);
         } else NSLog(@"no user ID, not sending to server (which means we are requesting a user ID from the server)");
         
+        // send tags string
+        [formData appendPartWithFormData:[tags dataUsingEncoding:NSUTF8StringEncoding] name:@"tags"];
+        
         float time = 0.0;
         for (int frame=0; frame<images.count; frame++) {
             
@@ -150,7 +153,8 @@
             if(operation){
                 [operation cancel];
             }
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to internet" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [self saveVideo];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to internet" message:@"Your video has been saved to your Photo Album" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [animate stop];
             //return to screen
@@ -170,7 +174,8 @@
                 //cancel current operation
                 [operation cancel];
             }
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection lost" message:@"Check your network connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [self saveVideo];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection lost" message:@"Your video has been saved to your Photo Album" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [animate stop];
             //return to screen
@@ -181,6 +186,12 @@
 
 }
 
+- (void)saveVideo{
+    if(UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (_videopath)) {
+        NSLog(@"save video");
+        UISaveVideoAtPathToSavedPhotosAlbum(_videopath, nil, nil, nil);
+    }
+}
 
 -(void)showResponse:(NSString*)gifshow downloadUrl:(NSString*)download{
     NSURL *url = [NSURL URLWithString:gifshow];

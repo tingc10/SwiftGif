@@ -33,6 +33,8 @@
     CGRect workingFrame = scrollView.frame;
 	workingFrame.origin.x = 0;
 
+    
+    _tags = @"";
     // set frames count label & slider/label to default x rate
     // change into viewDidAppear if it's not changing
     // after multiple go-thrus? Must test that.
@@ -78,7 +80,7 @@
     
 	_animateArray.hidden = NO;
     scrollView.hidden = YES;
-    
+    _toggleButton.selected = NO;
 	[scrollView setPagingEnabled:YES];
 	[scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
 
@@ -153,6 +155,7 @@
     [self setAnimateArray:nil];
     [self setAnimateArray:nil];
     [self setStepper:nil];
+    [self setToggleButton:nil];
     [super viewDidUnload];
 }
 - (IBAction)stepperChange:(UIStepper*)sender {
@@ -178,9 +181,13 @@
 - (IBAction)toggle:(id)sender {
     _animateArray.hidden = !_animateArray.hidden;
     scrollView.hidden = !scrollView.hidden;
+    _toggleButton.selected = !_toggleButton.selected;
     if(_animateArray.hidden){
+        [_toggleButton setImage:[UIImage imageNamed: @"togglePlay.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
+        
         [_animateArray stopAnimating];
     }else{
+        [_toggleButton setImage:[UIImage imageNamed: @"array.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
         [_animateArray startAnimating];
     }
 }
@@ -192,11 +199,22 @@
     //[self dismissViewControllerAnimated:NO completion:nil];
     
     int sendRate = (int)(_playbackSlider.value*100.0);
-    [vc setData:frames andRate:sendRate andTags:@""];
+
+    [vc setData:frames andRate:sendRate andTags:_tags];
+    vc.videopath = _videoPath;
     UIViewController *presentingView = self.presentingViewController;
     [self dismissViewControllerAnimated:NO completion:^{[presentingView presentViewController:vc animated:NO completion:nil];}];
 }
 
+- (IBAction)openTags:(id)sender {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"#Tag Your Gif!" message:@"Separate tags with spaces" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    _tags = [[alertView textFieldAtIndex:0] text];
+    NSLog(@"Tags Entered: %@",_tags);
+}
 
 @end
