@@ -34,7 +34,7 @@
 
     
     NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
-    NSString *fullURL = [@"http://swiftgif.tranzient.info/users/" stringByAppendingString: myUserID];
+    NSString *fullURL = [@"http://swiftgif.com/users/" stringByAppendingString: myUserID];
     NSLog(@"Loading User URL: %@\n", fullURL);
 
     NSURL *url = [NSURL URLWithString:fullURL];

@@ -35,7 +35,7 @@
 
 
     
-    NSString *fullURL = @"http://swiftgif.tranzient.info/global";
+    NSString *fullURL = @"http://swiftgif.com/global";
 
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];

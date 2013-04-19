@@ -58,7 +58,7 @@
 
 - (void)uploadFrames{
     
-    NSURL *url = [NSURL URLWithString:@"http://tranzient.info:8080/upload"];
+    NSURL *url = [NSURL URLWithString:@"http://swiftgif.com/upload"];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
