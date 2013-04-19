@@ -132,19 +132,25 @@
          ^(AFHTTPRequestOperation *operation, id responseObject)
          {
             NSLog(@"success: %@", operation.responseString);
-            
-            // save User ID
-            NSError *e = nil;
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
-            NSString *uid = [JSON objectForKey:@"user_id"];
-            
-            if (uid != nil) {
-                [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
-                NSLog(@"set local user_id as %@", uid);
+            if (operation.responseString) {
+                
+                // save User ID
+                NSError *e = nil;
+                NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&e];
+                NSString *uid = [JSON objectForKey:@"user_id"];
+                
+                if (uid != nil) {
+                    [[NSUserDefaults standardUserDefaults] setObject:uid forKey:@"myUserID"];
+                    NSLog(@"set local user_id as %@", uid);
+                }
+                
+                // now process the return URL (download the GIF)
+                [self showResponse:[JSON objectForKey:@"url"] downloadUrl:[JSON objectForKey:@"download_url"]];
+            } else {
+                NSLog(@"ummm RESPONSE STRING WAS NULL...");
+                if (operation) [operation cancel];
+                [self handleConnectionError];
             }
-            
-            // now process the return URL (download the GIF)
-            [self showResponse:[JSON objectForKey:@"url"] downloadUrl:[JSON objectForKey:@"download_url"]];
          }
         failure:^(AFHTTPRequestOperation *operation, NSError *error)
         {
@@ -153,12 +159,7 @@
             if(operation){
                 [operation cancel];
             }
-            [self saveVideo];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to internet" message:@"Your video has been saved to your Photo Album" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            [animate stop];
-            //return to screen
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self handleConnectionError];
         }
     ];
     
@@ -174,16 +175,20 @@
                 //cancel current operation
                 [operation cancel];
             }
-            [self saveVideo];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection lost" message:@"Your video has been saved to your Photo Album" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            [animate stop];
-            //return to screen
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self handleConnectionError];
         }
     }];
     
 
+}
+
+- (void)handleConnectionError{
+    [self saveVideo];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Lost connection to server" message:@"Your video has been saved to your Photo Album" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    [animate stop];
+    //return to screen
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)saveVideo{
