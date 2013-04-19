@@ -53,7 +53,7 @@
 
     [_animateArray startAnimating];
     
-
+    NSLog(@"debug frames count one: %d", frames.count);
     NSInteger count = 0;
     for(UIImage *image in frames){
         UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
@@ -77,6 +77,7 @@
         count++;
 
     }
+    NSLog(@"debug frames count two: %d", frames.count);
     
 	_animateArray.hidden = NO;
     scrollView.hidden = YES;
@@ -161,7 +162,8 @@
 - (IBAction)stepperChange:(UIStepper*)sender {
     
     [_animateArray stopAnimating];
-    
+    NSLog(@"To animate %d frames", frames.count);
+    NSLog(@"Now at %.3f spf", sender.value);
     _playbackSlider.value = sender.value;
     _rateLabel.text = [[NSString stringWithFormat:@"%.2f", sender.value] stringByAppendingString:@"spf"];
     

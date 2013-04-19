@@ -64,7 +64,9 @@
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
         
         // frame rate N, there will be N*(1/100) seconds per frame
-        NSData *rateData = [NSData dataWithBytes: &playbackRateHundred length: sizeof(playbackRateHundred)];
+        NSLog(@"Sending playback rate*100 = %d", playbackRateHundred);
+        //NSData *rateData = [NSData dataWithBytes: &playbackRateHundred length: sizeof(playbackRateHundred)];
+        NSData *rateData = [[NSString stringWithFormat:@"%d",playbackRateHundred] dataUsingEncoding:NSUTF8StringEncoding];
         [formData appendPartWithFormData:rateData name:@"rate"];
         
         // send user ID
