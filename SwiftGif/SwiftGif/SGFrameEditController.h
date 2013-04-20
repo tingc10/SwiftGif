@@ -10,8 +10,8 @@
 
 @interface SGFrameEditController : UIViewController
 
-
-@property (nonatomic, assign) NSMutableArray *frames;
+@property (strong,nonatomic) NSMutableArray *frames;
+//@property (nonatomic, assign) NSMutableArray *frames;
 
 @property (nonatomic, assign) NSString *videoPath;
 

@@ -196,11 +196,12 @@ didFinishPickingMediaWithInfo:(NSDictionary*)info{
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     SGFrameEditController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FrameEditController"];
-    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
-    
+    //NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
+    NSMutableArray *images = [NSMutableArray array];
 	for(NSDictionary *dict in info) {
         
-        UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
+        UIImage *image = (UIImage*)[dict objectForKey:UIImagePickerControllerOriginalImage];
+        
         //performs check of valid jpeg file
         if(![self contentTypeForImageData:UIImageJPEGRepresentation(image, .1)]){
             continue;

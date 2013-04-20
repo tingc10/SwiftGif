@@ -50,19 +50,6 @@
 
     [NSThread detachNewThreadSelector:@selector(downloadURL) toTarget:self withObject:nil];
     
-
-     /*
-    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-	if([MFMessageComposeViewController canSendText])
-	{
-		controller.body = @"Tap to paste";
-		controller.recipients = nil;
-		controller.messageComposeDelegate = self;
-		[self presentModalViewController:controller animated:YES];
-	}
-    */
-
-      
 }
 
 - (IBAction)showShare:(id)sender {
@@ -127,6 +114,16 @@
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"URL Copied!" message:@"You're welcome for the free hosting space! :)" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
+    /*
+     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+     if([MFMessageComposeViewController canSendText])
+     {
+     controller.body = [gifURL absoluteString];
+     controller.recipients = nil;
+     controller.messageComposeDelegate = self;
+     [self presentModalViewController:controller animated:YES];
+     }
+     */
 }
 
 

@@ -160,7 +160,11 @@
     [super viewDidUnload];
 }
 - (IBAction)stepperChange:(UIStepper*)sender {
-    
+    if([NSThread isMainThread]){
+        NSLog(@"main thread");
+    }else{
+        NSLog(@"some other thread");
+    }
     [_animateArray stopAnimating];
     NSLog(@"To animate %d frames", frames.count);
     NSLog(@"Now at %.3f spf", sender.value);
