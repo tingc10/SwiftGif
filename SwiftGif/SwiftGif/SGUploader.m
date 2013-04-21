@@ -71,12 +71,14 @@
         [formData appendPartWithFormData:rateData name:@"rate"];
         
         // send user ID
-        NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
-        if (myUserID != nil) {
-            NSData *idData = [myUserID dataUsingEncoding:NSUTF8StringEncoding];
-            [formData appendPartWithFormData:idData name:@"user_id"];
-            NSLog(@"sending user_id to server %@", myUserID);
-        } else NSLog(@"no user ID, not sending to server (which means we are requesting a user ID from the server)");
+        if (REFRESH_USER_ID == 0) {
+            NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+            if (myUserID != nil) {
+                NSData *idData = [myUserID dataUsingEncoding:NSUTF8StringEncoding];
+                [formData appendPartWithFormData:idData name:@"user_id"];
+                NSLog(@"sending user_id to server %@", myUserID);
+            } else NSLog(@"no user ID, not sending to server (which means we are requesting a user ID from the server)");
+        } else NSLog(@"REFRESH_USER_ID flag set, requesting a new user ID from the server");
         
         // send tags string
         [formData appendPartWithFormData:[tags dataUsingEncoding:NSUTF8StringEncoding] name:@"tags"];
