@@ -9,6 +9,6 @@
 #ifndef SwiftGif_constants_h
 #define SwiftGif_constants_h
 
-#define SG_BASE_URL @"http://swiftgif.tranzient.info/"
+#define SG_BASE_URL @"http://swiftgif.com/"
 
 #endif
