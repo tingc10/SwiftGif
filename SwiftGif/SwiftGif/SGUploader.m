@@ -14,6 +14,7 @@
 #import <AVFoundation/AVAsset.h>
 #import "SGGifViewController.h"
 
+#include "constants.h"
 
 
 @implementation SGUploader
@@ -58,7 +59,7 @@
 
 - (void)uploadFrames{
     
-    NSURL *url = [NSURL URLWithString:@"http://swiftgif.com/upload"];
+    NSURL *url = [NSURL URLWithString:[SG_BASE_URL stringByAppendingString:@"upload"]];
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
     NSMutableURLRequest *request = [httpClient multipartFormRequestWithMethod:@"POST" path:@"/upload" parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {

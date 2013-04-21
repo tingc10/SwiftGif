@@ -8,6 +8,8 @@
 
 #import "SGThirdViewController.h"
 
+#include "constants.h"
+
 @interface SGThirdViewController ()
 
 @end
@@ -35,7 +37,7 @@
 
 
     
-    NSString *fullURL = @"http://swiftgif.com/global";
+    NSString *fullURL = [SG_BASE_URL stringByAppendingString:@"global"];
 
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];

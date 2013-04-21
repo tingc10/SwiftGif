@@ -9,6 +9,8 @@
 #import "SGSHKConfigurator.h"
 #import "SHKFile.h"
 
+#include "constants.h"
+
 @implementation SGSHKConfigurator
 
 
@@ -24,7 +26,7 @@
 }
 
 - (NSString*)appURL {
-	return @"http://www.swiftgif.com";
+	return SG_BASE_URL;
 }
 
 
@@ -121,7 +123,7 @@
 }
 // You need to set this if using OAuth, see note above (xAuth users can skip it)
 - (NSString*)twitterCallbackUrl {
-	return @"http://www.swiftgif.com";
+	return SG_BASE_URL;
 }
 // To use xAuth, set to 1
 - (NSNumber*)twitterUseXAuth {
@@ -226,7 +228,7 @@
 
 //you can put whatever here. It must be the same you entered in tumblr app registration, eg tumblr.sharekit.com
 - (NSString*)tumblrCallbackUrl {
-	return @"http://www.swiftgif.com";
+	return SG_BASE_URL;
 }
 
 // Hatena - https://www.hatena.com/yours12345/config/auth/develop

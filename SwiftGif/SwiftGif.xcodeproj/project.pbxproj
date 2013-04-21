@@ -491,6 +491,7 @@
 		014CF30D1700DB3A007E8297 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		014CF30E1700DB3A007E8297 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		014CF3181700DB6C007E8297 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0191F39E172459CD00159A43 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		01C581A3171CFC5C00082E0D /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = ../Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		01C58228171CFD9200082E0D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		01C5822A171CFDB300082E0D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -911,6 +912,7 @@
 				0127E7561713BBFB007BC301 /* SGUploader.h */,
 				0127E7571713BBFB007BC301 /* SGUploader.m */,
 				59CC95BB16F1011600672ED8 /* SGAppDelegate.h */,
+				0191F39E172459CD00159A43 /* constants.h */,
 				59CC95BC16F1011600672ED8 /* SGAppDelegate.m */,
 				59CC95C716F1011600672ED8 /* SGFirstViewController.h */,
 				59CC95C816F1011600672ED8 /* SGFirstViewController.m */,

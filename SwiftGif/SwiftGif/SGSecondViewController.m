@@ -8,6 +8,8 @@
 
 #import "SGSecondViewController.h"
 
+#include "constants.h"
+
 @interface SGSecondViewController ()
 
 @end
@@ -34,7 +36,7 @@
 
     
     NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
-    NSString *fullURL = [@"http://swiftgif.com/users/" stringByAppendingString: myUserID];
+    NSString *fullURL = [[SG_BASE_URL stringByAppendingString:@"users/"]  stringByAppendingString: myUserID];
     NSLog(@"Loading User URL: %@\n", fullURL);
 
     NSURL *url = [NSURL URLWithString:fullURL];
