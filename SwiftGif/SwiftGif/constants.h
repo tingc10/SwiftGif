@@ -11,6 +11,6 @@
 
 #define SG_BASE_URL @"http://swiftgif.com/"
 
-#define REFRESH_USER_ID 1
+#define REFRESH_USER_ID 0
 
 #endif
