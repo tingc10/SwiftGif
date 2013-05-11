@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGFourthViewController : UIViewController
+@interface SGFourthViewController : UIViewController<UITextFieldDelegate, NSURLConnectionDataDelegate>{
+    CGPoint originalCenter;
+}
 @property (weak, nonatomic) IBOutlet UILabel *sliderLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *slider;
@@ -18,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *framewarning;
 @property (weak, nonatomic) IBOutlet UIButton *thirtybutton;
 @property (weak, nonatomic) IBOutlet UIButton *hundredbutton;
+@property (weak, nonatomic) IBOutlet UILabel *isUnique;
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
 
 @property (weak, nonatomic) IBOutlet UIView *welcomeView;
 @end
