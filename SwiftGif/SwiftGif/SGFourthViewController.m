@@ -49,10 +49,8 @@
     // fill user ID field
     NSString *myUsername = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
     //check username
-    _registerView.hidden = NO;
-    _welcomeView.hidden = YES;
-    /*
     if (myUsername != nil) {
+        _username.text = myUsername;
         _registerView.hidden = YES;
         _welcomeView.hidden = NO;
         
@@ -61,7 +59,7 @@
         _welcomeView.hidden = YES;
         
     }
-    */
+    
     _isUnique.text = [NSString stringWithFormat:@"Choose Username Between\n5 to 15 Characters"];
     //initialize maxframes selection
     BOOL maxframes = [[NSUserDefaults standardUserDefaults] boolForKey:@"maxframes"];
@@ -85,7 +83,7 @@
     
     if(usernameField.text.length >= 5 && usernameField.text.length <= 15)
     {
-        NSString *requestURL = [[SG_BASE_URL stringByAppendingString:@"check_username/:uname="]  stringByAppendingString: usernameField.text];
+        NSString *requestURL = [[SG_BASE_URL stringByAppendingString:@"check_username/"]  stringByAppendingString: usernameField.text];
         NSLog(@"Loading User URL: %@\n", requestURL);
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestURL]];
@@ -171,52 +169,39 @@
 
 - (IBAction)submitUsername:(id)sender {
     if(usernameField.text.length >= 5 && usernameField.text.length <= 15){
-        NSString *requestURL = [[SG_BASE_URL stringByAppendingString:@"check_username/:uname="]  stringByAppendingString: usernameField.text];
-        NSLog(@"Loading User URL: %@\n", requestURL);
-        
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestURL]];
-        
         NSError *requestError;
         NSHTTPURLResponse *urlResponse = nil;
+        //set username
+        NSString *bodyData = [NSString stringWithFormat: @"username=%@&user_id=%@", usernameField.text, [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"]];
+        NSLog(bodyData);
+        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.swiftgif.com/set_username"]];
         
-        NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+        // Set the request's content type to application/x-www-form-urlencoded
+        [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+        // Designate the request a POST request and specify its body data
+        [postRequest setHTTPMethod:@"POST"];
+        [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];
+        NSData *response2 = [NSURLConnection sendSynchronousRequest:postRequest returningResponse:&urlResponse error:&requestError];
         if(urlResponse.statusCode == 200){
-            NSString *result = [[NSString alloc] initWithData:response1 encoding:NSASCIIStringEncoding];
+            NSString *result = [[NSString alloc] initWithData:response2 encoding:NSASCIIStringEncoding];
+            NSLog(result);
             if([result isEqual:@"yes"]){
                 //set username
-                NSString *bodyData = [NSString stringWithFormat: @"username=%@&user_id=%@", usernameField.text, [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"]];
-                NSLog(bodyData);
-                NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.swiftgif.com/set_username"]];
+                [[NSUserDefaults standardUserDefaults] setValue:usernameField.text forKey:@"username"];
+                //close keyboard and reset view
+                self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 44);
+                [usernameField resignFirstResponder];
                 
-                // Set the request's content type to application/x-www-form-urlencoded
-                [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-                
-                // Designate the request a POST request and specify its body data
-                [postRequest setHTTPMethod:@"POST"];
-                [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];
-                NSData *response2 = [NSURLConnection sendSynchronousRequest:postRequest returningResponse:&urlResponse error:&requestError];
-                if(urlResponse.statusCode == 200){
-                    result = [[NSString alloc] initWithData:response2 encoding:NSASCIIStringEncoding];
-                    NSLog(result);
-                    //set username
-                    [[NSUserDefaults standardUserDefaults] setValue:usernameField.text forKey:@"username"];
-                    //close keyboard and reset view
-                    self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 44);
-                    [usernameField resignFirstResponder];
-                    
-                    //prepare user label and hide register view
-                    _username.text = usernameField.text;
-                    _registerView.hidden = YES;
-                    _welcomeView.hidden = NO;
-                }else{
-                    _isUnique.text = @"Cannot set username, check your internet connection";
-                }
+                //prepare user label and hide register view
+                _username.text = usernameField.text;
+                _registerView.hidden = YES;
+                _welcomeView.hidden = NO;
             }else{
                 _isUnique.text = @"This username is already taken!";
             }
         }else{
-            NSLog([NSString stringWithFormat:@"%d", urlResponse.statusCode]);
-            _isUnique.text = @"Cannot check username, check your internet connection";
+            _isUnique.text = @"Cannot set username, check your internet connection";
         }
     }else{
         _isUnique.text = [NSString stringWithFormat:@"Choose Username Between\n5 to 15 Characters"];
