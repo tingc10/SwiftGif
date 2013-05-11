@@ -172,7 +172,9 @@
         NSError *requestError;
         NSHTTPURLResponse *urlResponse = nil;
         //set username
-        NSString *bodyData = [NSString stringWithFormat: @"username=%@&user_id=%@", usernameField.text, [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"]];
+        NSString *user_id = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+        if (user_id == nil) user_id = @"SPECIAL_NEEDS_ID";
+        NSString *bodyData = [NSString stringWithFormat: @"username=%@&user_id=%@", usernameField.text, user_id];
         NSLog(bodyData);
         NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.swiftgif.com/set_username"]];
         
@@ -186,9 +188,13 @@
         if(urlResponse.statusCode == 200){
             NSString *result = [[NSString alloc] initWithData:response2 encoding:NSASCIIStringEncoding];
             NSLog(result);
-            if([result isEqual:@"yes"]){
+            if([[result substringToIndex:3] isEqual:@"yes"]){
                 //set username
                 [[NSUserDefaults standardUserDefaults] setValue:usernameField.text forKey:@"username"];
+                // set user_id if needed
+                if (user_id == NULL) {
+                    [[NSUserDefaults standardUserDefaults] setValue:[result substringFromIndex:3] forKey:@"myUserID"];
+                }
                 //close keyboard and reset view
                 self.view.center = CGPointMake(originalCenter.x, originalCenter.y - 44);
                 [usernameField resignFirstResponder];
