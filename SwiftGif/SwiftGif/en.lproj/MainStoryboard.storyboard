@@ -408,11 +408,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="k2g-NG-iTZ">
+                                <rect key="frame" x="142" y="187" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="GkW-aC-ZAz"/>
                     <connections>
+                        <outlet property="actIndicator" destination="k2g-NG-iTZ" id="Upi-ZY-feU"/>
                         <outlet property="webViewNew" destination="KOY-wQ-zqF" id="Ye4-89-UYR"/>
                     </connections>
                 </viewController>
@@ -654,11 +659,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="uYG-cM-mmz">
+                                <rect key="frame" x="143" y="186" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="second" id="6"/>
                     <connections>
+                        <outlet property="actIndicator" destination="uYG-cM-mmz" id="VI1-7b-Gfe"/>
                         <outlet property="profile" destination="d11-Gx-ihC" id="zMs-WZ-TeV"/>
                         <outlet property="viewWeb" destination="KOY-wQ-zqF" id="WaW-LD-DI5"/>
                     </connections>
@@ -711,6 +721,78 @@
         <image name="uploadphotos.png" width="150" height="164"/>
         <image name="uploadvideo.png" width="146" height="164"/>
     </resources>
+    <classes>
+        <class className="SGFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFirstViewController.h"/>
+        </class>
+        <class className="SGFourthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFourthViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="framewarning" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="hundredbutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="isUnique" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="registerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="stepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="thirtybutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="username" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="welcomeView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SGFrameEditController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGFrameEditController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="animateArray" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="framesCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playbackSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="rateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="stepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="toggleButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SGGifViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGGifViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="defaultView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="downloading" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="gifDisplay" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SGSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGSecondViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="actIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="profile" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SGThirdViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGThirdViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="actIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="webViewNew" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="SGUploader" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGUploader.h"/>
+            <relationships>
+                <relationship kind="outlet" name="processing" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="upProgress" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="uploading" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SGVideoFrameExtractor" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SGVideoFrameExtractor.h"/>
+            <relationships>
+                <relationship kind="outlet" name="extractRateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="extracting" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="processing" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="progress" candidateClass="UIProgressView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

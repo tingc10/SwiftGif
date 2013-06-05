@@ -35,7 +35,7 @@
 
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
 
-
+    _webViewNew.delegate = self;
     
     NSString *fullURL = [SG_BASE_URL stringByAppendingString:@"global"];
 
@@ -43,6 +43,14 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_webViewNew loadRequest:requestObj];
     [[_webViewNew scrollView] setBounces: NO];
+}
+
+-(void)webViewDidStartLoad:(UIWebView *) portal {
+    [_actIndicator startAnimating];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *) portal{
+    [_actIndicator stopAnimating];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,4 +64,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setActIndicator:nil];
+    [super viewDidUnload];
+}
 @end

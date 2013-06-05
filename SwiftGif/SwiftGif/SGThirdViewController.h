@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGThirdViewController : UIViewController
+@interface SGThirdViewController : UIViewController<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webViewNew;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actIndicator;
 
 @end

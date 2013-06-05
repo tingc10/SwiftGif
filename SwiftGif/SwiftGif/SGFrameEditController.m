@@ -23,7 +23,10 @@
 
 - (IBAction)pressCancel:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure you want to get rid of your masterpiece?" message:nil delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    alert.tag = 3;
+    [alert show];
+    
 }
 
 - (void)viewDidLoad
@@ -221,8 +224,18 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    _tags = [[alertView textFieldAtIndex:0] text];
-    NSLog(@"Tags Entered: %@",_tags);
-}
+        if(alertView.tag == 3){
+            //exit check
+            if(buttonIndex == 0){
+                return;
+            }else{
+                //yes i want to exit
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        }else{
+            _tags = [[alertView textFieldAtIndex:0] text];
+            NSLog(@"Tags Entered: %@",_tags);
+        }
+    }
 
 @end

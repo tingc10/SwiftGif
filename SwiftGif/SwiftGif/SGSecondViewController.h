@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGSecondViewController : UIViewController
+@interface SGSecondViewController : UIViewController<UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *profile;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *actIndicator;
     
 @end

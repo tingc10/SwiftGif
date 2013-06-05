@@ -48,7 +48,9 @@
     
     // fill user ID field
     NSString *myUsername = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+    NSString *myUserid = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
     //check username
+    
     if (myUsername != nil) {
         _username.text = myUsername;
         _registerView.hidden = YES;
@@ -169,6 +171,8 @@
 
 - (IBAction)submitUsername:(id)sender {
     if(usernameField.text.length >= 5 && usernameField.text.length <= 15){
+        NSString *myUserid = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
+        
         NSError *requestError;
         NSHTTPURLResponse *urlResponse = nil;
         //set username

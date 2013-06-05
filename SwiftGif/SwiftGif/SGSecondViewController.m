@@ -33,7 +33,7 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background.png"]];
-
+    _profile.delegate = self;
     
     NSString *myUserID = [[NSUserDefaults standardUserDefaults] stringForKey:@"myUserID"];
     NSString *fullURL = [[SG_BASE_URL stringByAppendingString:@"users/"]  stringByAppendingString: myUserID];
@@ -43,11 +43,21 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_profile loadRequest:requestObj];
     [[_profile scrollView] setBounces: NO];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [_profile reload];
+}
+
+
+-(void)webViewDidStartLoad:(UIWebView *) portal {
+    [_actIndicator startAnimating];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *) portal{
+    [_actIndicator stopAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +68,7 @@
 
 - (void)viewDidUnload {
     [self setProfile:nil];
+    [self setActIndicator:nil];
     [super viewDidUnload];
 }
 @end
